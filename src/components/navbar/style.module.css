@@ -1,0 +1,133 @@
+/* style.module.css */
+
+
+.navWrapper{
+    align-items: center;
+    height: 150px;
+}
+
+.logo{
+    color: var(--text);
+    font-size: 3rem;
+}
+.links{
+color: var(--text);
+}
+.leftSide{
+    color: var(--text);
+    font-size: 3.5rem;
+    padding-left: 30px;
+}
+.rightSide{
+    display: flex;
+    flex-direction: column;
+}
+.rightSide > .upperSide{
+   display: flex;
+   align-items: center;
+   /* gap: 20px;  */
+   justify-content: space-between;
+   color: var(--text);
+   border-bottom: 1px solid var(--text);
+   padding-bottom: 17px;
+}
+.btn{
+    background-color: transparent;
+    padding: 12px 12px;
+    border: 1px solid var(--text);
+    color: var(--text);
+    border-radius: 12px;
+}
+.btn:hover{
+    background-color: var(--text);
+    color: #000;
+    transition: all linear 0.4s;
+}
+.followUs{
+    display: flex;
+   gap: 15px;
+}
+.lowerSide{
+    display: flex;
+    align-items: center;
+    /* gap: 30px;  */
+    justify-content: space-between;
+    color: var(--text);
+    padding-top: 25px;
+}
+
+@media only screen and (max-width: 1920px) {
+    /* Navbar */
+    .leftSide{
+     font-size: 4.5rem;
+   }
+   .rightSide > .upperSide{
+   font-size: 20px ;
+   }
+   }
+   @media only screen and (max-width: 1780px) {
+    /* Navbar */
+    .leftSide{
+     font-size: 4rem;
+   }
+   .rightSide > .upperSide{
+   font-size: 19px ;
+   }
+   }
+   @media only screen and (max-width: 1600px) {
+    /* Navbar */
+    .leftSide{
+     font-size: 3.5rem;
+   }
+   .rightSide > .upperSide{
+   font-size: 17px ;
+   }
+   }
+   @media only screen and (max-width: 1500px) {
+    /* Navbar */
+    .leftSide{
+     font-size: 3.5rem;
+   }
+   .rightSide > .upperSide{
+   font-size: 16px ;
+   }
+   }
+   @media only screen and (max-width: 1400px) {
+    /* Navbar */
+    .leftSide{
+     font-size: 3.5rem;
+   }
+   .rightSide > .upperSide{
+   font-size: 15px ;
+   }
+   }
+   @media only screen and (max-width: 1320px) {
+    /* Navbar */
+    .leftSide{
+     font-size: 3.5rem;
+   }
+   .rightSide > .upperSide{
+   font-size: 14px ;
+   }
+   }
+   @media only screen and (max-width: 1240px) {
+    /* Navbar */
+    .leftSide{
+     font-size: 3rem;
+   }
+   .rightSide > .upperSide{
+   font-size: 13px ;
+   }
+   .btn{
+    padding: 9px 10px;
+   }
+   }
+   @media only screen and (max-width: 1160px) {
+    /* Navbar */
+    .leftSide{
+     font-size: 3rem;
+   }
+   .rightSide > .upperSide{
+   font-size: 12px ;
+   }
+   }
