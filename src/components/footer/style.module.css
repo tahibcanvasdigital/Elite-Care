@@ -1,0 +1,15 @@
+.imgfooter {
+    background-image: url('../../assets/pexels-misolo-cosmetic-6847836.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+input::placeholder {
+    color: #fff; 
+  }
+
+.ul a{
+    text-decoration: none;
+    color: #fff;
+}
+
