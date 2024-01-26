@@ -1,0 +1,522 @@
+/* .h600 {
+  height: 800px;
+} */
+
+.surgerycol1{
+    text-align: center;
+}
+
+.surgery1 {
+  position: absolute;
+  top: 200px;
+  left: 370px;
+  border-radius: 100%;
+  overflow: hidden;
+    border: 6px solid white;
+    z-index: 1;
+  
+
+}
+
+.surgery2 {
+    position: relative;
+ overflow: hidden;
+  border-radius: 100%;
+  width: 700px;
+  height: 700px;
+
+}
+
+.surgery1 img {
+  border-radius: 100%;
+  width: 400px;
+  height: 400px;
+
+}
+.surgery2 img{
+    border-radius: 100%;
+    width: 700px;
+    height: 700px;
+  }
+.surgery1 img:hover {
+  transform: scale(1.2);
+ 
+
+  transition: 0.9s all ease-in-out;
+}
+.surgery2 img:hover{
+    transform: scale(1.2);
+    transition: 0.9s ease-in-out;
+   
+}
+
+.testimonalImg {
+  width: 50px;
+  height: 100px;
+}
+.testimonalImg img {
+  width: 100px;
+  border-radius: 100%;
+  height: 100px;
+}
+
+.textsurgery {
+  font-size: 50px;
+}
+.textsurgery h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 70px;
+}
+
+.textsurgery p {
+  font-size: 22px;
+  color: grey;
+} 
+ 
+
+
+@media (max-width: 2600px) {
+        .surgery1 {
+            position: absolute;
+            top: 190px;
+            left: 450px;
+            border-radius: 100%;
+            overflow: hidden;
+              border: 6px solid white;
+              z-index: 1;
+          
+          }
+          .surgery2 {
+            position: relative;
+            width: 500px ;
+            height:500px;
+        
+          }
+          .surgery2 img{
+            width: 500px ;
+            height:500px;
+          }
+          .surgery1 {
+            width: 300px ;
+            height:300px;
+          }
+          .surgery1 img{
+            width: 300px ;
+            height:300px;
+          }
+          .textsurgery{
+            padding-top: 20px;
+          }
+          .textsurgery h1  {
+            font-size: 80px;
+          }
+          .textsurgery p  {
+            font-size: 28px;
+            text-align: justify;
+          }
+          .testimonalImg h2{
+            font-size: 20px;
+          }
+          .testimonalImg img{
+            width: 80px;
+            height: 80px;
+          }
+    }
+/*-----------------------------------------------------------------------------------------------------*/
+@media (max-width: 1920px) {
+    .surgery1 {
+        position: absolute;
+        top: 140px;
+        left: 390px;
+        border-radius: 100%;
+        overflow: hidden;
+          border: 6px solid white;
+          z-index: 1;
+      
+      }
+      .surgery2 {
+        position: relative;
+        width: 450px ;
+        height:450px;
+    
+      }
+      .surgery2 img{
+        width: 450px ;
+        height:450px;
+      }
+      .surgery1 {
+        width: 250px ;
+        height:250px;
+      }
+      .surgery1 img{
+        width: 250px ;
+        height:250px;
+      }
+      .textsurgery{
+        padding-top: 20px;
+      }
+      .textsurgery h1  {
+        font-size: 50px;
+      }
+      .textsurgery p  {
+        font-size: 18px;
+        text-align: justify;
+      }
+      .testimonalImg h2{
+        font-size: 20px;
+      }
+      .testimonalImg img{
+        width: 80px;
+        height: 80px;
+      }
+}
+/*-----------------------------------------------------------------------------------------------------*/
+@media (max-width: 1600px) {
+    .surgery1 {
+        position: absolute;
+        top: 140px;
+        left: 320px;
+        border-radius: 100%;
+        overflow: hidden;
+          border: 6px solid white;
+          z-index: 1;
+      
+      }
+      .surgery2 {
+        position: relative;
+        width: 400px ;
+        height:400px;
+    
+      }
+      .surgery2 img{
+        width: 400px ;
+        height:400px;
+      }
+      .surgery1 {
+        width: 250px ;
+        height:250px;
+      }
+      .surgery1 img{
+        width: 250px ;
+        height:250px;
+      }
+      .textsurgery{
+        padding-top: 20px;
+      }
+      .textsurgery h1  {
+        font-size: 50px;
+      }
+      .textsurgery p  {
+        font-size: 19px;
+        text-align: justify;
+      }
+      .testimonalImg h2{
+        font-size: 20px;
+      }
+      .testimonalImg img{
+        width: 80px;
+        height: 80px;
+      }
+}
+/*-----------------------------------------------------------------------------------------------------*/
+@media (max-width: 1440px) {}
+/*-----------------------------------------------------------------------------------------------------*/
+@media (max-width: 1366px) {}
+/*-----------------------------------------------------------------------------------------------------*/
+@media (max-width: 1340px) {
+    .surgery1 {
+        position: absolute;
+        top: 200px;
+        left: 260px;
+        border-radius: 100%;
+        overflow: hidden;
+          border: 6px solid white;
+          z-index: 1;
+      
+      }
+      .surgery2 {
+        position: relative;
+        width: 350px ;
+        height:350px;
+    
+      }
+      .surgery2 img{
+        width: 350px ;
+        height:350px;
+      }
+      .surgery1 {
+        width: 250px ;
+        height:250px;
+      }
+      .surgery1 img{
+        width: 250px ;
+        height:250px;
+      }
+      .textsurgery{
+        padding-top: 20px;
+      }
+      .textsurgery h1  {
+        font-size: 50px;
+      }
+      .textsurgery p  {
+        font-size: 19px;
+        text-align: justify;
+      }
+      .testimonalImg h2{
+        font-size: 20px;
+      }
+      .testimonalImg img{
+        width: 80px;
+        height: 80px;
+      }
+}
+/*-----------------------------------------------------------------------------------------------------*/
+@media (max-width: 1320px) {}
+/*-----------------------------------------------------------------------------------------------------*/
+@media (max-width: 1280px) {
+    .surgery1 {
+        position: absolute;
+        top: 220px;
+        left: 270px;
+        border-radius: 100%;
+        overflow: hidden;
+          border: 6px solid white;
+          z-index: 1;
+      
+      }
+      .surgery2 {
+        position: relative;
+        width: 350px ;
+        height:350px
+    
+      }
+      .surgery2 img{
+        width: 350px ;
+        height:350px;
+      }
+      .surgery1 {
+        width: 200px ;
+        height:200px;
+      }
+      .surgery1 img{
+        width: 200px ;
+        height:200px;
+      }
+      .textsurgery{
+        padding-top: 20px;
+      }
+      .textsurgery h1  {
+        font-size: 50px;
+      }
+      .textsurgery p  {
+        font-size: 19px;
+        text-align: justify;
+      }
+      .testimonalImg h2{
+        font-size: 20px;
+      }
+      .testimonalImg img{
+        width: 80px;
+        height: 80px;
+      }
+}
+/*-----------------------------------------------------------------------------------------------------*/
+@media (max-width: 1024px) {
+    .surgery1 {
+        position: absolute;
+        top: 180px;
+        left: 200px;
+        border-radius: 100%;
+        overflow: hidden;
+          border: 6px solid white;
+          z-index: 1;
+      }
+      .surgery2 {
+        position: relative;
+        width: 270px ;
+        height:270px
+    
+      }
+      .surgery2 img{
+        width: 270px ;
+        height:270px;
+      }
+      .surgery1 {
+        width: 150px ;
+        height:150px;
+      }
+      .surgery1 img{
+        width: 150px ;
+        height:150px;
+      }
+      .textsurgery{
+        padding-top: 20px;
+      }
+      .textsurgery h1  {
+        font-size: 30px;
+      }
+      .textsurgery p  {
+        font-size: 16px;
+        text-align: justify;
+      }
+      .testimonalImg h2{
+        font-size: 10px;
+      }
+      .testimonalImg img{
+        width: 80px;
+        height: 80px;
+      }
+}
+/*-----------------------------------------------------------------------------------------------------*/
+@media (max-width: 840px) {
+    .surgery1 {
+        position: absolute;
+        top: 200px;
+        left: 170px;
+        border-radius: 100%;
+        overflow: hidden;
+          border: 6px solid white;
+          z-index: 1;
+      
+      }
+      .surgery2 {
+        position: relative;
+        width: 250px ;
+        height:250px
+    
+      }
+      .surgery2 img{
+        width: 250px ;
+        height:250px;
+      }
+      .surgery1 {
+        width: 150px ;
+        height:150px;
+      }
+      .surgery1 img{
+        width: 150px ;
+        height:150px;
+      }
+      .textsurgery{
+        padding-top: 20px;
+      }
+      .textsurgery h1  {
+        font-size: 40px;
+      }
+      .textsurgery p  {
+        font-size: 16px;
+        text-align: justify;
+      }
+      .testimonalImg h2{
+        font-size: 10px;
+      }
+      .testimonalImg img{
+        width: 80px;
+        height: 80px;
+      }
+}
+/*-----------------------------------------------------------------------------------------------------*/
+@media (max-width: 768px) {
+
+    .surgery1 {
+        position: absolute;
+        top: 100px;
+        left: 170px;
+        border-radius: 100%;
+        overflow: hidden;
+          border: 6px solid white;
+          z-index: 1;
+      }
+      .surgery2 {
+        position: relative;
+        width: 250px ;
+        height:250px
+    
+      }
+      .surgery2 img{
+        width: 250px ;
+        height:250px;
+      }
+      .surgery1 {
+        width: 150px ;
+        height:150px;
+      }
+      .surgery1 img{
+        width: 150px ;
+        height:150px;
+      }
+      .textsurgery{
+        padding-top: 20px;
+      }
+      .textsurgery h1  {
+        font-size: 20px;
+      }
+      .textsurgery p  {
+        font-size: 14px;
+        text-align: justify;
+      }
+      .testimonalImg h2{
+        font-size: 10px;
+      }
+      .testimonalImg img{
+        width: 80px;
+        height: 80px;
+      }
+}
+/*-----------------------------------------------------------------------------------------------------*/
+@media (max-width: 525px) {}
+/*-----------------------------------------------------------------------------------------------------*/
+@media (max-width: 430px) {}
+/*-----------------------------------------------------------------------------------------------------*/
+
+@media (max-width: 360px) {
+
+    .surgery1 {
+        position: absolute;
+        top: 200px;
+        left: 170px;
+        border-radius: 100%;
+        overflow: hidden;
+          border: 6px solid white;
+          z-index: 1;
+      
+      }
+      .surgery2 {
+        position: relative;
+        width: 200px ;
+        height:200px;
+    
+      }
+      .surgery2 img{
+        width: 200px ;
+        height:200px;
+      }
+      .surgery1 {
+        width: 50px ;
+        height:50px;
+      }
+      .surgery1 img{
+        width: 50px ;
+        height:50px;
+      }
+      .textsurgery{
+        padding-top: 20px;
+      }
+      .textsurgery h1  {
+        font-size: 20px;
+      }
+      .textsurgery p  {
+        font-size: 14px;
+        text-align: justify;
+      }
+      .testimonalImg h2{
+        font-size: 10px;
+      }
+      .testimonalImg img{
+        width: 80px;
+        height: 80px;
+      }
+      
+      
+
+    }
