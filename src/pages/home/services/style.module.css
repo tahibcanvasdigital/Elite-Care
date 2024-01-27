@@ -1,0 +1,71 @@
+.servicesWrapper{
+  text-align: center;
+}
+.upperSectionWrapper {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.servicesImgWrapper{
+  margin-bottom: 10px;
+}
+.title {
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: "Antic Didone";
+}
+.imgWrapper{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  
+}
+.imgWrapper > img {
+  width: 250px;
+  transition: transform 0.3s ease-in-out;
+}
+.imgWrapper > img:hover{
+    /* transition: all linear 1.4s; */
+    transform: scale(1.07);
+}
+.descWrapper {
+  text-align: center;
+  margin-top: 10px;
+}
+.descWrapper > .place {
+  font-size: 2rem;
+  font-family: "Antic Didone";
+}
+.price {
+  font-size: 18px;
+  font-weight: 500;
+}
+.readMore{
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+    align-items: center;
+}
+.readMore > p{
+    font-size: 14px;
+}
+.readMore > img{
+    width: 19px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .title{
+    font-size: 43px;
+  }
+
+}
+@media only screen and (max-width: 768px) {
+  .title{
+    font-size: 39px;
+  }
+
+}

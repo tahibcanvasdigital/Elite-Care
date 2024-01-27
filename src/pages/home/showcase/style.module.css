@@ -1,0 +1,73 @@
+.upperSection {
+ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.showCaseContainer{
+  text-align: center;
+}
+.showCaseImg {
+margin-bottom: 16px;
+transition: transform 0.3s ease-in-out;
+width: 260px;
+}
+.scalingEffect:hover {
+  transform: scale(1.07); /* Scale up on hover */
+}
+.title {
+  color: var(--BlackText);
+  font-size: 50px;
+  font-style: normal;
+  line-height: 100.6%; /* 70.42px */
+  text-transform: uppercase;
+  font-family: "Antic Didone";
+  text-align: center;
+  /* margin-bottom: 15px; */
+}
+.desc {
+  color: #666666;
+  /* font-family: Inter; */
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+}
+.showCase{
+  margin-bottom: 10px;
+}
+
+
+@media only screen and (max-width: 1399px) {
+  .showCaseImg{
+    width: 260px;
+}
+}
+@media only screen and (max-width: 1199px) {
+  .showCaseImg{
+    width: 230px;
+}
+}
+@media only screen and (max-width: 1024px) {
+  .title{
+    font-size: 43px;
+  }
+  .desc{
+    font-size: 19px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .showCaseImg{
+    width: 170px;
+}
+}
+@media only screen and (max-width: 768px) {
+.title{
+  font-size: 40px;
+}
+.desc{
+  font-size: 17px;
+}
+}
