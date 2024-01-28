@@ -6,7 +6,7 @@
   margin-bottom: 30px;
 }
 .servicesImgWrapper{
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .title {
   font-size: 50px;
@@ -43,6 +43,7 @@
 .price {
   font-size: 18px;
   font-weight: 500;
+  margin-bottom: 5px !important;
 }
 .readMore{
     display: flex;

@@ -1,0 +1,91 @@
+.recentContainer {
+  margin-top: 70px;
+}
+
+.upperSection {
+  text-align: center;
+}
+
+.upperSectionWrapper>p {
+  color: #111;
+  margin-top: 17px;
+  font-family: "Antic Didone";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  margin-bottom: 40px !important;
+}
+
+.cardWrapper {
+  width: 100%;
+}
+
+.imgs {
+  border-radius: 12px 12px 0px 0px;
+  background: url('../../../assets/recentCard1.png'), lightgray 54.544px -3.737px / 71.819% 103.114% no-repeat;
+
+  mix-blend-mode: multiply;
+}
+
+.cardImg>img {
+  width: 100%;
+  overflow: hidden;
+  /* border-radius: 0px 0px 12px 12px; */
+}
+
+.cardContentWrapper {
+  border-radius: 0px 0px 12px 12px;
+  background: #F7EED3;
+  padding: 25px 24px;
+}
+
+.date {
+  color: #111;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27.2px;
+  /* 194.286% */
+  letter-spacing: 1.19px;
+  margin-bottom: 3px !important;
+}
+
+.question {
+  color: #1A1A1A;
+  font-family: "Antic Didone";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27px;
+  /* 112.5% */
+  text-transform: capitalize;
+}
+
+.answer {
+  color: #666;
+  margin-top: 8px;
+  margin-bottom: 8px !important;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  /* 171.429% */
+}
+
+.readMoreWrapper {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.readMoreWrapper>p {
+
+  color: #111;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+}

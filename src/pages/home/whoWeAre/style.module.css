@@ -1,0 +1,97 @@
+.whoWeAreContainer{
+  margin: 3rem 0;
+}
+.leftSide > img{
+  height: 290px;
+}
+.whoWeAreHeading{
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  margin-bottom: 5px;
+}
+.whoWeAreHeading > p::before{
+  content: "";
+  position: absolute;
+  height: 1.5px;
+  background-color: black;
+  width: 75px;
+  top: 14px;
+  left: -87px;
+}
+.whoWeAreTitle{
+  font-family: "Antic Didone";
+font-size: 52px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+text-transform: uppercase;
+
+}
+.cardsWrapper{
+  display: flex;
+  justify-content: space-between;
+  /* align-items: c */
+}
+.cardMissionWrapper{
+  border-radius: 12px;
+background: #FFF;
+box-shadow: 0px 4px 19.5px 0px rgba(0, 0, 0, 0.10);
+width: 419px;
+height: 438px;
+padding: 25px 20px;
+margin-top: 49px;
+}
+.missionText{
+  border-left: 1px solid rgba(0, 0, 0, 0.20);
+  padding-left: 13px;
+  margin-bottom: 20px;
+}
+.missionText > p{
+  color: #666;
+leading-trim: both;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 36px; /* 225% */
+}
+.missionTitle{
+  color: #111;
+  font-family: "Antic Didone";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+}
+.cardVisionWrapper{
+  border-radius: 12px;
+  background: #F7EED3;
+  box-shadow: 0px 4px 19.5px 0px rgba(0, 0, 0, 0.10);
+  width: 419px;
+  height: 438px;
+  padding: 25px 20px;
+  margin-top: 20px
+}
+.visionText{
+  border-left: 1px solid rgba(0, 0, 0, 0.20);
+  padding-left: 13px;
+  margin-bottom: 20px;
+}
+.visionText > p{
+  color: #666;
+leading-trim: both;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 36px; /* 225% */
+}
+.visionTitle{
+  color: #111;
+  font-family: "Antic Didone";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+}
