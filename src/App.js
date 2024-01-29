@@ -10,7 +10,7 @@ function App() {
   //   </div>
   <Router>
     <Routes>
-      <Route path='/' element={<Home/>}/>
+      <Route path='/elite-care' element={<Home/>}/>
     </Routes>
   </Router>
   );

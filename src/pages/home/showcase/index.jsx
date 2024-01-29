@@ -25,7 +25,7 @@ const ShowCase = () => {
     },
   ];
   return (
-    <section className={styles.showCaseContainer}>
+    <section style={{marginTop:"80px"}} className={styles.showCaseContainer}>
       <div className="container ">
         <div className={`row ${styles.showCaseWrapper}`}>
           <div className="col-xl-12 col-lg-12 col-md-12">

@@ -1,5 +1,5 @@
 .testContainer {
-  /* text-align: center; */
+  margin: 5rem 0rem;
 }
 
 .imgTest img {
@@ -17,7 +17,7 @@
 .testimonalHeading>p::before {
   content: "";
   position: absolute;
-  height: 1.5px;
+  height: 2px;
   background-color: black;
   width: 75px;
   top: 14px;
@@ -74,4 +74,27 @@
 
 .arrowsWrapper>img {
   width: 40px;
+}
+
+
+@media (max-width:1200px){
+  .testimonalHeading{
+      font-size: 18px;
+  }
+  .testimonalHeading >p::before{
+    width: 65px;
+    top: 13.5px;
+    left: -77px;
+  }
+}
+
+@media (max-width:992px){
+  .testimonalHeading >p::before{
+    width: 50px;
+    top: 13.5px;
+    left: -61px;
+  }
+  .title{
+    font-size: 34px;
+  }
 }

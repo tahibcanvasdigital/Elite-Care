@@ -7,7 +7,7 @@ import leftArrow from '../../../assets/testimonalLeftArrow.png'
 const Testimonal = () => {
   return (
     <section className={styles.testContainer}>
-      <div className='container'>
+      <div className='container container-fluid-md'>
         <div className={`row ${styles.testWrapper}`}>
           <div className='col-xl-5 col-lg-5 col-md-5'>
             <div className={styles.leftSide}>

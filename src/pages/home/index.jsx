@@ -7,8 +7,9 @@ import Services from "./services";
 import WhoWeAre from "./whoWeAre";
 import Testimonal from "./testimonal";
 import RecentNewsArticles from "./recentNewsArticles";
-
-
+import Portfolio from './portfolio';
+import Appointment from './appointment'
+import ImageComparison from "./imageCompare";
 
 const Homepage = () => {
   const data = {
@@ -24,11 +25,12 @@ const Homepage = () => {
       <ShowCase />
       <Services />
       <WhoWeAre />
-      {/* <Portfolio /> */}
+      <Portfolio />
       <Testimonal />
-      {/* <Appointment /> */}
+      <Appointment />
       <RecentNewsArticles />
-      {/* <Footer /> */}
+      <ImageComparison/>
+      <Footer />
     </div>
   );
 };

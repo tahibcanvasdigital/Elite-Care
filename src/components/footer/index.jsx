@@ -6,16 +6,12 @@ import { ImInstagram } from "react-icons/im";
 import { IoCall } from "react-icons/io5";
 import { MdEmail, MdLocationPin } from "react-icons/md";
 import Styles from './style.module.css'
-import image1 from "../../assets/pexels-misolo-cosmetic-6847836.jpg";
 import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className={` container-fluid position-relative  ${Styles.imgfooter}`} >
-      {/* <div className={`position-absolute   z-n1 `}>
-        <img src={image1} alt="" className=""  />
-      </div> */}
       <div className="container-fluid text-white   p-4  ">
-        <div className="row justify-content-center ">
+        <div className="row justify-content-center " id={Styles.footerrow}>
           <div className="col-12 col-md-4   ">
             <div className="mx-4">
               <h2>Contact</h2>
@@ -29,7 +25,6 @@ const Footer = () => {
                 </div>
                 <div className="col-3 col-md-3">
                   <h4>Call Us</h4>
-
                   <h4>Email</h4>
                   <h4>Address</h4>
                 </div>
@@ -104,11 +99,11 @@ const Footer = () => {
                     <input
                       type="email"
                       placeholder="Enter your Email"
-                      className="p-3 border border-1 w-75  text-white rounded-md bg-transparent "
+                      className="p-2 border border-1 w-75  text-white rounded-md bg-transparent "
                     />
                     <IoMdArrowForward
                       className="bg-white text-warning border p-2 border-1 rounded-md mb-1 position-absolute   "
-                      size={60}
+                      size={43}
                     />
                   </div>
                 </div>
@@ -130,12 +125,12 @@ const Footer = () => {
         </div>
       </div>
       <div className="container-fluid ">
-      <div className="d-flex justify-content-between mx-4 text-white  border-top pt-4">
+      <div className="d-flex justify-content-between mx-4 text-white  border-top pt-4" id={Styles.footerlast}>
         <div>
-          <p>2024 Copy right ELite Care All Rights Reserved </p>
+          <p>2024 Copy Right Elite Care All Rights Reserved </p>
         </div>
         <div>
-          <p>Terms and condition | Privacy Policy</p>
+          <p>Terms And Condition | Privacy Policy</p>
         </div>
       </div>
       </div>
@@ -147,11 +142,4 @@ const Footer = () => {
 };
 
 export default Footer;
-{
-  /* <div className="  text-white bg-black gap-10  p-10 grid xl:grid-cols-4 sm:grid-cols-2 xsm:grid-cols-1 ">
-     
-      
-   
-    
-    </div> */
-}
+
