@@ -77,10 +77,16 @@
   top: 12px;
 }
 #scrollmain img {
-  position: absolute;
- top: 201px;
+  /* position: absolute; */
+  top: 0;
   left: 42%;
-  animation: 7s linear 2s infinite rotate;
+  animation: 7s linear 2s infinite style_rotate__omGfe;
+  margin: 0 auto;
+  display: table;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 65%;
 }
 @keyframes rotate {
   from {
@@ -163,7 +169,6 @@
   #sec1home ul a {
     color: #fff;
     font-size: 12px;
-
   }
   #line p:before {
     content: "";

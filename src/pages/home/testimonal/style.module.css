@@ -11,10 +11,10 @@
   font-weight: 500;
   position: relative;
   margin-bottom: 15px;
-  LETTER-SPACING: 2.5px;
+  letter-spacing: 2.5px;
 }
 
-.testimonalHeading>p::before {
+.testimonalHeading > p::before {
   content: "";
   position: absolute;
   height: 2px;
@@ -72,29 +72,34 @@
   gap: 15px;
 }
 
-.arrowsWrapper>img {
+.arrowsWrapper > img {
   width: 40px;
 }
 
-
-@media (max-width:1200px){
-  .testimonalHeading{
-      font-size: 18px;
+@media (max-width: 1200px) {
+  .testimonalHeading {
+    font-size: 18px;
   }
-  .testimonalHeading >p::before{
+  .testimonalHeading > p::before {
     width: 65px;
     top: 13.5px;
     left: -77px;
   }
 }
 
-@media (max-width:992px){
-  .testimonalHeading >p::before{
+@media (max-width: 992px) {
+  .testimonalHeading > p::before {
     width: 50px;
     top: 13.5px;
     left: -61px;
   }
-  .title{
+  .title {
     font-size: 34px;
+  }
+}
+
+@media (max-width: 695px) {
+  .testimonalHeading > p::before {
+    display: none;
   }
 }

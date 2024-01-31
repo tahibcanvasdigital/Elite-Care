@@ -25,13 +25,15 @@ const ShowCase = () => {
     },
   ];
   return (
-    <section style={{marginTop:"80px"}} className={styles.showCaseContainer}>
+    <section style={{ marginTop: "80px" }} className={styles.showCaseContainer}>
       <div className="container ">
         <div className={`row ${styles.showCaseWrapper}`}>
           <div className="col-xl-12 col-lg-12 col-md-12">
             <div className={styles.upperSection}>
               <div className={styles.showCase}>
-                <img src={showCase} alt="showcases" />
+                {/* <img src={showCase} alt="showcases" />
+                P */}
+                <p>SHOWCASE</p>
               </div>
               <p className={styles.title}>
                 Get a medical procedure
@@ -46,21 +48,21 @@ const ShowCase = () => {
         </div>
         {/* Image Section */}
         <div className={`row ${styles.showCaseImgWrapper}`}>
-      {imgs.map((item, index) => (
-        <div
-          key={index}
-          className={`col-xl-3 col-lg-3 col-md-3 col-sm-6 ${styles.imgWrapper}`}
-        >
-          <div className={styles.imageContainer}>
-            <img
-              src={item.img}
-              alt="img"
-              className={`${styles.showCaseImg} ${styles.scalingEffect}`}
-            />
-          </div>
+          {imgs.map((item, index) => (
+            <div
+              key={index}
+              className={`col-xl-3 col-lg-3 col-md-3 col-sm-6 ${styles.imgWrapper}`}
+            >
+              <div className={styles.imageContainer}>
+                <img
+                  src={item.img}
+                  alt="img"
+                  className={`${styles.showCaseImg} ${styles.scalingEffect}`}
+                />
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
       </div>
     </section>
   );

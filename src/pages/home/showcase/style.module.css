@@ -1,25 +1,56 @@
 .upperSection {
- 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
-.showCaseContainer{
+.showCaseContainer {
   text-align: center;
 }
 .showCaseImg {
-margin-bottom: 16px;
-transition: transform 2.2s;
-width: 260px;
+  margin-bottom: 16px;
+  transition: transform 2.2s;
+  width: 260px;
 }
 .showCaseImg:hover {
   transform: scale(1.2);
 }
-.showCase{
+.showCase {
   margin-bottom: 20px;
+  position: relative;
+}
+
+.showCase > p {
+  color: #111;
+
+  font-size: 20.1px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.showCase > p::before {
+  content: "";
+  background-color: #000;
+  /* padding: 2px 0px; */
+  position: absolute;
+  left: 155px;
+  top: 15px;
+  height: 1.5px;
+  width: 75px;
+}
+.showCase p::after {
+  content: "";
+  background-color: #000;
+  /* padding: 2px 0px; */
+  position: absolute;
+  top: 15px;
+  height: 1.5px;
+  width: 75px;
+  right: 155px;
 }
 .title {
   color: var(--BlackText);
@@ -39,52 +70,50 @@ width: 260px;
   font-weight: 400;
 }
 
-
-
 @media only screen and (max-width: 1399px) {
-  .showCaseImg{
+  .showCaseImg {
     width: 260px;
-}
+  }
 }
 @media only screen and (max-width: 1199px) {
-  .showCaseImg{
+  .showCaseImg {
     width: 230px;
-}
+  }
 }
 @media only screen and (max-width: 1024px) {
-  .title{
+  .title {
     font-size: 43px;
   }
-  .desc{
+  .desc {
     font-size: 19px;
   }
 }
 @media only screen and (max-width: 991px) {
-  .showCaseImg{
+  .showCaseImg {
     width: 170px;
-}
+  }
 }
 @media only screen and (max-width: 768px) {
-.title{
-  font-size: 33px;
-}
-.desc{
-  font-size: 17px;
-}
+  .title {
+    font-size: 33px;
+  }
+  .desc {
+    font-size: 17px;
+  }
 }
 @media only screen and (max-width: 478px) {
-  .title{
+  .title {
     font-size: 28px;
   }
-  .desc{
+  .desc {
     font-size: 14px;
   }
+}
+@media only screen and (max-width: 420px) {
+  .title {
+    font-size: 22px;
   }
-  @media only screen and (max-width: 420px) {
-    .title{
-      font-size: 22px;
-    }
-    .desc{
-      font-size: 14px;
-    }
-    }
+  .desc {
+    font-size: 14px;
+  }
+}
