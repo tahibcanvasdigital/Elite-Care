@@ -31,8 +31,6 @@ const ShowCase = () => {
           <div className="col-xl-12 col-lg-12 col-md-12">
             <div className={styles.upperSection}>
               <div className={styles.showCase}>
-                {/* <img src={showCase} alt="showcases" />
-                P */}
                 <p>SHOWCASE</p>
               </div>
               <p className={styles.title}>

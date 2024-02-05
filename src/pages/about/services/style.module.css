@@ -1,0 +1,203 @@
+.fristWrapper {
+  background-color: #f0b402;
+  background-position: center;
+  background-size: cover;
+  padding: 120px 0px;
+}
+
+.packageSec {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  position: relative;
+}
+.packageSec h4 {
+  font-family: Garamond;
+  font-size: 40px;
+  font-weight: 500;
+  text-shadow: 0 0 white;
+}
+
+.packageSec h1 {
+  font-family: Garamond;
+  font-size: 68px;
+  width: 89%;
+  margin: 0 auto;
+}
+.packageSec h4::before {
+  content: "";
+  background-color: #fff;
+  padding: 1px 0px;
+  position: absolute;
+  left: 729px;
+  bottom: 195px;
+  height: 3px;
+  width: 100px;
+}
+.packageSec h4::after {
+  content: "";
+  background-color: #fff;
+  padding: 1px 0px;
+  position: absolute;
+  right: 730px;
+  top: 20px;
+  height: 3px;
+  width: 100px;
+}
+.cardWrapper {
+  overflow: hidden;
+  border-radius: 17px;
+}
+.hdAmt {
+  display: flex;
+  justify-content: space-between;
+}
+.cardWrappertxt {
+  background-color: #fdedd7;
+  padding: 22px 22px;
+  height: 200px;
+}
+.cardWrapper img {
+  transition: transform 2.2s;
+  padding: 0px;
+  width: 420px;
+  height: 220px;
+  margin: 0 auto;
+}
+.cardWrapper img:hover {
+  transform: scale(1.2);
+}
+.hdAmt h3 {
+  font-size: 38px;
+  font-family: Garamond;
+}
+.cardWrappertxt p {
+}
+
+/* //////////////////////////////// */
+
+@media screen and (max-width: 1366px) {
+  .packageSec h4::before {
+    content: "";
+    position: absolute;
+    left: 640px;
+    bottom: 195px;
+  }
+  .packageSec h4::after {
+    content: "";
+    position: absolute;
+    right: 640px;
+    top: 20px;
+  }
+  .packageSec h1 {
+    width: 91%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .packageSec h1 {
+    font-size: 56px;
+  }
+  .packageSec h4::before {
+    content: "";
+    position: absolute;
+    left: 550px;
+    bottom: 165px;
+  }
+  .packageSec h4::after {
+    content: "";
+    position: absolute;
+    right: 550px;
+    top: 23px;
+  }
+  .cardWrapper img {
+    height: 170px;
+  }
+  .hdAmt h3 {
+    font-size: 35px;
+  }
+  .cardWrappertxt p {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .cardWrappertxt {
+    width: 60.8%;
+    margin: 0 auto;
+    border-radius: 0px 0px 10px 10px;
+  }
+  .cardWrapper {
+    margin-bottom: 30px;
+  }
+  .packageSec h1 {
+    font-size: 41px;
+    width: 89%;
+    margin: 0 auto;
+  }
+  .packageSec h4::after {
+    content: "";
+    position: absolute;
+    right: 430px;
+  }
+  .packageSec h4::before {
+    content: "";
+    position: absolute;
+    left: 425px;
+    bottom: 132px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .packageSec h1 {
+    font-size: 29px;
+    width: 89%;
+    margin: 0 auto;
+  }
+  .packageSec h4::after {
+    display: none;
+  }
+  .packageSec h4::before {
+    display: none;
+  }
+  .cardWrappertxt {
+    width: 84.8%;
+    margin: 0 auto;
+    border-radius: 0px 0px 10px 10px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .packageSec h4 {
+    font-size: 32px;
+  }
+  .packageSec h1 {
+    font-size: 23px;
+    width: 89%;
+    margin: 0 auto;
+  }
+  .cardWrapper img {
+    width: 335px;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 360px) {
+  .packageSec h1 {
+    font-size: 20px;
+    width: 89%;
+    margin: 0 auto;
+  }
+  .cardWrapper img {
+    width: 284px;
+    margin: 0 auto;
+  }
+  .cardWrappertxt p {
+    font-size: 13px;
+  }
+}

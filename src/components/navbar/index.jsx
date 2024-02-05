@@ -13,15 +13,17 @@ import { CiSearch } from "react-icons/ci";
 import { LuUser2 } from "react-icons/lu";
 
 const Navbar = (props) => {
-  const { heading1, heading2, heading3, image, button } = props.data;
+  const { heading1, heading2, heading3, image, button, height, imgTop } =
+    props.data;
 
   const divStyle = {
     backgroundImage: `url(${image})`,
     height: "98vh",
     objectFit: " cover",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
+    // backgroundSize: "cover",
     color: "#fff",
+    height: heading2 === heading2 ? height : "",
   };
   console.log(image);
   return (
@@ -262,6 +264,7 @@ const Navbar = (props) => {
       <div
         className="row justify-content-center"
         id={Styles.sec1home}
+        // style={heading1 === "CONTACT US" ? { height: height } : ""}
         style={divStyle}
       >
         <div
@@ -274,8 +277,8 @@ const Navbar = (props) => {
             </div>
           </div>
         </div>
-        <div className="col-8   col-md-10 col-lg-10 col-xl-9 h-25">
-          <nav class="navbar navbar-expand-lg ">
+        <div className="col-8  col-md-10 col-lg-10 col-xl-9 h-25">
+          <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
               <button
                 class="navbar-toggler ms-auto"
@@ -355,13 +358,15 @@ const Navbar = (props) => {
                       </ul>
                     </div>
                     <div className="col-12 col-md-3 col-lg-3 pb-4 pt-4  ">
-                      <button
-                        class="btn btn-outline-light d-flex"
-                        type="submit"
-                      >
-                        BOOK AN APPOINTMENT
-                        <HiArrowLongRight size={28} />
-                      </button>
+                      <Link to="/elite-care/book-appointment">
+                        <button
+                          class="btn btn-outline-light d-flex"
+                          type="submit"
+                        >
+                          BOOK AN APPOINTMENT
+                          <HiArrowLongRight size={28} />
+                        </button>
+                      </Link>
                     </div>
                   </div>
                   <div>
@@ -370,13 +375,13 @@ const Navbar = (props) => {
                         <Link
                           class="nav-link active"
                           aria-current="page"
-                          to="#"
+                          to="/elite-care"
                         >
                           Home
                         </Link>
                       </li>
                       <li class="nav-item">
-                        <Link class="nav-link" to="#">
+                        <Link class="nav-link" to="/elite-care/about-us">
                           About Us
                         </Link>
                       </li>
@@ -396,12 +401,12 @@ const Navbar = (props) => {
                         </Link>
                       </li>
                       <li class="nav-item">
-                        <Link class="nav-link" to="#">
+                        <Link class="nav-link" to="/elite-care/dentist">
                           Dentist
                         </Link>
                       </li>
                       <li class="nav-item">
-                        <Link class="nav-link" to="#">
+                        <Link class="nav-link" to="/elite-care/for-men">
                           For Men
                         </Link>
                       </li>
@@ -416,7 +421,7 @@ const Navbar = (props) => {
                         </Link>
                       </li>
                       <li class="nav-item">
-                        <Link class="nav-link" to="#">
+                        <Link class="nav-link" to="/elite-care/contact-us">
                           Contact Us
                         </Link>
                       </li>
@@ -446,7 +451,7 @@ const Navbar = (props) => {
 
         <div className="row justify-content-center" id={Styles.sectext}>
           <div className="col col-md-10">
-            <div id={Styles.line}>
+            <div id={heading1 == null ? "" : Styles.line}>
               <p>{heading1}</p>
             </div>
             <div>
@@ -454,17 +459,21 @@ const Navbar = (props) => {
               <h6>{heading3}</h6>
             </div>
             <div>
-              <button class="btn btn-outline-light " type="submit">
-                {button}
-                <HiArrowLongRight size={28} />
-              </button>
+              {button == null ? (
+                ""
+              ) : (
+                <button class="btn btn-outline-light " type="submit">
+                  {button}
+                  <HiArrowLongRight size={28} />
+                </button>
+              )}
             </div>
           </div>
         </div>
         <div className="row position-relative ">
           <div className="col  w-25" id={Styles.scrollmain}>
-         <img src={scrollmain} alt="" />
-         </div>
+            <img style={{ top: imgTop }} src={scrollmain} alt="" />
+          </div>
         </div>
       </div>
     </div>

@@ -80,7 +80,7 @@
   /* position: absolute; */
   top: 0;
   left: 42%;
-  animation: 7s linear 2s infinite style_rotate__omGfe;
+  animation: 7s linear 2s infinite rotate;
   margin: 0 auto;
   display: table;
   position: relative;
@@ -107,7 +107,7 @@
 /*-----------------------------------------------------------------------------------------------------*/
 @media (max-width: 1920px) {
   #sec1home {
-    height: 900px !important;
+    height: 900px;
   }
   #sec1home ul a {
     font-size: 14px;

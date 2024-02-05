@@ -7,8 +7,8 @@ import Services from "./services";
 import WhoWeAre from "./whoWeAre";
 import Testimonal from "./testimonal";
 import RecentNewsArticles from "./recentNewsArticles";
-import Portfolio from './portfolio';
-import Appointment from './appointment'
+import Portfolio from "./portfolio";
+import Appointment from "./appointment";
 import ImageComparison from "./imageCompare";
 
 const Homepage = () => {
@@ -29,7 +29,7 @@ const Homepage = () => {
       <Testimonal />
       <Appointment />
       <RecentNewsArticles />
-      <ImageComparison/>
+      <ImageComparison />
       <Footer />
     </div>
   );
