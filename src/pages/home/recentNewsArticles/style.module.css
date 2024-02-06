@@ -143,6 +143,22 @@
   .upperSectionWrapper > img {
     width: 410px;
   }
+  .upperSectionWrapper > p {
+    font-size: 30px;
+  }
+  .upperSectionWrapper > h4 {
+    font-size: 15px;
+  }
+  .upperSectionWrapper > h4::before {
+    left: -26px;
+    top: 9px;
+    width: 55px;
+  }
+  .upperSectionWrapper > h4::after {
+    right: -26px;
+    top: 9px;
+    width: 55px;
+  }
 }
 @media (max-width: 445px) {
   .upperSectionWrapper > p {
@@ -158,5 +174,18 @@
   }
   .upperSectionWrapper > img {
     width: 300px;
+  }
+  .upperSectionWrapper > h4 {
+    font-size: 14px;
+  }
+  .upperSectionWrapper > h4::before {
+    left: -26px;
+    top: 9px;
+    width: 40px;
+  }
+  .upperSectionWrapper > h4::after {
+    right: -26px;
+    top: 9px;
+    width: 40px;
   }
 }

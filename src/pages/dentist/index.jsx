@@ -4,7 +4,7 @@ import styles from "./style.module.css";
 import logo from "../../assets/Dentist.png";
 import ShowCasesComponent from "../../components/showCasesComp";
 import DentistServices from "../../components/dentistServices";
-import ImageComparison from "../../components/imageComparison";
+import ImageComparison from "../../components/Imagecomparison/ImageCamparison";
 import Footer from "../../components/footer";
 // Denstist Services Images
 
@@ -26,13 +26,13 @@ import ShowCase4 from "../../assets/dentistShowcase4.png";
 
 const Dentist = () => {
   const data = {
-    heading1: null,
-    heading2: "DENTIST",
-    heading3: null,
+    h1: null,
+    h2: "DENTIST",
+    h3: null,
     image: logo,
     button: null,
     height: "675px",
-    imgTop: "34%",
+    imgTop: "190px",
   };
 
   const showCaseImgs = {
@@ -69,16 +69,15 @@ const Dentist = () => {
       },
     ],
   };
-  const beforeAfterImgs = {
-    img1: beforeImg,
-    img2: afterImg,
-  };
+
+  const topImage = { src: beforeImg, alt: "Before" };
+  const bottomImage = { src: afterImg, alt: "After" };
   return (
     <>
       <Navbar data={data} />
       <ShowCasesComponent showCaseImgs={showCaseImgs} />
       <DentistServices carddata={carddata} />
-      <ImageComparison beforeAfterImgs={beforeAfterImgs} />
+      <ImageComparison topImage={topImage} bottomImage={bottomImage} />
       <Footer />
     </>
   );

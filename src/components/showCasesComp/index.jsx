@@ -1,10 +1,6 @@
 import React from "react";
 import styles from "./style.module.css";
-// import img1 from "../../assets/showCase1.png";
-// import img2 from "../../assets/showCase2.png";
-// import img3 from "../../assets/showCase3.png";
-// import img4 from "../../assets/showCase4.png";
-const ShowCasesComponent = ({ showCaseImgs }) => {
+const ShowCasesComponent = ({ showCaseImgs, marginTop }) => {
   const imgs = [
     {
       id: 1,
@@ -25,7 +21,10 @@ const ShowCasesComponent = ({ showCaseImgs }) => {
   ];
 
   return (
-    <section style={{ marginTop: "80px" }} className={styles.showCaseContainer}>
+    <section
+      style={{ marginTop: marginTop }}
+      className={styles.showCaseContainer}
+    >
       <div className="container ">
         <div className={`row ${styles.showCaseWrapper}`}>
           <div className="col-xl-12 col-lg-12 col-md-12">

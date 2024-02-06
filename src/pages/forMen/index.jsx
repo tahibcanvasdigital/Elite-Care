@@ -18,16 +18,17 @@ import cosmetic4 from "../../assets/cosmetic4.png";
 
 import beforeImg from "../../assets/dentistBefore.png";
 import afterImg from "../../assets/dentistAfter.png";
-import ImageComparison from "../../components/imageComparison";
+import ImageComparison from "../../components/Imagecomparison/ImageCamparison";
+
 const ForMen = () => {
   const data = {
-    heading1: null,
-    heading2: "BOOK APPOINTMENT",
-    heading3: null,
+    h1: null,
+    h2: "FOR MEN",
+    h3: null,
     image: logo,
     button: null,
     height: "675px",
-    imgTop: "34%",
+    imgTop: "190px",
   };
   const showCaseImgs = {
     img1: Formen1,
@@ -66,12 +67,14 @@ const ForMen = () => {
     img1: beforeImg,
     img2: afterImg,
   };
+  const topImage = { src: beforeImg, alt: "Before" };
+  const bottomImage = { src: afterImg, alt: "After" };
   return (
     <>
       <Navbar data={data} />
       <ShowCasesComponent showCaseImgs={showCaseImgs} />
       <DentistServices carddata={carddatacosmitc} />
-      <ImageComparison beforeAfterImgs={beforeAfterImgs} />
+      <ImageComparison topImage={topImage} bottomImage={bottomImage} />
       <Footer />
     </>
   );

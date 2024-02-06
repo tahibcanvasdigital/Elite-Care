@@ -129,21 +129,25 @@ input::placeholder {
     transform: scale(1);
   }
 }
-.ul a:hover {
-  color: #d4ae3d;
+.ul a:hover{
+  color:  #d4ae3d;
+  
+ 
 }
-#iconshover svg:hover {
-  color: #d4ae3d;
+#iconshover svg{
+  transition: 0.7s;
 }
-#icons svg:hover {
-  color: #d4ae3d;
+#iconshover svg:hover{
+  color:  #d4ae3d;
+  transform: translateY(-10px) rotate(-35deg);
+}
+#icons svg:hover{
+  color:  #d4ae3d;
 }
 /*-----------------------------------------------------------------------------------------------------*/
-@media (max-width: 1920px) {
-}
+@media (max-width: 1920px) {}
 /*-----------------------------------------------------------------------------------------------------*/
-@media (max-width: 1600px) {
-}
+@media (max-width: 1600px) {}
 /*-----------------------------------------------------------------------------------------------------*/
 @media (max-width: 1440px) {
   #footerrow h2 {
@@ -155,19 +159,21 @@ input::placeholder {
     font-weight: bold;
   }
   #footerrow p {
+ 
     font-size: 14px;
   }
   #footerrow .ul a {
+  
     line-height: 6px;
   }
-  #footerrow .ul {
+  #footerrow .ul{
     padding-left: 08px;
   }
-
+  
   input::placeholder {
     color: #fff;
   }
-
+  
   .ul a {
     text-decoration: none;
     color: #fff;
@@ -178,11 +184,9 @@ input::placeholder {
   }
 }
 /*-----------------------------------------------------------------------------------------------------*/
-@media (max-width: 1366px) {
-}
+@media (max-width: 1366px) {}
 /*-----------------------------------------------------------------------------------------------------*/
-@media (max-width: 1340px) {
-}
+@media (max-width: 1340px) {}
 /*-----------------------------------------------------------------------------------------------------*/
 @media (max-width: 1320px) {
   #footerrow h2 {
@@ -194,19 +198,21 @@ input::placeholder {
     font-weight: bold;
   }
   #footerrow p {
+ 
     font-size: 12px;
   }
   #footerrow .ul a {
+  
     line-height: 6px;
   }
-  #footerrow .ul {
+  #footerrow .ul{
     padding-left: 08px;
   }
-
+  
   input::placeholder {
     color: #fff;
   }
-
+  
   .ul a {
     text-decoration: none;
     color: #fff;
@@ -218,6 +224,7 @@ input::placeholder {
 }
 /*-----------------------------------------------------------------------------------------------------*/
 @media (max-width: 1280px) {
+
   #footerrow h2 {
     font-size: 22px;
   }
@@ -227,19 +234,21 @@ input::placeholder {
     font-weight: bold;
   }
   #footerrow p {
+ 
     font-size: 14px;
   }
   #footerrow .ul a {
+  
     line-height: 6px;
   }
-  #footerrow .ul {
+  #footerrow .ul{
     padding-left: 08px;
   }
-
+  
   input::placeholder {
     color: #fff;
   }
-
+  
   .ul a {
     text-decoration: none;
     color: #fff;
@@ -250,8 +259,7 @@ input::placeholder {
   }
 }
 /*-----------------------------------------------------------------------------------------------------*/
-@media (max-width: 1024px) {
-}
+@media (max-width: 1024px) {}
 /*-----------------------------------------------------------------------------------------------------*/
 @media (max-width: 840px) {
   #footerrow {
@@ -259,12 +267,12 @@ input::placeholder {
   }
   #footerrow h2 {
     font-family: "Antic Didone";
-
+  
     font-size: 27px;
   }
   #footerrow h4 {
     font-family: "Inter";
-
+  
     font-size: 18px;
     line-height: 25px;
     font-weight: bold;
@@ -275,17 +283,17 @@ input::placeholder {
   }
   #footerrow .ul a {
     font-family: "Inter";
-
+  
     line-height: 8px;
   }
-  #footerrow .ul {
+  #footerrow .ul{
     padding-left: 20px;
   }
-
+  
   input::placeholder {
     color: #fff;
   }
-
+  
   .ul a {
     text-decoration: none;
     color: #fff;
@@ -294,6 +302,7 @@ input::placeholder {
     font-family: "Inter";
     font-size: 10px;
   }
+
 }
 /*-----------------------------------------------------------------------------------------------------*/
 @media (max-width: 768px) {
@@ -306,20 +315,22 @@ input::placeholder {
     font-weight: bold;
   }
   #footerrow p {
+ 
     font-size: 12px;
     margin-left: 13px;
   }
   #footerrow .ul a {
+  
     line-height: 6px;
   }
-  #footerrow .ul {
+  #footerrow .ul{
     padding-left: 08px;
   }
-
+  
   input::placeholder {
     color: #fff;
   }
-
+  
   .ul a {
     text-decoration: none;
     color: #fff;
@@ -329,13 +340,14 @@ input::placeholder {
     font-family: "Inter";
     font-size: 8px;
   }
-  #contactrow #icons svg {
-    width: 14px;
+  #contactrow #icons svg{
+    
+  width: 14px;
   }
-  #contactrow div {
+  #contactrow div{
     padding: 0px;
   }
-  #footerrow div {
+  #footerrow div{
     padding: 0px;
   }
 }
@@ -346,12 +358,12 @@ input::placeholder {
   }
   #footerrow h2 {
     font-family: "Antic Didone";
-
+  
     font-size: 20px;
   }
   #footerrow h4 {
     font-family: "Inter";
-
+  
     font-size: 16px;
     line-height: 20px;
     font-weight: bold;
@@ -362,17 +374,17 @@ input::placeholder {
   }
   #footerrow .ul a {
     font-family: "Inter";
-
+  
     line-height: 7px;
   }
-  #footerrow .ul {
+  #footerrow .ul{
     padding-left: 20px;
   }
-
+  
   input::placeholder {
     color: #fff;
   }
-
+  
   .ul a {
     text-decoration: none;
     color: #fff;
@@ -381,13 +393,12 @@ input::placeholder {
     font-family: "Inter";
     font-size: 10px;
   }
+
 }
 /*-----------------------------------------------------------------------------------------------------*/
-@media (max-width: 430px) {
-}
+@media (max-width: 430px) {}
 /*-----------------------------------------------------------------------------------------------------*/
-@media (max-width: 375px) {
-}
+@media (max-width: 375px) {}
 /*-----------------------------------------------------------------------------------------------------*/
 @media (max-width: 430px) {
   #footerrow {
@@ -395,12 +406,12 @@ input::placeholder {
   }
   #footerrow h2 {
     font-family: "Antic Didone";
-
+  
     font-size: 20px;
   }
   #footerrow h4 {
     font-family: "Inter";
-
+  
     font-size: 16px;
     line-height: 20px;
     font-weight: bold;
@@ -411,17 +422,17 @@ input::placeholder {
   }
   #footerrow .ul a {
     font-family: "Inter";
-
+  
     line-height: 7px;
   }
-  #footerrow .ul {
+  #footerrow .ul{
     padding-left: 20px;
   }
-
+  
   input::placeholder {
     color: #fff;
   }
-
+  
   .ul a {
     text-decoration: none;
     color: #fff;
@@ -430,4 +441,5 @@ input::placeholder {
     font-family: "Inter";
     font-size: 10px;
   }
+
 }

@@ -5,6 +5,7 @@
 }
 .servicesWrapper {
   text-align: center;
+  margin-top: 50px;
 }
 .upperSectionWrapper {
   text-align: center;
@@ -50,19 +51,32 @@
   text-transform: uppercase;
   font-family: "Antic Didone";
 }
+.servicesCardImgsWrapper {
+  border-radius: 100%;
+  /* border: 1px solid; */
+  width: 100%;
+  overflow: hidden;
+}
+.servicesCardImgsWrapper > img {
+  transition: transform 3.2s;
+  width: 100%;
+}
+.servicesCardImgsWrapper > img:hover {
+  transform: scale(1.07);
+}
 .imgWrapper {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.imgWrapper > img {
+/* .imgWrapper > img {
   width: 250px;
   transition: transform 0.3s ease-in-out;
 }
 .imgWrapper > img:hover {
-  /* transition: all linear 1.4s; */
+
   transform: scale(1.07);
-}
+} */
 .descWrapper {
   text-align: center;
   margin-top: 10px;

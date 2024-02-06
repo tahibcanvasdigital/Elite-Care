@@ -5,7 +5,11 @@ const Portfolio = (props) => {
   const { heading1, heading2, para, image1, image2, image3, image4 } =
     props.dataportfolio;
   return (
-    <div className="container-fluid " id={Style.sec1main}>
+    <div
+      className="container-fluid "
+      style={{ marginBottom: "180px" }}
+      id={Style.sec1main}
+    >
       <div className="row  " id={Style.sec1row}>
         <div className="col-12 col-md-6">
           <div id={Style.secportfoliotext}>

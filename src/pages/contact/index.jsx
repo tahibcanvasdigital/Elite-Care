@@ -1,18 +1,18 @@
 import React from "react";
-import Navbar from "../../components/navbar";
 import styles from "./style.module.css";
 import logo from "../../assets/ContactUs.png";
 import ContactForm from "./contactForm";
 import Footer from "../../components/footer";
+import Navbar from "../../components/navbar";
 const Contact = () => {
   const data = {
-    heading1: null,
-    heading2: "CONTACT US",
-    heading3: null,
+    h1: null,
+    h2: "CONTACT US",
+    h3: null,
     image: logo,
     button: null,
     height: "675px",
-    imgTop: "34%",
+    imgTop: "190px",
   };
   return (
     <div>

@@ -1,0 +1,22 @@
+
+
+h1 , h4 {
+    font-family: "Antic Didone";
+}
+p{
+    font-family: "Inter";
+}
+
+.button_pagination{
+ 
+    list-style: none;
+    text-decoration: none;
+    margin: 20px;
+}
+.pagination .page-item.active .page-link {
+    background-color: #831234; /* Change this color to your desired background color */
+    border-color: #831234; /* You can also adjust the border color if needed */
+}
+ .newactive {
+    background-color: #831234!important;
+  }

@@ -72,7 +72,9 @@ const Services = () => {
               return (
                 <div className="col">
                   <div className={styles.imgWrapper}>
-                    <img src={item.img} />
+                    <div className={styles.servicesCardImgsWrapper}>
+                      <img src={item.img} />
+                    </div>
                     <div className={styles.descWrapper}>
                       <p className={styles.place}>{item.place}</p>
                       <p className={styles.price}>{item.price}</p>

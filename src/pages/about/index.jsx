@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "../../components/navbar";
-import Styles from "./style.module.css";
 import logo from "../../assets/about-banner.png";
 import OurMission from "./ourMission";
 import Footer from "../../components/footer";
@@ -11,19 +10,23 @@ import treatment2 from "../../assets/treatment2.png";
 import treatment3 from "../../assets/treatment3.png";
 import treatment4 from "../../assets/treatment4.png";
 import Portfolio from "../../components/portfolio";
-import ImageComparison from "../../components/imageComparison";
+import ImageComparison from "../../components/Imagecomparison/ImageCamparison";
 // Image Compare Imgs
 import beforeImg from "../../assets/dentistBefore.png";
 import afterImg from "../../assets/dentistAfter.png";
+
+import img1 from "../../assets/face1.png";
+import img2 from "../../assets/face2.png";
+
 const About = () => {
   const data = {
-    heading1: null,
-    heading2: "BOOK APPOINTMENT",
-    heading3: null,
+    h1: null,
+    h2: "ABOUT US",
+    h3: null,
     image: logo,
     button: null,
     height: "675px",
-    imgTop: "34%",
+    imgTop: "190px",
   };
   const datatreatment = {
     heading1: "TREATMENT",
@@ -37,14 +40,19 @@ const About = () => {
     img1: beforeImg,
     img2: afterImg,
   };
+
+  const topImage = { src: img1, alt: "Before" };
+  const bottomImage = { src: img2, alt: "After" };
+
   return (
     <>
+      {/* <Navbar data={data} /> */}
       <Navbar data={data} />
       <OurMission />
       <Services />
       <Testimonal />
       <Portfolio dataportfolio={datatreatment} />
-      <ImageComparison beforeAfterImgs={beforeAfterImgs} />
+      <ImageComparison topImage={topImage} bottomImage={bottomImage} />
       <Footer />
     </>
   );

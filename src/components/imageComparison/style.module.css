@@ -1,56 +1,222 @@
-.imageComparisonContainer > div {
-  border-radius: 20px;
+.img_compare {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
 }
-
-.imageWrapper {
-  margin-bottom: 4rem;
-  margin-top: 10rem;
+#secrow {
+  position: relative;
+  margin-top: 90px;
 }
-.titleWrapper {
+.textdiv {
   text-align: center;
 }
-.titleWrapper > h4 {
-  margin-bottom: 15px;
+.textdiv h6 {
+  font-family: "Inter";
 }
-.headingTransformation {
-  color: #111;
-
+.textdiv h1 {
   font-family: "Antic Didone";
-  font-size: 50px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  text-transform: uppercase;
-  margin-top: 12px;
-}
-.titleWrapper {
-  position: relative;
-}
-.titleWrapper h4::before {
-  content: "";
-  background-color: #000;
-  /* padding: 2px 0px; */
-  position: absolute;
-  left: 0px;
-  top: 14px;
-  height: 1.5px;
-  width: 100px;
-}
-.titleWrapper h4::after {
-  content: "";
-  background-color: #000;
-  /* padding: 2px 0px; */
-  position: absolute;
-  top: 15px;
-  height: 1.5px;
-  width: 100px;
-  right: 0;
-}
-.titleWrapper > h4 {
-  position: relative !important;
 }
 
-.titleWrapper > h4 {
-  width: 28% !important;
-  margin: 0 auto !important;
+.textdiv h6:before {
+  content: "";
+  background-color: black;
+  position: absolute;
+  left: 420px;
+  top: 10px;
+  height: 1px;
+  width: 6%;
+}
+.textdiv h6::after {
+  content: "";
+  background-color: black;
+  position: absolute;
+  right: 420px;
+  top: 10px;
+  height: 1px;
+  width: 6%;
+}
+
+.comparison_slider {
+  margin: 20px auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.comparison_item {
+  overflow: hidden;
+  border-radius: 30px;
+}
+
+.comparison_item.top {
+  z-index: 1;
+  position: absolute;
+  height: 100%;
+  top: 0;
+}
+
+.comparison_item.top .img_compare {
+  height: 100%;
+  object-fit: cover;
+}
+
+.handle {
+  position: absolute;
+  background-image: url("../../assets/divider.svg");
+  height: 100%;
+  z-index: 3;
+  cursor: col-resize;
+}
+
+.handle svg {
+  display: block;
+  position: absolute;
+  right: calc(50% - 50px);
+  height: 100%;
+}
+
+@media (max-width: 1920px) {
+  .textdiv h6:before {
+    content: "";
+    background-color: black;
+    position: absolute;
+    left: 490px;
+    top: 10px;
+    height: 1px;
+    width: 6%;
+  }
+  .textdiv h6::after {
+    content: "";
+    background-color: black;
+    position: absolute;
+    right: 490px;
+    top: 10px;
+    height: 1px;
+    width: 6%;
+  }
+}
+
+@media (max-width: 1366px) {
+  .textdiv h6:before {
+    content: "";
+    background-color: black;
+    position: absolute;
+    left: 420px;
+    top: 10px;
+    height: 1px;
+    width: 6%;
+  }
+  .textdiv h6::after {
+    content: "";
+    background-color: black;
+    position: absolute;
+    right: 420px;
+    top: 10px;
+    height: 1px;
+    width: 6%;
+  }
+}
+@media (max-width: 1024px) {
+  .textdiv h6:before {
+    content: "";
+    background-color: black;
+    position: absolute;
+    left: 340px;
+    top: 10px;
+    height: 1px;
+    width: 6%;
+  }
+  .textdiv h6::after {
+    content: "";
+    background-color: black;
+    position: absolute;
+    right: 340px;
+    top: 10px;
+    height: 1px;
+    width: 6%;
+  }
+}
+
+@media (max-width: 840px) {
+  .textdiv h6:before {
+    content: "";
+    background-color: black;
+    position: absolute;
+    left: 240px;
+    top: 10px;
+    height: 1px;
+    width: 6%;
+  }
+  .textdiv h6::after {
+    content: "";
+    background-color: black;
+    position: absolute;
+    right: 240px;
+    top: 10px;
+    height: 1px;
+    width: 6%;
+  }
+}
+@media (max-width: 525px) {
+  .textdiv h6:before {
+    content: "";
+    background-color: black;
+    position: absolute;
+    left: 150px;
+    top: 10px;
+    height: 1px;
+    width: 6%;
+  }
+  .textdiv h6::after {
+    content: "";
+    background-color: black;
+    position: absolute;
+    right: 150px;
+    top: 10px;
+    height: 1px;
+    width: 6%;
+  }
+}
+@media (max-width: 430px) {
+  .textdiv h6:before {
+    content: "";
+    background-color: black;
+    position: absolute;
+    left: 120px;
+    top: 10px;
+    height: 1px;
+    width: 6%;
+  }
+  .textdiv h6::after {
+    content: "";
+    background-color: black;
+    position: absolute;
+    right: 120px;
+    top: 10px;
+    height: 1px;
+    width: 6%;
+  }
+}
+@media (max-width: 360px) {
+  .textdiv h6:before {
+    content: "";
+    background-color: black;
+    position: absolute;
+    left: 90px;
+    top: 10px;
+    height: 1px;
+    width: 6%;
+  }
+  .textdiv h6::after {
+    content: "";
+    background-color: black;
+    position: absolute;
+    right: 90px;
+    top: 10px;
+    height: 1px;
+    width: 6%;
+  }
 }

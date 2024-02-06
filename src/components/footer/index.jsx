@@ -5,14 +5,14 @@ import { FaSquareTwitter } from "react-icons/fa6";
 import { ImInstagram } from "react-icons/im";
 import { IoCall } from "react-icons/io5";
 import { MdEmail, MdLocationPin } from "react-icons/md";
-import Styles from "./style.module.css";
+import Styles from './style.module.css'
 import { Link } from "react-router-dom";
 const Footer = () => {
   return (
-    <div className={` container-fluid position-relative  ${Styles.imgfooter}`}>
+    <div className={` container-fluid position-relative  ${Styles.imgfooter}`} >
       <div className="container-fluid text-white   p-4  ">
         <div className="row justify-content-center " id={Styles.footerrow}>
-          <div className="col-12 col-md-4  col-lg-3   ">
+          <div className="col-12 col-md-4  col-lg-3 px-0   ">
             <div className="mx-4">
               <h2>Contact</h2>
               <div className="row pt-4 border-top " id={Styles.contactrow}>
@@ -42,35 +42,35 @@ const Footer = () => {
               <div className="pt-4 border-top">
                 <ul className={Styles.ul}>
                   <li>
-                    <Link to={"/"}> Home </Link>
+                    <Link to={'/'}> Home </Link>
                   </li>
-
+                
                   <li>
-                    <Link to={"/"}> About Us </Link>
-                  </li>
-                  <li>
-                    <Link to={"/"}> Services Offered </Link>
+                     <Link to={'/'}> About Us </Link>
                   </li>
                   <li>
-                    <Link to={"/"}> Surgical Aesthetics </Link>
+                     <Link to={'/'}> Services Offered </Link>
                   </li>
                   <li>
-                    <Link to={"/"}> Non - Surgical Assthetics </Link>
+                     <Link to={'/'}> Surgical Aesthetics </Link>
                   </li>
                   <li>
-                    <Link to={"/"}> Dentist </Link>
+                     <Link to={'/'}> Non - Surgical Assthetics </Link>
                   </li>
                   <li>
-                    <Link to={"/"}> For Men </Link>
+                     <Link to={'/'}> Dentist </Link>
                   </li>
                   <li>
-                    <Link to={"/"}> Transportation </Link>
+                     <Link to={'/'}> For Men  </Link>
                   </li>
                   <li>
-                    <Link to={"/"}> Blog </Link>
+                     <Link to={'/'}> Transportation </Link>
                   </li>
                   <li>
-                    <Link to={"/"}> Contact Us </Link>
+                     <Link to={'/'}> Blog </Link>
+                  </li>
+                  <li>
+                     <Link to={'/'}> Contact Us </Link>
                   </li>
                 </ul>
               </div>
@@ -95,7 +95,7 @@ const Footer = () => {
               <h2>NEWSLETTER</h2>
               <div className=" flex pt-4 border-top" id={Styles.iconshover}>
                 <div className=" border border-0 ">
-                  <div className="position-relative">
+                  <div className="position-relative" >
                     <input
                       type="email"
                       placeholder="Enter your Email"
@@ -125,20 +125,21 @@ const Footer = () => {
         </div>
       </div>
       <div className="container-fluid ">
-        <div
-          className="d-flex justify-content-between mx-4 text-white  border-top pt-4"
-          id={Styles.footerlast}
-        >
-          <div>
-            <p>2024 Copy Right Elite Care All Rights Reserved </p>
-          </div>
-          <div>
-            <p>Terms And Condition | Privacy Policy</p>
-          </div>
+      <div className="d-flex justify-content-between mx-4 text-white  border-top pt-4" id={Styles.footerlast}>
+        <div>
+          <p>2024 Copy Right Elite Care All Rights Reserved </p>
+        </div>
+        <div>
+          <p>Terms And Condition | Privacy Policy</p>
         </div>
       </div>
+      </div>
+     
+    
+   
     </div>
   );
 };
 
 export default Footer;
+

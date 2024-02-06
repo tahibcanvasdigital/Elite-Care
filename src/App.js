@@ -13,6 +13,7 @@ import Transportation from "./pages/transportation";
 import Login from "./pages/auth/login";
 import Register from "./pages/auth/register";
 import BookAppointment from "./pages/BookAppointment";
+
 function App() {
   return (
     <Router>
