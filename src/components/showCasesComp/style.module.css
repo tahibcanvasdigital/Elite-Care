@@ -78,14 +78,14 @@
 }
 
 @media only screen and (max-width: 1399px) {
-  .showCaseImg {
+  /* .showCaseImg {
     width: 260px;
-  }
+  } */
 }
 @media only screen and (max-width: 1199px) {
-  .showCaseImg {
+  /* .showCaseImg {
     width: 230px;
-  }
+  } */
 }
 @media only screen and (max-width: 1024px) {
   .title {
@@ -96,9 +96,9 @@
   }
 }
 @media only screen and (max-width: 991px) {
-  .showCaseImg {
+  /* .showCaseImg {
     width: 170px;
-  }
+  } */
 }
 @media only screen and (max-width: 768px) {
   .title {
@@ -106,6 +106,14 @@
   }
   .desc {
     font-size: 17px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .showCaseImg {
+    width: 60%;
+  }
+  .imageContainer {
+    width: 100%;
   }
 }
 @media only screen and (max-width: 478px) {
@@ -122,5 +130,25 @@
   }
   .desc {
     font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .showCase > p {
+    font-size: 18px;
+  }
+  .showCase > p::before {
+    left: 138px;
+    top: 9px;
+    width: 55px;
+  }
+  .showCase > p::after {
+    right: 138px;
+    top: 9px;
+    width: 55px;
+  }
+  .title {
+    font-size: 19px;
+    line-height: 25px;
   }
 }

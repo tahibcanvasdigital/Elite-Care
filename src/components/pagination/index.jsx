@@ -1,7 +1,12 @@
 import React from "react";
 
-import "./style.css"
-const PaginationComponent = ({currentpage , setCurrentpage ,numberpages , numbers}) => {  
+import "./style.css";
+const PaginationComponent = ({
+  currentpage,
+  setCurrentpage,
+  numberpages,
+  numbers,
+}) => {
   const prevpage = () => {
     if (currentpage != 1) {
       setCurrentpage(currentpage - 1);
@@ -20,19 +25,17 @@ const PaginationComponent = ({currentpage , setCurrentpage ,numberpages , number
       <nav>
         <ul className="pagination">
           <li className="page-item">
-            <a className="page-link" onClick={prevpage} >
-              previous
+            <a className="page-link" onClick={prevpage}>
+              Previous
             </a>
           </li>
           {numbers.map((n, i) => (
-            <li
-              className={` ${currentpage === n ? "newactive" : ""}`}
-              key={i}
-            >
+            <li className={`page-item  `} key={i}>
               <a
-                className="page-link"
-                onClick={() => changepage(n)}
-                // href="#"
+                className={`page-link ${
+                  currentpage === parseInt(n, 10) ? "active" : " "
+                } `}
+                onClick={() => changepage(parseInt(n))}
               >
                 {n}
               </a>

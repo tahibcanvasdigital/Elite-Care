@@ -26,18 +26,14 @@ const AppointmentForm = () => {
                 <div className="col-xl-6 col-lg-6 col-md-6">
                   <div className={styles.LineWrapper}>
                     <p className={styles.day}>SATURDAY</p>
-                    <p className={styles.line}>
-                      -------------------------------
-                    </p>
+                    <p className={styles.line}>-------------------------</p>
                     <p className={styles.time}>8am - 5pm</p>
                   </div>
                 </div>
                 <div className="col-xl-6 col-lg-6 col-md-6">
                   <div className={styles.LineWrapper}>
                     <p className={styles.day}>SUNDAY</p>
-                    <p className={styles.line}>
-                      -------------------------------
-                    </p>
+                    <p className={styles.line}>-------------------------</p>
                     <p className={styles.time}>8am - 5pm</p>
                   </div>
                 </div>
@@ -46,18 +42,14 @@ const AppointmentForm = () => {
                 <div className="col-xl-6 col-lg-6 col-md-6">
                   <div className={styles.LineWrapper}>
                     <p className={styles.day}>MONDAY</p>
-                    <p className={styles.line}>
-                      -------------------------------
-                    </p>
+                    <p className={styles.line}>-------------------------</p>
                     <p className={styles.time}>8am - 5pm</p>
                   </div>
                 </div>
                 <div className="col-xl-6 col-lg-6 col-md-6">
                   <div className={styles.LineWrapper}>
                     <p className={styles.day}>TUESDAY</p>
-                    <p className={styles.line}>
-                      -------------------------------
-                    </p>
+                    <p className={styles.line}>-------------------------</p>
                     <p className={styles.time}>8am - 5pm</p>
                   </div>
                 </div>
@@ -66,18 +58,14 @@ const AppointmentForm = () => {
                 <div className="col-xl-6 col-lg-6 col-md-6">
                   <div className={styles.LineWrapper}>
                     <p className={styles.day}>WEDNESDAY</p>
-                    <p className={styles.line}>
-                      -------------------------------
-                    </p>
+                    <p className={styles.line}>-------------------------</p>
                     <p className={styles.time}>8am - 5pm</p>
                   </div>
                 </div>
                 <div className="col-xl-6 col-lg-6 col-md-6">
                   <div className={styles.LineWrapper}>
                     <p className={styles.day}>THURSDAY</p>
-                    <p className={styles.line}>
-                      -------------------------------
-                    </p>
+                    <p className={styles.line}>-------------------------</p>
                     <p className={styles.time}>8am - 5pm</p>
                   </div>
                 </div>
@@ -125,10 +113,14 @@ const AppointmentForm = () => {
                     id="cars"
                     className={styles.inputWrapper3}
                   >
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
+                    <option value="" selected disabled hidden>
+                      Choose here
+                    </option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="4">Four</option>
+                    <option value="5">Five</option>
                   </select>
                 </div>
               </div>

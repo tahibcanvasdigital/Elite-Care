@@ -3,6 +3,7 @@ import Navbar from "../../components/navbar";
 import styles from "./style.module.css";
 import logo from "../../assets/transportation-home.png";
 import TransportationCard from "./transporationCard";
+import Footer from "../../components/footer";
 const Transportation = () => {
   const data = {
     h1: null,
@@ -11,12 +12,13 @@ const Transportation = () => {
     image: logo,
     button: null,
     height: "675px",
-    imgTop: "190px",
+    imgTop: "165px",
   };
   return (
     <>
       <Navbar data={data} />
       <TransportationCard />
+      <Footer />
     </>
   );
 };

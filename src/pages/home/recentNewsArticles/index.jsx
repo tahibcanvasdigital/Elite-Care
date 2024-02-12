@@ -39,7 +39,6 @@ const RecentNewsArticles = () => {
           <div className="col-xl-12- col-lg-12 col-md-12">
             <div className={styles.recentNewsUpperSection}>
               <div className={styles.upperSectionWrapper}>
-                {/* <img src={RecentImg} alt="recent news & articles" /> */}
                 <h4>RECENT NEWS & ARTICLES</h4>
                 <p className={styles.title}>Latest From Blogs</p>
               </div>

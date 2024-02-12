@@ -12,7 +12,7 @@ const Contact = () => {
     image: logo,
     button: null,
     height: "675px",
-    imgTop: "190px",
+    imgTop: "165px",
   };
   return (
     <div>

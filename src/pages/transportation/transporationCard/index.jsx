@@ -44,7 +44,9 @@ const TransportationCard = () => {
             return (
               <div className="col-lg-4 col-md-12 col-sm-12">
                 <div key={item.id} className={styles.cardWrapper}>
-                  <img src={item.img} className="img-fluid" />
+                  <div className={styles.cadImg}>
+                    <img src={item.img} className="img-fluid" />
+                  </div>
                   <div className={styles.cardWrappertxt}>
                     <div className={styles.hdAmt}>
                       <h3>{item.title}</h3>

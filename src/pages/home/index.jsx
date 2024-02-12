@@ -29,7 +29,7 @@ const Homepage = () => {
     image: logo,
     button: "EXPLORE NOW",
     height: "865px",
-    imgTop: "460px",
+    imgTop: "440px",
   };
 
   const showCaseImgs = {

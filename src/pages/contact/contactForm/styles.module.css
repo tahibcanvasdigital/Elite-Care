@@ -1,6 +1,6 @@
 .formSection {
-  margin-top: 6rem;
-  margin-bottom: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 5rem;
 }
 .leftSide > .textWrapper {
   display: flex;
@@ -165,14 +165,33 @@
 
 @media (max-width: 991px) {
   .textWrapper > .heading {
-    font-size: 31px;
+    font-size: 29px;
+    line-height: 40px;
   }
   .textWrapper > .title {
-    font-size: 15px;
+    font-size: 14px;
+    margin-left: 70px;
   }
 
   .title::before {
-    top: 10px;
+    top: 8px;
+    width: 55px;
+  }
+
+  .detailsWrapper > .detailTitle {
+    font-size: 20px;
+  }
+
+  .detailsWrapper > .detailText {
+    font-size: 13px;
+  }
+  .textWrapperCheckbox > p {
+    font-size: 14px;
+
+    margin-top: 16px;
+  }
+  .btnSendMsg {
+    padding: 10px 24px;
   }
 }
 

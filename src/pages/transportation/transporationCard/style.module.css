@@ -2,12 +2,12 @@
   /* background-color: #f0b402; */
   background-position: center;
   background-size: cover;
-  /* padding: 120px 0px; */
+  margin-bottom: 40px;
 }
 
 .packageSec {
   text-align: center;
-  /* color: #fff; */
+  color: #fff;
   margin-bottom: 50px;
 }
 .packageSec h4 {
@@ -22,6 +22,7 @@
   font-size: 68px;
   width: 84%;
   margin: 0 auto;
+  color: black;
 }
 .packageSec h4::before {
   content: "";

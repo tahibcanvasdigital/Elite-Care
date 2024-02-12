@@ -1,11 +1,14 @@
 import styles from "./style.module.css";
 import { HiArrowLongRight } from "react-icons/hi2";
 import { useState } from "react";
-import Retangleblog from "../../../assets/blog-page-img.png";
+import Retangleblog1 from "../../../assets/Rectangle1.png";
+import Retangleblog2 from "../../../assets/Rectangle2.png";
+import Retangleblog3 from "../../../assets/Rectangle3.png";
 import PaginationComponent from "../../../components/pagination";
-// import { HiArrowLongRight } from "react-icons/hi2";
+
 
 import { SlCalender } from "react-icons/sl";
+import { Link } from "react-router-dom";
 
 const BlogPage = () => {
   const date = new Date();
@@ -13,7 +16,7 @@ const BlogPage = () => {
   const todaymonth = date.getMonth();
   const todayyeaer = date.getFullYear();
   const all = `${todaydate} , ${todaymonth} ,  ${todayyeaer}`;
-  console.log(all);
+
   const data = [
     {
       Id: 1,
@@ -102,7 +105,9 @@ const BlogPage = () => {
 
   const numberpages = Math.ceil(data.length / recordPage);
 
-  const numbers = [...Array(numberpages + 1).keys()].slice(1);
+  const numbers = Array.from({ length: numberpages }, (_, index) =>
+    (index + 1).toString().padStart(2, "0")
+  );
 
   return (
     <div className="container">
@@ -143,38 +148,66 @@ const BlogPage = () => {
               <ul>
                 <li>
                   <div className="d-flex justify-content-between">
-                    <div>Plactic Surgery</div>
-                    <div>(14)</div>
+                    <div>
+                      <span>Plactic Surgery</span>
+                    </div>
+                    <div>
+                      <span>(14)</span>
+                    </div>
                   </div>
                 </li>
                 <li>
                   <div className="d-flex justify-content-between">
-                    <div>Liposaction</div>
-                    <div>(12)</div>
+                    <div>
+                      <span>Liposaction</span>
+                    </div>
+                    <div>
+                      <span>(12)</span>
+                    </div>
                   </div>
                 </li>
                 <li>
                   <div className="d-flex justify-content-between">
-                    <div>Breat Implant</div>
-                    <div>(18)</div>
+                    <div>
+                      <span>Breat Implant</span>
+                    </div>
+                    <div>
+                      <span>(18)</span>
+                    </div>
                   </div>
                 </li>
                 <li>
                   <div className="d-flex justify-content-between">
-                    <div>Pender Unity</div>
-                    <div>(8)</div>
+                    <div>
+                      <span>Pender Unity</span>
+                    </div>
+                    <div>
+                      <span>(8)</span>
+                    </div>
                   </div>
                 </li>
                 <li>
                   <div className="d-flex justify-content-between">
-                    <div>Non surgical</div>
-                    <div>(28)</div>
+                    <div>
+                      {" "}
+                      <span>Non surgical</span>
+                    </div>
+                    <div>
+                      {" "}
+                      <span>(28)</span>
+                    </div>
                   </div>
                 </li>
                 <li>
                   <div className="d-flex justify-content-between">
-                    <div>Nose Reshaping</div>
-                    <div>(9)</div>
+                    <div>
+                    
+                      <span>Nose Reshaping</span>
+                    </div>
+                    <div>
+                     
+                      <span>(9)</span>
+                    </div>
                   </div>
                 </li>
               </ul>
@@ -183,30 +216,33 @@ const BlogPage = () => {
           <div className={styles.blog}>
             <h4>LATEST FROM BLOG</h4>
             <div className={styles.latestblog}>
-              <div>
-                <img src={Retangleblog} />
+              <div className={styles.imgagesdiv}>
+                <img src={Retangleblog1} />
               </div>
               <div>
                 <h6>Recapture the beauty self-confidence </h6>
-                <SlCalender /> {all}
+                <SlCalender />
+                <span>{all}</span>
               </div>
             </div>
             <div className={styles.latestblog}>
-              <div>
-                <img src={Retangleblog} />
+              <div className={styles.imgagesdiv}>
+                <img src={Retangleblog2} />
               </div>
               <div>
                 <h6>when you feel good we feel good </h6>
-                <SlCalender /> {all}
+                <SlCalender />
+                <span>{all}</span>
               </div>
             </div>
             <div className={styles.latestblog}>
-              <div>
-                <img src={Retangleblog} />
+              <div className={styles.imgagesdiv}>
+                <img src={Retangleblog3} />
               </div>
               <div>
                 <h6>Refresh your image to beauty </h6>
-                <SlCalender /> {all}
+                <SlCalender />
+                <span>{all}</span>
               </div>
             </div>
           </div>
@@ -214,28 +250,28 @@ const BlogPage = () => {
             <h4>POPULAR TAG</h4>
             <div>
               <span>
-                <a href="#">Cosmetic </a>
+                <Link to="#">Cosmetic </Link>
               </span>
               <span>
-                <a href="#">Non surgical </a>
+                <Link to="#">Non surgical </Link>
               </span>
               <span>
-                <a href="#">Medical </a>
+                <Link to="#">Medical </Link>
               </span>
               <span>
-                <a href="#">Brest implent </a>
+                <Link to="#">Brest implent </Link>
               </span>
               <span>
-                <a href="#">Surgery </a>
+                <Link to="#">Surgery </Link>
               </span>
               <span>
-                <a href="#">Medical </a>
+                <Link to="#">Medical </Link>
               </span>
               <span>
-                <a href="#">Brest implent </a>
+                <Link to="#">Brest implent </Link>
               </span>
               <span>
-                <a href="#">Surgery </a>
+                <Link to="#">Surgery </Link>
               </span>
             </div>
           </div>

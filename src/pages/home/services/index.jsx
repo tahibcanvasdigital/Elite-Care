@@ -66,7 +66,7 @@ const Services = () => {
         </div>
         {/* img section */}
 
-        <div className={`row ${styles.serviceImgWrapper}`}>
+        <div className={`row ${styles.serviceImgWrapperRow}`}>
           {servicesImg &&
             servicesImg.map((item) => {
               return (

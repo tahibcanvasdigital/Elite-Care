@@ -3,6 +3,7 @@ import Navbar from "../../components/navbar";
 import styles from "./style.module.css";
 import logo from "../../assets/blog-home.png";
 import BlogPage from "./blogpage";
+import Footer from '../../components/footer'
 const Blog = () => {
   const data = {
     h1: null,
@@ -17,6 +18,7 @@ const Blog = () => {
     <>
       <Navbar data={data} />
       <BlogPage />
+      <Footer/>
     </>
   );
 };

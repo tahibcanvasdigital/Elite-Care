@@ -34,20 +34,21 @@
   background-color: #fff;
   padding: 1px 0px;
   position: absolute;
-  left: 729px;
+  left: 468px;
   bottom: 195px;
   height: 3px;
   width: 100px;
+  top: 24px;
 }
 .packageSec h4::after {
   content: "";
   background-color: #fff;
   padding: 1px 0px;
   position: absolute;
-  right: 730px;
-  top: 20px;
+  right: 470px;
   height: 3px;
   width: 100px;
+  top: 24px;
 }
 .cardWrapper {
   overflow: hidden;
@@ -78,6 +79,9 @@
 }
 .cardWrappertxt p {
 }
+.cdimg {
+  overflow: hidden;
+}
 
 /* //////////////////////////////// */
 
@@ -92,11 +96,49 @@
     content: "";
     position: absolute;
     right: 640px;
-    top: 20px;
+    /* top: 20px; */
   }
   .packageSec h1 {
     width: 91%;
     margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 1399px) {
+  .packageSec h4::before {
+    left: 385px;
+    /* top: 20px; */
+  }
+  .packageSec h4::after {
+    right: 385px;
+  }
+  .packageSec h1 {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .packageSec h4::before {
+    left: 290px;
+    /* top: 20px; */
+  }
+  .packageSec h4::after {
+    right: 290px;
+  }
+  .packageSec h1 {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 55px;
+  }
+  .cardWrapper img {
+    height: 170px;
+  }
+  .hdAmt h3 {
+    font-size: 30px;
+  }
+  .cardWrappertxt p {
+    font-size: 14px;
   }
 }
 
@@ -128,10 +170,16 @@
 }
 
 @media screen and (max-width: 991px) {
+  .cardWrapper {
+    padding: 15px 0px;
+  }
   .cardWrappertxt {
-    width: 60.8%;
+    /* width: 53.2%; */
     margin: 0 auto;
     border-radius: 0px 0px 10px 10px;
+  }
+  .cardWrapper img:hover {
+    transform: scale(1);
   }
   .cardWrapper {
     margin-bottom: 30px;
@@ -152,6 +200,65 @@
     left: 425px;
     bottom: 132px;
   }
+  .cardWrapper img {
+    transition: transform 2.2s;
+    padding: 0px;
+    width: 370px;
+  }
+  .fristWrapper {
+    padding: 50px 0px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .packageSec h4::before {
+    content: "";
+    position: absolute;
+    left: 80px;
+    bottom: 132px;
+  }
+  .packageSec h4::after {
+    content: "";
+    position: absolute;
+    right: 80px;
+    top: 20px;
+  }
+  .packageSec h1 {
+    font-size: 34px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .cardWrappertxt {
+    /* width: 72%; */
+    margin: 0 auto;
+  }
+  .cdimg > img {
+    width: 900px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .packageSec h4::before {
+    content: "";
+    position: absolute;
+    left: 100px;
+    bottom: 132px;
+  }
+  .packageSec h4::after {
+    content: "";
+    position: absolute;
+    right: 100px;
+    top: 20px;
+  }
+  .cardWrappertxt {
+    /* width: 67%; */
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 530px) {
+  .skincont h4::before {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 520px) {
@@ -167,9 +274,25 @@
     display: none;
   }
   .cardWrappertxt {
-    width: 84.8%;
+    /* width: 74.8%; */
     margin: 0 auto;
     border-radius: 0px 0px 10px 10px;
+  }
+}
+
+@media screen and (max-width: 521px) {
+  .packageSec h1 {
+    font-size: 32px;
+  }
+  .packageSec h4::before {
+    left: 80px;
+  }
+  .packageSec h4::after {
+    right: 80px;
+  }
+  .cardWrappertxt {
+    /* width: 74.5%; */
+    margin: 0 auto;
   }
 }
 
@@ -186,7 +309,28 @@
     width: 335px;
     margin: 0 auto;
   }
+  .cardWrappertxt {
+    /* width: 84.8%; */
+    margin: 0 auto;
+  }
 }
+
+@media screen and (max-width: 421px) {
+  .packageSec h4 {
+    font-size: 32px;
+  }
+  .packageSec h1 {
+    font-size: 23px;
+  }
+  .cardWrapper img {
+    width: 74.2%;
+    margin: 0 auto;
+  }
+  .cdimg > img {
+    width: 400px;
+  }
+}
+
 @media screen and (max-width: 360px) {
   .packageSec h1 {
     font-size: 20px;
@@ -199,5 +343,23 @@
   }
   .cardWrappertxt p {
     font-size: 13px;
+  }
+  .cdimg > img {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .packageSec h1 {
+    font-size: 18px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .cardWrappertxt {
+    /* width: 96.8%; */
+    margin: 0 auto;
+  }
+  .hdAmt h3 {
+    font-size: 30px;
   }
 }
