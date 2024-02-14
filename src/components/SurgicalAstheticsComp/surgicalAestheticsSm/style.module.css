@@ -154,15 +154,22 @@
 
 @media screen and (max-width: 1024px) {
   .cuteImg {
-    left: 110px;
-    top: 60px;
+    left: 70px;
+    top: 40px;
     width: 600px;
   }
 
   .dottedCircle {
     top: 10px;
-    left: 70px;
+    left: 30px;
     width: 700px;
+  }
+  .selectedImg {
+    left: 300px;
+  }
+  .selectedImg > p {
+    /* margin-bottom: 6px !important; */
+    text-align: center;
   }
 }
 
@@ -215,15 +222,33 @@
   .dottedImg {
     width: 10px;
   }
+  .title {
+    font-size: 40px !important;
+  }
 }
-
-@media screen and (max-width: 700px) {
+@media (max-width: 767px) {
+  .dottedCircle {
+    left: 5px;
+    top: 56px;
+    /* width: 350px; */
+  }
+  .cuteImg {
+    left: 47px;
+    top: 89px;
+    /* width: 500px; */
+  }
+  .selectedImg {
+    left: 245px;
+    top: -20px;
+  }
+}
+/* @media screen and (max-width: 700px) {
   .containImage {
     left: calc(1% - 430px);
   }
-}
+} */
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 639px) {
   .title {
     font-size: 25px;
   }
@@ -233,46 +258,59 @@
     height: 300px;
   }
 
-  .cuteImg {
-    left: 110px;
-    top: 60px;
+  /* .cuteImg {
+    left: 70px;
+    top: 56px;
     width: 350px;
   }
 
   .dottedCircle {
     top: 35px;
-    left: 90px;
+    left: 50px;
     width: 400px;
-  }
+  } */
 
-  .containImage {
+  /* .containImage {
     left: calc(1% - 250px);
+  } */
+  .cuteImg {
+    top: 76px;
+    width: 430px;
+    left: 73px;
+  }
+  .dottedCircle {
+    width: 490px;
+    left: 55px;
   }
 
   .selectedImg {
-    top: -20px;
+    top: -22px;
     left: 240px;
   }
 
+  .selectedImg > p {
+    text-align: center;
+    margin-left: 0px;
+  }
   .resImg {
-    width: 70px;
+    width: 90px;
   }
 
-  .dottedImg {
+  /* .dottedImg {
     width: 7px;
-  }
+  } */
 }
 
 @media screen and (max-width: 550px) {
-  .containImage {
+  /* .containImage {
     left: calc(1% - 320px);
-  }
+  } */
 }
 
 @media screen and (max-width: 500px) {
-  .containImage {
+  /* .containImage {
     left: calc(1% - 350px);
-  }
+  } */
 }
 
 @media screen and (max-width: 440px) {
@@ -310,19 +348,31 @@
     width: 6px;
   }
 }
+.selectedImg > p {
+  font-size: 12px;
+}
+.title {
+  font-size: 30px !important;
+}
 
-@media screen and (max-width: 400px) {
+@media (max-width: 400px) {
   .title {
-    font-size: 22px;
+    font-size: 22px !important;
   }
 
   .containImage {
     left: calc(1% - 300px);
+  }
+  .selectedImg > p {
+    font-size: 12px;
   }
 }
 
 @media screen and (max-width: 340px) {
   .containImage {
     left: calc(1% - 320px);
+  }
+  .selectedImg > p {
+    font-size: 11px;
   }
 }

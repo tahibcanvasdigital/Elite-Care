@@ -225,10 +225,12 @@ const Navbar = ({ data }) => {
                     <p className={data.h2 ? styles.titleNav1 : ""}>{data.h2}</p>
                     <p className={data.h3 ? styles.titleNav2 : ""}>{data.h3}</p>
                     {data.button ? (
-                      <button className={styles.navButton}>
-                        {data.button}
-                        <HiOutlineArrowNarrowRight />
-                      </button>
+                      <Link to={"/elite-care/services-offered"}>
+                        <button className={styles.navButton}>
+                          {data.button}
+                          <HiOutlineArrowNarrowRight />
+                        </button>
+                      </Link>
                     ) : (
                       ""
                     )}

@@ -15,7 +15,7 @@ import styles from "./style.module.css";
 const SurgicalAestheticsSm = ({ screenSize }) => {
   const [select, setSelect] = useState({
     id: null,
-    content: "Botox",
+    content: "Eyelid",
     img: Eyelid,
   });
 
@@ -77,18 +77,18 @@ const SurgicalAestheticsSm = ({ screenSize }) => {
         screenSize < 768
           ? screenSize < 640
             ? screenSize < 440
-              ? "140px"
-              : "170px"
-            : "220px"
-          : "240px",
+              ? "128px"
+              : "194px"
+            : "225px"
+          : "202px",
       left:
         screenSize < 768
           ? screenSize < 640
             ? screenSize < 440
-              ? "240px"
-              : "295px"
-            : "380px"
-          : "420px",
+              ? "254px"
+              : "320px"
+            : "338px"
+          : "414px",
     },
     {
       id: 2,
@@ -97,18 +97,18 @@ const SurgicalAestheticsSm = ({ screenSize }) => {
         screenSize < 768
           ? screenSize < 640
             ? screenSize < 440
-              ? "200px"
+              ? "162px"
               : "250px"
-            : "340px"
-          : "390px",
+            : "295px"
+          : "285px",
       left:
         screenSize < 768
           ? screenSize < 640
             ? screenSize < 440
-              ? "260px"
-              : "320px"
-            : "410px"
-          : "470px",
+              ? "240px"
+              : "296px"
+            : "307px"
+          : "380px",
     },
     {
       id: 3,
@@ -117,18 +117,18 @@ const SurgicalAestheticsSm = ({ screenSize }) => {
         screenSize < 768
           ? screenSize < 640
             ? screenSize < 440
-              ? "230px"
-              : "295px"
-            : "395px"
-          : "460px",
+              ? "150px"
+              : "232px"
+            : "270px"
+          : "255px",
       left:
         screenSize < 768
           ? screenSize < 640
-            ? screenSize < 440
-              ? "230px"
-              : "280px"
-            : "355px"
-          : "400px",
+            ? screenSize <= 440
+              ? "251px"
+              : "315px"
+            : "333px"
+          : "410px",
     },
     {
       id: 4,
@@ -137,18 +137,18 @@ const SurgicalAestheticsSm = ({ screenSize }) => {
         screenSize < 768
           ? screenSize < 640
             ? screenSize < 440
-              ? "180px"
-              : "230px"
-            : "300px"
-          : "360px",
+              ? "250px"
+              : "403px"
+            : "470px"
+          : "500px",
       left:
         screenSize < 768
           ? screenSize < 640
             ? screenSize < 440
-              ? "265px"
-              : "325px"
-            : "420px"
-          : "480px",
+              ? "214px"
+              : "245px"
+            : "245px"
+          : "310px",
     },
     {
       id: 5,
@@ -157,18 +157,18 @@ const SurgicalAestheticsSm = ({ screenSize }) => {
         screenSize < 768
           ? screenSize < 640
             ? screenSize < 440
-              ? "178px"
-              : "225px"
-            : "295px"
-          : "345px",
+              ? "222px"
+              : "355px"
+            : "415px"
+          : "425px",
       left:
         screenSize < 768
           ? screenSize < 640
             ? screenSize < 440
-              ? "202px"
-              : "240px"
-            : "295px"
-          : "330px",
+              ? "167px"
+              : "170px"
+            : "160px"
+          : "200px",
     },
     {
       id: 6,
@@ -177,18 +177,18 @@ const SurgicalAestheticsSm = ({ screenSize }) => {
         screenSize < 768
           ? screenSize < 640
             ? screenSize < 440
-              ? "150px"
-              : "190px"
-            : "250px"
-          : "280px",
+              ? "210px"
+              : "330px"
+            : "385px"
+          : "395px",
       left:
         screenSize < 768
           ? screenSize < 640
             ? screenSize < 440
-              ? "205px"
-              : "240px"
-            : "295px"
-          : "330px",
+              ? "258px"
+              : "328px"
+            : "345px"
+          : "425px",
     },
     {
       id: 7,
@@ -197,18 +197,18 @@ const SurgicalAestheticsSm = ({ screenSize }) => {
         screenSize < 768
           ? screenSize < 640
             ? screenSize < 440
-              ? "185px"
-              : "235px"
-            : "310px"
-          : "360px",
+              ? "268px"
+              : "435px"
+            : "505px"
+          : "540px",
       left:
         screenSize < 768
           ? screenSize < 640
             ? screenSize < 440
-              ? "222px"
-              : "265px"
-            : "335px"
-          : "375px",
+              ? "266px"
+              : "341px"
+            : "360px"
+          : "444px",
     },
     {
       id: 8,
@@ -217,18 +217,18 @@ const SurgicalAestheticsSm = ({ screenSize }) => {
         screenSize < 768
           ? screenSize < 640
             ? screenSize < 440
-              ? "202px"
-              : "260px"
-            : "345px"
-          : "400px",
+              ? "243px"
+              : "390px"
+            : "455px"
+          : "490px",
       left:
         screenSize < 768
           ? screenSize < 640
             ? screenSize < 440
-              ? "235px"
-              : "285px"
-            : "370px"
-          : "410px",
+              ? "275px"
+              : "355px"
+            : "377px"
+          : "464px",
     },
   ];
 
@@ -244,7 +244,7 @@ const SurgicalAestheticsSm = ({ screenSize }) => {
   };
   console.log(select);
   return (
-    <div style={{ paddingTop: "100px" }}>
+    <div style={{ paddingTop: "100px", marginBottom: "50px" }}>
       <div className={styles.imageSec}>
         <div className={styles.containImage}>
           {dotImgs.map((item) => (
@@ -269,7 +269,7 @@ const SurgicalAestheticsSm = ({ screenSize }) => {
             className={`position-absolute ${styles.dottedCircle}`}
           />
           <div className={`${styles.selectedImg}`}>
-            <p style={{ width: "400px" }}>{select.content}</p>
+            <p>{select.content}</p>
             <img
               className={styles.resImg}
               style={{ paddingLeft: "10px" }}

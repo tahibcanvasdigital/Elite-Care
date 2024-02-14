@@ -44,30 +44,30 @@ const RecentNewsArticles = () => {
               </div>
             </div>
           </div>
-          <div className={`row ${styles.bottomSection}`}>
-            {cards.map((item) => {
-              return (
-                <div className="col-xl-4 col-lg-4 col-md-4">
-                  <div className={styles.bottomSectionWrapper}>
-                    <div className={styles.cardWrapper}>
-                      <div className={styles.cardImg}>
-                        <img src={item.img} alt="" />
-                      </div>
-                      <div className={styles.cardContentWrapper}>
-                        <p className={styles.date}>{item.date}</p>
-                        <p className={styles.question}>{item.question}</p>
-                        <p className={styles.answer}>{item.answer}</p>
-                        <div className={styles.readMoreWrapper}>
-                          <p>READ MORE</p>
-                          <HiOutlineArrowNarrowRight />
-                        </div>
+        </div>
+        <div className={`row ${styles.bottomSection}`}>
+          {cards.map((item) => {
+            return (
+              <div className="col-xl-4 col-lg-4 col-md-4">
+                <div className={styles.bottomSectionWrapper}>
+                  <div className={styles.cardWrapper}>
+                    <div className={styles.cardImg}>
+                      <img src={item.img} alt="" />
+                    </div>
+                    <div className={styles.cardContentWrapper}>
+                      <p className={styles.date}>{item.date}</p>
+                      <p className={styles.question}>{item.question}</p>
+                      <p className={styles.answer}>{item.answer}</p>
+                      <div className={styles.readMoreWrapper}>
+                        <p>READ MORE</p>
+                        <HiOutlineArrowNarrowRight />
                       </div>
                     </div>
                   </div>
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -17,6 +17,7 @@ import afterImg from "../../assets/dentistAfter.png";
 
 import img1 from "../../assets/face1.png";
 import img2 from "../../assets/face2.png";
+import WhoWeAre from "./whoWeAre";
 
 const About = () => {
   const data = {
@@ -50,7 +51,8 @@ const About = () => {
       <Navbar data={data} />
       <OurMission />
       <Services />
-      <Testimonal />
+      {/* <Testimonal /> */}
+      <WhoWeAre />
       <Portfolio dataportfolio={datatreatment} />
       <ImageComparison topImage={topImage} bottomImage={bottomImage} />
       <Footer />

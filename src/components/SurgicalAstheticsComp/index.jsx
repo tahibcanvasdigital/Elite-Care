@@ -196,7 +196,10 @@ const SurgicalAstheticsComp = () => {
     //   className={!isContainerDisabled ? "container" : ""}
     //   style={{ marginBottom: "600px" }}
     // >
-    <div className={"container"} style={{ marginBottom: "600px" }}>
+    <div
+      className={`container ${styles.surgicalContainerMain}`}
+      style={{ marginBottom: "600px" }}
+    >
       <div className={`row`}>
         <div className="col-xl-12 col-lg-12 col-md-12">
           <div className={styles.upperSection}>
@@ -247,11 +250,11 @@ const SurgicalAstheticsComp = () => {
                 }`}
               >
                 <div className={styles.firstRowWrapperLeft}>
-                  {/* {screenSize > 1280 && ( */}
-                  <span style={{ fontSize: "36px", paddingRight: "30px" }}>
-                    {data[0].content}
-                  </span>
-                  {/* )} */}
+                  {screenSize > 1280 && (
+                    <span style={{ fontSize: "36px", paddingRight: "30px" }}>
+                      {data[0].content}
+                    </span>
+                  )}
 
                   <img src={data[0].img} alt="Botox" />
                 </div>
@@ -265,11 +268,11 @@ const SurgicalAstheticsComp = () => {
               >
                 <div className={styles.firstRowWrapperRight}>
                   <img src={data[1].img} alt="Cheek Filling" />
-                  {/* {screenSize >= 1280 && ( */}
-                  <span style={{ fontSize: "36px", paddingLeft: "30px" }}>
-                    {data[1].content}
-                  </span>
-                  {/* )} */}
+                  {screenSize >= 1280 && (
+                    <span style={{ fontSize: "36px", paddingLeft: "30px" }}>
+                      {data[1].content}
+                    </span>
+                  )}
                 </div>
               </div>
             </div>
@@ -282,11 +285,11 @@ const SurgicalAstheticsComp = () => {
                 }`}
               >
                 <div className={styles.secondRowWrapperLeft}>
-                  {/* {screenSize >= 1280 && ( */}
-                  <span style={{ fontSize: "36px", paddingRight: "30px" }}>
-                    {data[2].content}
-                  </span>
-                  {/* )} */}
+                  {screenSize >= 1280 && (
+                    <span style={{ fontSize: "36px", paddingRight: "30px" }}>
+                      {data[2].content}
+                    </span>
+                  )}
                   <img src={data[2].img} alt="Jaw" />
                 </div>
               </div>
@@ -303,14 +306,14 @@ const SurgicalAstheticsComp = () => {
                     alt="Cheekbone Filling"
                     style={{ paddingLeft: "40px" }}
                   />
-                  {/* {screenSize >= 1280 && ( */}
-                  <span
-                    className="position-absolute"
-                    style={{ fontSize: "36px", paddingLeft: "30px" }}
-                  >
-                    {data[3].content}
-                  </span>
-                  {/* )} */}
+                  {screenSize >= 1280 && (
+                    <span
+                      className="position-absolute"
+                      style={{ fontSize: "36px", paddingLeft: "30px" }}
+                    >
+                      {data[3].content}
+                    </span>
+                  )}
                 </div>
               </div>
             </div>
@@ -323,11 +326,11 @@ const SurgicalAstheticsComp = () => {
                 }`}
               >
                 <div className={styles.thirdRowWrapperLeft}>
-                  {/* {screenSize >= 1280 && ( */}
-                  <span style={{ fontSize: "36px", paddingRight: "30px" }}>
-                    {data[4].content}
-                  </span>
-                  {/* )} */}
+                  {screenSize >= 1280 && (
+                    <span style={{ fontSize: "36px", paddingRight: "30px" }}>
+                      {data[4].content}
+                    </span>
+                  )}
 
                   <img
                     src={data[4].img}
@@ -351,18 +354,18 @@ const SurgicalAstheticsComp = () => {
                     alt="Forehead"
                     className="position-relative"
                   />
-                  {/* {screenSize >= 1280 && ( */}
-                  <span
-                    className="position-absolute"
-                    style={{
-                      fontSize: "36px",
-                      paddingLeft: "30px",
-                      width: "25%",
-                    }}
-                  >
-                    {data[5].content}
-                  </span>
-                  {/* )} */}
+                  {screenSize >= 1280 && (
+                    <span
+                      className="position-absolute"
+                      style={{
+                        fontSize: "36px",
+                        paddingLeft: "30px",
+                        width: "25%",
+                      }}
+                    >
+                      {data[5].content}
+                    </span>
+                  )}
                 </div>
               </div>
             </div>
@@ -375,11 +378,11 @@ const SurgicalAstheticsComp = () => {
                 }`}
               >
                 <div className={styles.fourthRowWrapperLeft}>
-                  {/* {screenSize >= 1280 && ( */}
-                  <span style={{ fontSize: "36px", paddingRight: "30px" }}>
-                    {data[6].content}
-                  </span>
-                  {/* )} */}
+                  {screenSize >= 1280 && (
+                    <span style={{ fontSize: "36px", paddingRight: "30px" }}>
+                      {data[6].content}
+                    </span>
+                  )}
 
                   <img src={data[6].img} alt="Nasal" />
                 </div>
@@ -393,11 +396,11 @@ const SurgicalAstheticsComp = () => {
               >
                 <div className={styles.fourthRowWrapperRight}>
                   <img src={data[7].img} alt="Lip" />
-                  {/* {screenSize >= 1280 && ( */}
-                  <span style={{ fontSize: "36px", paddingLeft: "30px" }}>
-                    {data[7].content}
-                  </span>
-                  {/* )} */}
+                  {screenSize >= 1280 && (
+                    <span style={{ fontSize: "36px", paddingLeft: "30px" }}>
+                      {data[7].content}
+                    </span>
+                  )}
                 </div>
               </div>
             </div>

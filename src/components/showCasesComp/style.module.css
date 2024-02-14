@@ -24,7 +24,7 @@
 
 .showCase > p {
   color: #111;
-
+  font-weight: 600 !important;
   font-size: 20.1px;
   font-style: normal;
   font-weight: 500;

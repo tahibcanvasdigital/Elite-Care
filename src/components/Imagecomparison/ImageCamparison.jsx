@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { ReactComponent as Divider } from "../../assets/divider.svg";
-import styles from "./style.module.css";
+import styles from "./Style.module.css";
 
 const ImageComparison = ({ topImage, bottomImage }) => {
   const [isResizing, setIsResizing] = useState(false);
@@ -8,6 +8,7 @@ const ImageComparison = ({ topImage, bottomImage }) => {
   const handleRef = useRef();
 
   const setPositioning = useCallback((x) => {
+    if (!topImageRef.current) return;
     const { left, width } = topImageRef.current.getBoundingClientRect();
     const handleWidth = handleRef.current.offsetWidth;
 
@@ -32,6 +33,7 @@ const ImageComparison = ({ topImage, bottomImage }) => {
 
   // Set initial positioning on component mount
   useEffect(() => {
+    if (!topImageRef.current) return;
     const { left, width } = topImageRef.current.getBoundingClientRect();
     const handleWidth = handleRef.current.offsetWidth;
 
@@ -49,6 +51,7 @@ const ImageComparison = ({ topImage, bottomImage }) => {
 
   const onKeyDown = useCallback(
     (e) => {
+      if (!handleRef.current) return;
       const { offsetLeft, offsetParent } = handleRef.current;
 
       if (e.code === "ArrowLeft") {

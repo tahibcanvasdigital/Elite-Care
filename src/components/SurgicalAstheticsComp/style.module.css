@@ -1,6 +1,6 @@
 .firstRowWrapperLeft {
   position: absolute;
-  left: 72px;
+  left: 232px;
 }
 .firstRowWrapperRight {
   position: absolute;
@@ -346,20 +346,90 @@
 }
 
 @media (max-width: 1280px) {
-  .firstRowWrapperLeft,
+  .firstRowWrapperLeft {
+    left: 248px;
+  }
   .firstRowWrapperRight {
-    display: none;
+    right: 225px;
   }
-  .secondRowWrapperLeft,
-  .secondRowWrapperRight {
-    display: none;
+  .secondRowWrapperLeft {
+    left: 100px;
   }
-  .thirdRowWrapperLeft,
-  .thirdRowWrapperRight {
-    display: none;
+  .thirdRowWrapperLeft {
+    left: 139px;
+    top: 480px;
   }
-  .fourthRowWrapperLeft,
+  .fourthRowWrapperLeft {
+    top: 397px;
+    left: 290px;
+  }
   .fourthRowWrapperRight {
-    display: none;
+    top: 393px;
+    right: 290px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .dottedCircle {
+    margin-left: -200px !important;
+  }
+  .cuteFaceImg {
+    left: -133px !important;
+    top: 60px;
+  }
+  .dot1 {
+    left: 265px !important;
+  }
+  .dot2 {
+    left: 230px !important;
+  }
+  .dot3 {
+    left: 260px !important;
+  }
+  .dot4 {
+    left: 140px !important;
+  }
+  .dot5 {
+    left: 20px !important;
+  }
+  .dot6 {
+    left: 276px !important;
+  }
+  .dot7 {
+    left: 300px !important;
+  }
+  .dot8 {
+    left: 325px !important;
+  }
+  .firstRowWrapperLeft {
+    left: 158px;
+  }
+  .firstRowWrapperRight {
+    right: 140px;
+  }
+  .secondRowWrapperLeft {
+    left: 10px;
+  }
+  .secondRowWrapperRight {
+    right: 0px !important;
+  }
+  .thirdRowWrapperLeft {
+    left: 59px;
+  }
+  .thirdRowWrapperRight {
+    right: 30px !important;
+  }
+  .fourthRowWrapperLeft {
+    top: 417px;
+    left: 250px;
+  }
+  .fourthRowWrapperRight {
+    top: 423px;
+    right: 250px;
+  }
+}
+@media (max-width: 1024px) {
+  .surgicalContainerMain {
+    margin-bottom: 0 !important;
   }
 }

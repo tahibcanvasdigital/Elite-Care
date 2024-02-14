@@ -20,24 +20,33 @@
 .textdiv h1 {
   font-family: "Antic Didone";
 }
-
-.textdiv h6:before {
-  content: "";
-  background-color: black;
-  position: absolute;
-  left: 420px;
-  top: 10px;
-  height: 1px;
-  width: 6%;
+.textdiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.textdiv h6::after {
+.textdiv > h6 {
+  font-size: 22px;
+  margin-bottom: 15px !important;
+}
+.textdiv > h6:before {
   content: "";
   background-color: black;
   position: absolute;
-  right: 420px;
-  top: 10px;
-  height: 1px;
-  width: 6%;
+  left: 500px !important;
+  top: 12px !important;
+  height: 1.5px !important;
+  width: 5% !important;
+}
+.textdiv > h6::after {
+  content: "";
+  background-color: black;
+  position: absolute;
+  right: 500px !important;
+  top: 12px !important;
+  height: 1.5px !important;
+  width: 5% !important;
 }
 
 .comparison_slider {
@@ -98,7 +107,18 @@
     width: 6%;
   }
 }
-
+@media (max-width: 1399px) {
+  .textdiv > h6::before {
+    left: 430px !important;
+    top: 12px !important;
+    height: 2px !important;
+  }
+  .textdiv > h6::after {
+    right: 430px !important;
+    top: 12px !important;
+    height: 2px !important;
+  }
+}
 @media (max-width: 1366px) {
   .textdiv h6:before {
     content: "";
@@ -119,7 +139,16 @@
     width: 6%;
   }
 }
-@media (max-width: 1024px) {
+
+@media (max-width: 1199px) {
+  .textdiv h6::before {
+    left: 345px !important;
+  }
+  .textdiv h6::after {
+    right: 345px !important;
+  }
+}
+/* @media (max-width: 1024px) {
   .textdiv h6:before {
     content: "";
     background-color: black;
@@ -137,6 +166,20 @@
     top: 10px;
     height: 1px;
     width: 6%;
+  }
+} */
+
+@media (max-width: 991px) {
+  .textdiv > h6 {
+    font-size: 21px;
+  }
+  .textdiv > h6::before {
+    left: 225px !important;
+    width: 50px !important;
+  }
+  .textdiv > h6::after {
+    right: 225px !important;
+    width: 50px !important;
   }
 }
 
@@ -158,6 +201,16 @@
     top: 10px;
     height: 1px;
     width: 6%;
+  }
+}
+@media (max-width: 767px) {
+  .textdiv > h6::before {
+    left: 135px !important;
+    width: 50px !important;
+  }
+  .textdiv > h6::after {
+    right: 135px !important;
+    width: 50px !important;
   }
 }
 @media (max-width: 525px) {
