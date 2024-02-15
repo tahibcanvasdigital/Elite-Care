@@ -51,8 +51,7 @@
   text-align: center;
   text-transform: uppercase;
 }
-.testImgTextWrapper > p > span {
-}
+
 .testimonalHeading {
   font-size: 18px;
   font-weight: 500;
@@ -67,7 +66,7 @@
   height: 2px;
   background-color: black;
   width: 75px;
-  top: 14px;
+  top: 12px;
   left: -87px;
 }
 

@@ -41,9 +41,7 @@
     }
 }
 
-/* #secappointtext {
-  margin-left: 40px;
-} */
+
 #secappointtext h4 {
   font-family: "Inter";
   font-size: 20px;
@@ -53,7 +51,7 @@
 #secappointtext h4::before {
   content: "";
   background-color: #fff;
-  width: 03%;
+  width: 05%;
   height: 1px;
   position: absolute;
   left: -70px;
@@ -65,7 +63,7 @@
 }
 #sec1appoitmentrow p {
   padding-top: 10px;
-  /* border: 2px solid red; */
+
 }
 #sec1appoitmentrow .icon {
   border: 1px solid white;
@@ -91,14 +89,7 @@
   right: 20px!important;
   top: 26px!important;
 }
-/* #btncol button{
-  padding: 25px;
-  margin-left: 40px;
-}
-#rowsec2 button{
-  
-  padding: 3px;
-} */
+
 /*-----------------------------------------------------------------------------------------------------*/
 @media (max-width: 1920px) {
   #sec1appoitmentrow {
@@ -106,6 +97,15 @@
     color: #fff;
     padding-right: 0px;
     margin-top: 190px;
+  }
+  #secappointtext h4::before {
+    content: "";
+    background-color: #fff;
+    width: 05%;
+    height: 1px;
+    position: absolute;
+    left: -70px;
+    top: 10px;
   }
 
   #sec1appoitmentrow #c1{
@@ -142,7 +142,7 @@
   #secappointtext h4::before {
     content: "";
     background-color: #fff;
-    width: 08%;
+    width: 05%;
     height: 1px;
     position: absolute;
     left: -70px;
@@ -202,7 +202,7 @@
       #secappointtext h4::before {
         content: "";
         background-color: #fff;
-        width: 10%;
+        width: 05%;
         height: 1px;
         position: absolute;
         left: -70px;
@@ -253,15 +253,15 @@
     font-family: "Inter";
     font-size: 17px;
     position: relative;
-    left: 80px;
+    left: 50px;
   }
   #secappointtext h4::before {
     content: "";
     background-color: #fff;
-    width: 10%;
+    width: 05%;
     height: 1px;
     position: absolute;
-    left: -70px;
+    left: -40px;
     top: 08px;
   }
   #secappointtext h1 {
@@ -272,10 +272,6 @@
     padding-top: 12px;
    
   }
-  /* #sec1appoitmentrow .icon {
-    padding: 9px;
-    margin-left: 10px;
-  } */
 
  
   #rowsec2 button{
@@ -294,10 +290,7 @@
 }
 /*-----------------------------------------------------------------------------------------------------*/
 @media (max-width: 1340px) {
-  /* #sec1appoitmentrow {
-    margin-top: 90px ;
-       
-      } */
+
       #sec1appoitmentrow {
         background-color: #d4ae3d;
         color: #fff;
@@ -310,17 +303,17 @@
       }
       #secappointtext h4 {
         font-family: "Inter";
-        font-size: 17px;
+        font-size: 15px;
         position: relative;
-        left: 80px;
+        left: 60px;
       }
       #secappointtext h4::before {
         content: "";
         background-color: #fff;
-        width: 10%;
+        width: 05%;
         height: 1px;
         position: absolute;
-        left: -70px;
+        left: -50px;
         top: 10px;
       }
       #secappointtext h1 {
@@ -331,12 +324,6 @@
         padding-top: 12px;
        
       }
-      /* #sec1appoitmentrow .icon {
-        padding: 9px;
-        margin-left: 10px;
-      } */
-    
-     
       #rowsec2 button{
         padding: 14px 50px 22px 30px!important;
         font-size: 13px!important;
@@ -366,17 +353,17 @@
     padding-top: 10px;
   }
   #secappointtext h4 {
-    font-size: 17px;
+    font-size: 15px;
     position: relative;
-    left: 80px;
+    left: 40px;
   }
   #secappointtext h4::before {
     content: "";
     background-color: #fff;
-    width: 7%;
+    width: 05%;
     height: 1px;
     position: absolute;
-    left: -70px;
+    left: -40px;
     top: 10px;
   }
   #secappointtext h1 {
@@ -417,18 +404,18 @@
     padding-top: 10px;
   }
   #secappointtext h4 {
-    font-size: 17px;
+    font-size: 14px;
     position: relative;
-    left: 80px;
+    left: 50px;
   }
   #secappointtext h4::before {
     content: "";
     background-color: #fff;
-    width: 7%;
+    width: 06%;
     height: 1px;
     position: absolute;
-    left: -70px;
-    top: 10px;
+    left: -40px;
+    top: 08px;
   }
   #secappointtext h1 {
     font-family: "Antic Didone";
@@ -474,7 +461,7 @@
   #secappointtext h4::before {
     content: "";
     background-color: #fff;
-    width: 8%;
+    width: 05%;
     height: 1px;
     position: absolute;
     left: -40px;
@@ -521,7 +508,7 @@
   }
   #secappointtext h4 {
     font-family: "Inter";
-    font-size: 16px;
+    font-size: 12px;
     position: relative;
     left: 40px;
   }
@@ -581,7 +568,7 @@
   #secappointtext h4::before {
     content: "";
     background-color: #fff;
-    width: 8%;
+    width: 6%;
     height: 1px;
     position: absolute;
     left: -50px;
@@ -632,15 +619,15 @@
     font-family: "Inter";
     font-size: 13px;
     position: relative;
-    left: 80px;
+    left: 60px;
   }
   #secappointtext h4::before {
     content: "";
     background-color: #fff;
-    width: 12%;
+    width: 08%;
     height: 1px;
     position: absolute;
-    left: -70px;
+    left: -60px;
     top: 08px;
   }
   #secappointtext h1 {
@@ -685,15 +672,15 @@
     font-family: "Inter";
     font-size: 17px;
     position: relative;
-    left: 80px;
+    left: 40px;
   }
   #secappointtext h4::before {
     content: "";
     background-color: #fff;
-    width: 16%;
+    width: 07%;
     height: 1px;
     position: absolute;
-    left: -70px;
+    left: -40px;
     top: 08px;
   }
   #secappointtext h1 {

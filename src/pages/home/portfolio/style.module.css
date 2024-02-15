@@ -1,10 +1,7 @@
-#sec1main {
-  /* height: 850px; */
-}
+
 #sec1row {
   background-color: #d4ae3d;
   color: #fff;
-  /* height: 570px !important; */
   margin-bottom: -40px;
   padding: 50px 20px;
 }
@@ -42,14 +39,7 @@
   transform: scale(1.2);
   -webkit-backface-visibility: hidden;
 }
-/* #sec2main #maskimage1{
-    position: absolute;
-    top: 10%;
-} */
-/* #sec2main #maskimage3{
-    position: absolute;
-    top: 10%;
-} */
+
 #secportfoliotext h4::before {
   content: "";
   background-color: #fff;
@@ -170,6 +160,18 @@
     position: relative;
     margin-bottom: -125px;
   }
+  #secportfoliotext h4{
+    margin-left: -20px;
+  }
+  #secportfoliotext h4::before {
+    content: "";
+    background-color: #fff;
+    width: 06%;
+    height: 1px;
+    position: absolute;
+    left: -50px;
+    top: 10px;
+  }
 }
 /*-----------------------------------------------------------------------------------------------------*/
 @media (max-width: 1340px) {
@@ -199,13 +201,17 @@
     font-size: 18px;
     padding-top: 20px;
   }
+  #secportfoliotext h4{
+    margin-left: -10px;
+    font-size: 17px;
+  }
   #secportfoliotext h4::before {
     content: "";
     background-color: #fff;
-    width: 7%;
+    width: 06%;
     height: 1px;
     position: absolute;
-    left: -60px;
+    left: -50px;
     top: 10px;
   }
  
@@ -263,13 +269,17 @@
     font-size: 18px;
     padding-top: 20px;
   }
+  #secportfoliotext h4{
+    margin-left: -10px;
+    font-size: 17px;
+  }
   #secportfoliotext h4::before {
     content: "";
     background-color: #fff;
-    width: 7%;
+    width: 06%;
     height: 1px;
     position: absolute;
-    left: -60px;
+    left: -50px;
     top: 10px;
   }
 
@@ -327,14 +337,18 @@
     font-size: 13px;
     padding-top: 20px;
   }
+  #secportfoliotext h4{
+    margin-left: -40px;
+    font-size: 14px;
+  }
   #secportfoliotext h4::before {
     content: "";
     background-color: #fff;
-    width: 7%;
+    width: 06%;
     height: 1px;
     position: absolute;
-    left: -60px;
-    top: 10px;
+    left: -30px;
+    top: 08px;
   }
 
   #sec2main #maskimage1 {
@@ -400,14 +414,18 @@
     font-size: 13px;
     padding-top: 20px;
   }
+  #secportfoliotext h4{
+    margin-left: -40px;
+    font-size: 14px;
+  }
   #secportfoliotext h4::before {
     content: "";
     background-color: #fff;
-    width: 7%;
+    width: 06%;
     height: 1px;
     position: absolute;
-    left: -60px;
-    top: 10px;
+    left: -30px;
+    top: 08px;
   }
 
   #sec2main #maskimage1 {
@@ -469,14 +487,18 @@
     font-size: 13px;
     padding-top: 20px;
   }
+  #secportfoliotext h4{
+    margin-left: -10px;
+    font-size: 14px;
+  }
   #secportfoliotext h4::before {
     content: "";
     background-color: #fff;
-    width: 7%;
+    width: 06%;
     height: 1px;
     position: absolute;
-    left: -60px;
-    top: 10px;
+    left: -50px;
+    top: 08px;
   }
   #col1{
 margin-bottom: 20px;
@@ -537,16 +559,19 @@ margin-bottom: 20px;
     font-size: 13px;
     padding-top: 20px;
   }
+  #secportfoliotext h4{
+    margin-left: -10px;
+    font-size: 14px;
+  }
   #secportfoliotext h4::before {
     content: "";
     background-color: #fff;
-    width: 7%;
+    width: 06%;
     height: 1px;
     position: absolute;
-    left: -60px;
-    top: 10px;
+    left: -50px;
+    top: 08px;
   }
-
  
   #sec2main #maskimage1 {
     width: 100%;
@@ -613,14 +638,18 @@ margin-bottom: 20px;
     font-size: 13px;
     padding-top: 20px;
   }
+  #secportfoliotext h4{
+    margin-left: -10px;
+    font-size: 12px;
+  }
   #secportfoliotext h4::before {
     content: "";
     background-color: #fff;
-    width: 7%;
+    width: 08%;
     height: 1px;
     position: absolute;
-    left: -60px;
-    top: 10px;
+    left: -50px;
+    top: 08px;
   }
 
  
