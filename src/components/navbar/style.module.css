@@ -1,9 +1,3 @@
-/* .navContainer {
-  background-image: url("../../assets/homebgmain.png");
-  background-size: cover;
-  height: 865px;
-  background-repeat: no-repeat;
-} */
 .upperText svg {
   transition: 0.7s;
 }
@@ -19,8 +13,7 @@
   color: #d4ae3d;
   transform: translateY(-10px) rotate(-35deg);
 }
-.newNavbarRowWrapper {
-}
+
 .navContainer {
   height: 865px;
 }
