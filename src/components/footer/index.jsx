@@ -130,7 +130,7 @@ const Footer = () => {
           <p>2024 Copy Right Elite Care All Rights Reserved </p>
         </div>
         <div>
-          <p>Terms And Condition | Privacy Policy</p>
+          <p > <span > <Link style={{color:"white"}}  to={'/elite-care/termsandcondition'}> Terms And Condition </Link> </span> | <span> <Link style={{color:"white"}} to={'/elite-care/privacypolicy'}> Privacy Policy </Link></span></p>
         </div>
       </div>
       </div>

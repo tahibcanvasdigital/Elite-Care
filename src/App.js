@@ -13,7 +13,9 @@ import Transportation from "./pages/transportation";
 import Login from "./pages/auth/login";
 import Register from "./pages/auth/register";
 import BookAppointment from "./pages/BookAppointment";
-
+import TermsAndCondition from './pages/termsandcondition'
+import Privacaypolicy from './pages/privacaypolicy'
+import Profile from "./pages/myProfile/index";
 function App() {
   return (
     <Router>
@@ -43,6 +45,9 @@ function App() {
           path="/elite-care/book-appointment"
           element={<BookAppointment />}
         />
+        <Route path="/elite-care/termsandcondition" element={<TermsAndCondition />} />
+        <Route path="/elite-care/privacypolicy" element={<Privacaypolicy />} />
+        <Route path="/elite-care/profile" element={<Profile />} />
       </Routes>
     </Router>
   );
