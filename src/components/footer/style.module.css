@@ -134,6 +134,9 @@ input::placeholder {
   
  
 }
+#footerrow .ul{
+  padding-left: 17px;
+}
 #iconshover svg{
   transition: 0.7s;
 }
@@ -167,7 +170,7 @@ input::placeholder {
     line-height: 6px;
   }
   #footerrow .ul{
-    padding-left: 08px;
+    padding-left: 18px;
   }
   
   input::placeholder {
@@ -180,7 +183,7 @@ input::placeholder {
   }
   #footerlast p {
     font-family: "Inter";
-    font-size: 8px;
+    font-size: 18px;
   }
 }
 /*-----------------------------------------------------------------------------------------------------*/
@@ -242,7 +245,7 @@ input::placeholder {
     line-height: 6px;
   }
   #footerrow .ul{
-    padding-left: 08px;
+    padding-left: 18px;
   }
   
   input::placeholder {
@@ -259,35 +262,26 @@ input::placeholder {
   }
 }
 /*-----------------------------------------------------------------------------------------------------*/
-@media (max-width: 1024px) {}
-/*-----------------------------------------------------------------------------------------------------*/
-@media (max-width: 840px) {
-  #footerrow {
-    padding-top: 01%;
-  }
+@media (max-width: 1024px) {
   #footerrow h2 {
-    font-family: "Antic Didone";
-  
-    font-size: 27px;
+    font-size: 25px;
   }
   #footerrow h4 {
-    font-family: "Inter";
-  
-    font-size: 18px;
-    line-height: 25px;
+    font-size: 10px;
+    line-height: 26px;
     font-weight: bold;
   }
   #footerrow p {
-    font-family: "Inter";
-    font-size: 14px;
+ 
+    font-size: 12px;
+    margin-left: 13px;
   }
   #footerrow .ul a {
-    font-family: "Inter";
   
-    line-height: 8px;
+    line-height: 6px;
   }
   #footerrow .ul{
-    padding-left: 20px;
+    padding-left: 18px;
   }
   
   input::placeholder {
@@ -297,13 +291,72 @@ input::placeholder {
   .ul a {
     text-decoration: none;
     color: #fff;
+    font-size: 13px;
   }
   #footerlast p {
     font-family: "Inter";
-    font-size: 10px;
+    font-size: 8px;
   }
-
+  #contactrow #icons svg{
+    
+  width: 14px;
+  }
+  #contactrow div{
+    padding: 0px;
+  }
+  #footerrow div{
+    padding: 0px;
+  }
 }
+/*-----------------------------------------------------------------------------------------------------*/
+@media (max-width: 840px) {
+  #footerrow h2 {
+    font-size: 25px;
+  }
+  #footerrow h4 {
+    font-size: 10px;
+    line-height: 26px;
+    font-weight: bold;
+  }
+  #footerrow p {
+ 
+    font-size: 12px;
+    margin-left: 13px;
+  }
+  #footerrow .ul a {
+  
+    line-height: 6px;
+  }
+  #footerrow .ul{
+    padding-left: 18px;
+  }
+  
+  input::placeholder {
+    color: #fff;
+  }
+  
+  .ul a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 13px;
+  }
+  #footerlast p {
+    font-family: "Inter";
+    font-size: 8px;
+  }
+  #contactrow #icons svg{
+    
+  width: 14px;
+  }
+  #contactrow div{
+    padding: 0px;
+  }
+  #footerrow div{
+    padding: 0px;
+  }
+}
+
+
 /*-----------------------------------------------------------------------------------------------------*/
 @media (max-width: 768px) {
   #footerrow h2 {
@@ -324,7 +377,7 @@ input::placeholder {
     line-height: 6px;
   }
   #footerrow .ul{
-    padding-left: 08px;
+    padding-left: 18px;
   }
   
   input::placeholder {

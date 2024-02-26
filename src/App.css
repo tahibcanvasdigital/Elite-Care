@@ -4,8 +4,8 @@
 :root {
   --text: #fff;
   --BlackText: #000;
-  --fontAntic: "Antic Didone", serif;
-  --inter: "Inter", sans-serif;
+  --Antic: "Antic Didone", serif;
+  --Inter: "Inter", sans-serif;
 }
 
 #root {
