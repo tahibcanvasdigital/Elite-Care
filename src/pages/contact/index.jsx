@@ -4,6 +4,7 @@ import logo from "../../assets/ContactUs.png";
 import ContactForm from "./contactForm";
 import Footer from "../../components/footer";
 import Navbar from "../../components/navbar";
+
 const Contact = () => {
   const data = {
     h1: null,
@@ -14,6 +15,7 @@ const Contact = () => {
     height: "675px",
     imgTop: "165px",
   };
+
   return (
     <div>
       <Navbar data={data} />

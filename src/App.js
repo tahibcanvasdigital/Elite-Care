@@ -16,10 +16,20 @@ import BookAppointment from "./pages/BookAppointment";
 import TermsAndCondition from './pages/termsandcondition'
 import Privacaypolicy from './pages/privacaypolicy'
 import Profile from "./pages/myProfile/index";
+// Dashboard Routes
+import Layout from "./pages/dashboard/Layout";
+import Doctors from "./pages/dashboard/doctor/index";
+import AddFormdoc from "./pages/dashboard/doctor/AddForm";
+import AddFormser from "./pages/dashboard/services/AddForm";
+import Service from "./pages/dashboard/services/index";
+import Dashboardview from "./pages/dashboard/dashboardview/Dashboardview";
+import ViewFormdoc from "./pages/dashboard/doctor/ViewForm";
+import ViewFormser from "./pages/dashboard/services/ViewFrom";
 function App() {
   return (
     <Router>
       <Routes>
+        {/* Web Routes */}
         <Route path="/elite-care" element={<Home />} />
         <Route path="/elite-care/about-us" element={<About />} />
         <Route
@@ -48,6 +58,16 @@ function App() {
         <Route path="/elite-care/termsandcondition" element={<TermsAndCondition />} />
         <Route path="/elite-care/privacypolicy" element={<Privacaypolicy />} />
         <Route path="/elite-care/profile" element={<Profile />} />
+        {/*  Dashboard Routes */}
+        <Route path="/elite-care/dashboard" element={<Layout />}>
+          <Route index element={<Dashboardview />} />
+          <Route path="/elite-care/dashboard/doctors" element={<Doctors />} />
+          <Route path="/elite-care/dashboard/addformdoc" element={<AddFormdoc />} />
+          <Route path="/elite-care/dashboard/services" element={<Service />} />
+          <Route path="/elite-care/dashboard/addformser" element={<AddFormser />} />
+          <Route path="/elite-care/dashboard/viewformdoc/:id" element={<ViewFormdoc />} />
+          <Route path="/elite-care/dashboard/viewformser/:id" element={<ViewFormser />} />
+        </Route>
       </Routes>
     </Router>
   );

@@ -1,0 +1,82 @@
+
+.sidebar{
+    background-color: #000;
+    color: white;
+    height: 100vh !important;
+    width: 300px;
+   
+}
+.top_section{
+    display: flex;
+    align-items: center;
+    padding: 30px 15px;
+}
+.logo{
+    font-size: 25px;
+}
+.bars{
+    display: flex;
+    font-size: 25px;
+    margin-left:  220px;
+    color: #fff;
+}
+.link{
+    display: flex;
+    color: white;
+    padding: 10px 15px;
+    gap: 15px;
+    transition: all 0.5s;
+    /* margin-top: 10px; */
+    /* margin: 10px; */
+}
+
+
+.link:hover{
+    background: lightskyblue;
+    color: #000;
+    transition: all 0.5s;
+
+}
+/* .active{
+    background: lightskyblue;
+    color: #000;
+    
+} */
+.icon, .link_text{
+    font-size: 20px;
+}
+.padd{
+    display: flex;
+    margin: 0;
+    padding-left: calc(var(--bs-gutter-x) * 0);
+    padding: 0px;
+  
+}
+.header{
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    padding: 20px;
+
+}
+.abc{
+    width: 100%;
+}
+.btn_doc button{
+background-color: black;
+margin-top: 20px;
+padding: 10px;
+color: #fff;
+border-radius: 05px;
+float: right;
+margin-right: 10px;
+}
+.tab{
+    margin-top: 30px;
+}
+.main{
+    background-color: #000;
+    height: 100vh !important;
+}
+
+
