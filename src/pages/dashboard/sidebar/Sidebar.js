@@ -5,32 +5,52 @@ import { NavLink } from "react-router-dom";
 import { screenSet } from "../../../global/features/Dashboard/screensize/ScreenSlice";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { selectIsMenuOpen, toggleMenu } from "../../../global/features/Dashboard/screenmenu/MenuSlice";
-import { FaServicestack } from "react-icons/fa";
-import { FaUserDoctor } from "react-icons/fa6";
+import { FaServicestack, FaUserCheck } from "react-icons/fa";
+import { FaUserDoctor, FaBriefcaseMedical } from "react-icons/fa6";
+import { BiSolidContact } from "react-icons/bi";
+
+
 import Style from '../style.module.css'
 
 const Sidebar = () => {
   const data = [
     {
       title: "Dashboard",
-      path: "/elite-care/dashboard",
+      path: "elite-care/dashboard/home",
       icon: <MdDashboard />,
     },
     {
       title: "Doctors",
-      path: "/elite-care/dashboard/doctors",
+      path: "elite-care/dashboard/doctors",
       icon: <FaUserDoctor />,
     },
     {
       title: "Services",
-      path: "/elite-care/dashboard/Services",
+      path: "elite-care/dashboard/services",
       icon: <FaServicestack />,
+    },
+    {
+      title: "Users",
+      path: "elite-care/dashboard/users",
+      icon: <FaUserCheck />,
+    },
+
+    {
+      title: "Contact Us",
+      path: "elite-care/dashboard/contactus",
+      icon: <BiSolidContact />,
+    },
+    {
+      title: "Appointments",
+      path: "elite-care/dashboard/appointments",
+      icon: <FaBriefcaseMedical />,
     },
   ]
   const disptach = useDispatch();
 
   const isMenuOpen = useSelector(selectIsMenuOpen);
   const { screensize } = useSelector((state) => state.screen);
+  console.log(screensize);
 
   useEffect(() => {
     const handlesize = () => disptach(screenSet(window.innerWidth));
@@ -63,10 +83,13 @@ const Sidebar = () => {
         {
           data.map((items, index) => (
             <NavLink
-              to={items.path}
+              to={`/${items.path}`}
               key={index}
-              className={Style.link}
-              activeclassName={Style.active}
+              // className={Style.link}
+              className={({ isActive }) =>
+                isActive ? `${Style.active} ${Style.link}` : ` ${Style.link}`
+              }
+
               data-toggle="tooltip" data-placement="right" title={items.title}
             >
               <div className={Style.icon}>{items.icon}</div>
@@ -79,6 +102,7 @@ const Sidebar = () => {
             </NavLink>
           ))}
       </div>
+
     </div>
   );
 };
