@@ -19,6 +19,14 @@ const LoginForm = () => {
   // Login Handler
   const loginHandler = () => {
     dispatch(loginSliceApi(loginValues)); 
+    if(success == true){
+      toast.success(message,{
+        position:"top-center"
+      })
+    }
+    else{
+      toast.error(errorMessage,{position:"top-center"})
+    }
   };
   
   useEffect(() => {
@@ -26,7 +34,9 @@ const LoginForm = () => {
     if (success == true) {
         navigate('/elite-care/dashboard/home',{state:data})
         // window.location.href = '/elite-care/dashboard/home'
+
     }
+    
     
 }, [loginHandler]);
   

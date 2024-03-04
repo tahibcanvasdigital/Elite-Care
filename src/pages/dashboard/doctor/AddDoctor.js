@@ -1,22 +1,23 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 // import { CreateDocotor } from "../../../global/features/Dashboard/createdoctor/DoctorSlice";
 import MultiSelect from "../../../components/dropdown/Dropdown";
 import Sidebar from "../sidebar/Sidebar";
 import Headers from "../header/Headers";
+import { createDoctorApi } from "../../../global/features/Dashboard/Doctors/createDoctor";
+import { toast } from "react-toastify";
 
 const AddDoctor = () => {
-  const [doctor, getsetdoctor] = useState({});
+
   const dispatch = useDispatch();
-  const getdata = (e) => {
-    getsetdoctor({ ...doctor, [e.target.name]: e.target.value });
-  };
+  const { success, message } = useSelector((value) => value.createDoctor)
   const options = ["Dentsist", "Surgical", "Therapist", "MBBS", "Neurologist", "Cardiologist", "Orthopedic Surgeon"];
+
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [doctorValues, setDoctorValues] = useState({
     name: '',
     email: '',
-    serviceOffered: selectedOptions,
+    serviceOffered: null,
     availableTime: [],
     doctorImg: null
   })
@@ -25,6 +26,7 @@ const AddDoctor = () => {
 
   const handleChange = (newSelectedOptions) => {
     setSelectedOptions(newSelectedOptions);
+    console.log(newSelectedOptions);
   };
   //dropend
 
@@ -36,11 +38,37 @@ const AddDoctor = () => {
 
   const handlesubmit = (e) => {
     e.preventDefault();
-    console.log(doctor);
-    // dispatch(CreateDocotor(doctor));
-  };
+    dispatch(createDoctorApi({
+      name: doctorValues.name,
+      email: doctorValues.email,
+      serviceOffered: selectedOptions,
+      availableTime: doctorValues.availableTime,
+      doctorImg: doctorValues.doctorImg
+    }))
+    setDoctorValues({
+      name: '',
+      email: '',
+      serviceOffered: null,
+      availableTime: '',
+      doctorImg: null
+    })
+    setSelectedOptions([null])
 
-  console.log(doctorValues);
+  };
+  console.log(doctorValues.name.length);
+  useEffect(() => {
+    if (success) {
+      toast.success(message, {
+        position: "top-center"
+      })
+    } else if (success == null) { return; }
+    else {
+      toast.error(message, {
+        position: "top-center"
+      })
+    }
+  }, [success])
+
   return (
     <div className="d-flex">
       <div>

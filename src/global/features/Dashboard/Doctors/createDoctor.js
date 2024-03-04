@@ -9,11 +9,11 @@ export const createDoctorApi = createAsyncThunk("createDoctorApi", async (body) 
 
     console.log(token, "body", body);
     const formData = new FormData()
-    formData.append('name', body.serviceName);
-    formData.append('email', body.description);
-    formData.append('serviceOffered', body.serviceImg);
-    formData.append('availableTime', body.price);
-    formData.append('doctorImg', body.pageName);
+    formData.append('name', body.name);
+    formData.append('email', body.email);
+    formData.append('serviceOffered', body.serviceOffered);
+    formData.append('availableTime', body.availableTime);
+    formData.append('doctorImg', body.doctorImg);
 
     try {
         const response = await fetch(`${constants.baseUrl}api/doctor`, {
@@ -37,7 +37,9 @@ const createDoctor = createSlice({
     initialState: {
         isLoading: false,
         isError: false,
-        data: null
+        data: null,
+        success: null,
+        message: ''
     },
     extraReducers: (builder) => {
         builder
@@ -46,7 +48,9 @@ const createDoctor = createSlice({
             })
             .addCase(createDoctorApi.fulfilled, (state, action) => {
                 state.isLoading = false
-                state.data = action.payload
+                state.data = action.payload.data
+                state.success = action.payload.success
+                state.message = action.payload.message
             })
             .addCase(createDoctorApi.rejected, (state, action) => {
                 state.isError = true

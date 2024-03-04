@@ -1,13 +1,27 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-// import { CreateDocotor } from "../../../global/features/Dashboard/createdoctor/DoctorSlice";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import MultiSelect from "../../../components/dropdown/Dropdown";
 import Sidebar from "../sidebar/Sidebar";
 import Headers from "../header/Headers";
+import Style from '../style.module.css'
+import { useParams } from "react-router-dom";
+import { selectdoctor } from "../../../global/features/Dashboard/getdoctorSlice/Getdoctor";
+import { viewdoctor, viewdoctors } from "../../../global/features/Dashboard/getdoctorSlice/Viewdoctor";
 
 const ViewDoctor = () => {
-  const [doctor, getsetdoctor] = useState({});
+
+  const { id } = useParams()
+  console.log(id);
   const dispatch = useDispatch();
+  const data = useSelector(viewdoctor);
+  console.log(data);
+
+  useEffect(() => {
+    dispatch(viewdoctors(id))
+  }, [dispatch])
+  const [doctor, getsetdoctor] = useState({});
+
   const getdata = (e) => {
     getsetdoctor({ ...doctor, [e.target.name]: e.target.value });
   };
@@ -24,12 +38,11 @@ const ViewDoctor = () => {
   const handlesubmit = (e) => {
     e.preventDefault();
     console.log(doctor);
-    // dispatch(CreateDocotor(doctor));
   };
   return (
     <div className="d-flex">
 
-      <div className="">
+      <div className={Style.sidecolor}>
         <Sidebar />
       </div>
       <div className=" w-100 my-[120px]">
@@ -45,6 +58,7 @@ const ViewDoctor = () => {
                 type="text"
                 name="name"
                 class="form-control"
+                value={data.data.data?.name}
                 id="name"
                 onChange={getdata}
                 aria-describedby="emailHelp"
@@ -58,6 +72,7 @@ const ViewDoctor = () => {
                 type="email"
                 name="email"
                 class="form-control"
+                value={data.data.data?.email}
                 onChange={getdata}
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
@@ -79,6 +94,7 @@ const ViewDoctor = () => {
                 name="availabletime"
                 onChange={getdata}
                 class="form-control"
+                value={data.data.data?.availableTime}
                 id=" available-time"
               />
             </div>
@@ -92,6 +108,7 @@ const ViewDoctor = () => {
                 type="file"
                 id="formFile"
                 name="image"
+
                 onChange={getdata}
               />
             </div>

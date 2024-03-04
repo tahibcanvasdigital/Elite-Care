@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Sidebar from "../sidebar/Sidebar";
 import Headers from "../header/Headers";
-import { createServiceApi } from "../../../global/features/Webapp/Services/createService";
+import { createServiceApi } from "../../../global/features/Dashboard/Services/createService";
 import { toast } from "react-toastify";
 
 const AddService = () => {
@@ -37,7 +37,7 @@ const AddService = () => {
     setServiceValues({
       serviceName: '',
       description: '',
-      serviceImg: null,
+      serviceImg: '',
       price: '',
       pageName: ''
     })
@@ -49,13 +49,13 @@ const AddService = () => {
       toast.success(message, {
         position: "top-center"
       })
-    }
+    } else if (success == null) { return; }
     else {
       toast.error(message, {
         position: "top-center"
       })
     }
-  }, [handlesubmit])
+  }, [success])
   return (
     <div className="d-flex">
       <div>
@@ -132,6 +132,7 @@ const AddService = () => {
                 id="formFile"
                 name="image"
                 onChange={imageHandler}
+
 
               />
             </div>

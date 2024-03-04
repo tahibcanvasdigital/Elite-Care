@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-// import { Createservice } from "../../../global/features/Dashboard/createService/ServiceSlice";
+import useSWR from 'swr'
 import MultiSelect from "../../../components/dropdown/Dropdown";
 import Sidebar from "../sidebar/Sidebar";
 import Headers from "../header/Headers";
-
+import Style from '../style.module.css'
+import { useParams } from "react-router-dom";
 const ViewService = () => {
+  const { id } = useParams()
+  console.log(id);
   const [service, getsetservice] = useState({});
   const dispatch = useDispatch();
-  const getdata = (e) => {
-    getsetservice({ ...service, [e.target.name]: e.target.value });
-  };
+  // const getdata = (e) => {
+  //   getsetservice({ ...service, [e.target.name]: e.target.value });
+  // };
 
   //dropdown
   const options = ["Option 1", "Option 2", "Option 3", "Option 4"];
@@ -26,9 +29,14 @@ const ViewService = () => {
     console.log(service);
     // dispatch(Createservice(service));
   };
+
+  const fetcher = (...args) => fetch(...args).then(res => res.json())
+  const { data, error, isLoading } = useSWR(`http://localhost:8080/api/services/${id}`, fetcher)
+  const serviceData = data?.data
+  console.log(serviceData);
   return (
     <div className="d-flex">
-      <div>
+      <div className={Style.sidecolor}>
         <Sidebar />
       </div>
       <div className=" w-100 my-[120px]">
@@ -45,8 +53,9 @@ const ViewService = () => {
                 name="serviceName"
                 class="form-control"
                 id="name"
-                onChange={getdata}
+                // onChange={getdata}
                 aria-describedby="emailHelp"
+                value={serviceData?.serviceName}
               />
             </div>
             <div class="mb-3">
@@ -57,7 +66,8 @@ const ViewService = () => {
                 type="text"
                 name="description"
                 class="form-control"
-                onChange={getdata}
+                // onChange={getdata}
+                value={serviceData?.description}
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
               />
@@ -70,7 +80,8 @@ const ViewService = () => {
               <input
                 type="text"
                 name="price"
-                onChange={getdata}
+                // onChange={getdata}
+                value={serviceData?.price}
                 class="form-control"
                 id=" available-time"
               />
@@ -82,7 +93,9 @@ const ViewService = () => {
               <input
                 type="text"
                 name="pageName"
-                onChange={getdata}
+                // onChange={getdata}
+                value={serviceData?.pageName
+                }
                 class="form-control"
                 id=" available-time"
               />
@@ -97,7 +110,8 @@ const ViewService = () => {
                 type="file"
                 id="formFile"
                 name="image"
-                onChange={getdata}
+              // onChange={getdata}
+              // value={serviceData.image}
               />
             </div>
 

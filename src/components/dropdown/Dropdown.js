@@ -25,7 +25,7 @@ const MultiSelect = ({ options, onChange }) => {
 
   return (
     <div className="custom-multiselect">
-      <div className={Style.selected-options} onClick={toggleDropdown}>
+      <div className={Style.selected - options} onClick={toggleDropdown}>
         {selectedOptions.length > 0 ? (
           selectedOptions.join(', ')
         ) : (
@@ -38,7 +38,7 @@ const MultiSelect = ({ options, onChange }) => {
           {options.map((option) => (
             <div
               key={option}
-              className={`option ${selectedOptions.includes(option) ? 'selected' : ''}`}
+              className={`option ${selectedOptions.includes(option) ? `${Style.selected}` : ''}`}
               onClick={() => handleOptionClick(option)}
             >
               {option}
