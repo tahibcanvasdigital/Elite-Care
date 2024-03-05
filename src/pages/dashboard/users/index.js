@@ -1,157 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../sidebar/Sidebar";
 import Headers from "../header/Headers";
 import Style from "../style.module.css";
 import { Link } from "react-router-dom";
 import PaginationComponent from "../../../components/pagination";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getusers,
+  selectusers,
+} from "../../../global/features/Dashboard/usersSlice/Getusers";
 
 const Users = () => {
-  const data = [
-    {
-      id: "1",
-      name: "john",
-      email: "john@gmail.com",
-      service: ["abc", "acbc", "adad"],
-      time: "12:00 oClock",
-    },
-    {
-      name: "john",
-      id: "2",
-      email: "john@gmail.com",
-      service: ["abc", "acbc", "adad"],
-      time: "12:00 oClock",
-    },
-    {
-      id: "3",
-      name: "john",
-      email: "john@gmail.com",
-      service: ["abc", "acbc", "adad"],
-      time: "12:00 oClock",
-    },
-    {
-      id: "4",
-      name: "aalex",
-      email: "aalex@gmail.com",
-      service: ["abc", "acbc", "adad"],
-      time: "12:00 oClock",
-    },
+  const dispatch = useDispatch();
+  const data = useSelector(selectusers);
 
-    {
-      id: "5",
-      name: "aalex",
-      email: "aalex@gmail.com",
-      service: ["abc", "acbc", "adad"],
-      time: "12:00 oClock",
-    },
-    {
-      id: "6",
-      name: "aaalexli",
-      email: "aalex@gmail.com",
-      service: ["abc", "acbc", "adad"],
-      time: "12:00 oClock",
-    },
-
-    {
-      id: "7",
-      name: "aalex",
-      email: "ahed@gmail.com",
-      service: ["abc", "acbc", "adad"],
-      time: "12:00 oClock",
-    },
-    {
-      id: "8",
-      name: "john",
-      email: "john@gmail.com",
-      service: ["abc", "acbc", "adad"],
-      time: "12:00 oClock",
-    },
-
-    {
-      id: "9",
-      name: "john",
-      email: "john@gmail.com",
-      service: ["abc", "acbc", "adad"],
-      time: "12:00 oClock",
-    },
-    {
-      id: "10",
-      name: "john",
-      email: "john@gmail.com",
-      service: ["abc", "acbc", "adad"],
-      time: "12:00 oClock",
-    },
-    {
-      id: "11",
-      name: "john",
-      email: "john@gmail.com",
-      service: ["abc", "acbc", "adad"],
-      time: "12:00 oClock",
-    },
-    {
-      name: "john",
-      id: "12",
-      email: "john@gmail.com",
-      service: ["abc", "acbc", "adad"],
-      time: "12:00 oClock",
-    },
-    {
-      id: "13",
-      name: "john",
-      email: "john@gmail.com",
-      service: ["abc", "acbc", "adad"],
-      time: "12:00 oClock",
-    },
-    {
-      id: "14",
-      name: "aalex",
-      email: "aalex@gmail.com",
-      service: ["abc", "acbc", "adad"],
-      time: "12:00 oClock",
-    },
-
-    {
-      id: "15",
-      name: "aalex",
-      email: "aalex@gmail.com",
-      service: ["abc", "acbc", "adad"],
-      time: "12:00 oClock",
-    },
-    {
-      id: "16",
-      name: "aaalexli",
-      email: "aalex@gmail.com",
-      service: ["abc", "acbc", "adad"],
-      time: "12:00 oClock",
-    },
-
-    {
-      id: "17",
-      name: "aalex",
-      email: "ahed@gmail.com",
-      service: ["abc", "acbc", "adad"],
-      time: "12:00 oClock",
-    },
-    {
-      id: "18",
-      name: "john",
-      email: "john@gmail.com",
-      service: ["abc", "acbc", "adad"],
-      time: "12:00 oClock",
-    },
-
-    {
-      id: "19",
-      name: "john",
-      email: "john@gmail.com",
-      service: ["abc", "acbc", "adad"],
-      time: "12:00 oClock",
-    },
-  ];
   const [currentpage, setCurrentpage] = useState(1);
   const recordPage = 10;
   const lastindex = currentpage * recordPage;
   const firstindex = lastindex - recordPage;
-  const records = data.slice(firstindex, lastindex);
+  let records = data.data.data?.results?.slice(firstindex, lastindex);
 
   const numberpages = Math.ceil(data.length / recordPage);
 
@@ -159,9 +26,14 @@ const Users = () => {
     (index + 1).toString().padStart(2, "0")
   );
 
+
+  useEffect(() => {
+    dispatch(getusers());
+  }, [dispatch]);
+
   return (
     <div className="d-flex">
-      <div>
+      <div className={Style.sidecolor}>
         <Sidebar />
       </div>
       <div className="w-100">
@@ -175,24 +47,24 @@ const Users = () => {
             >
               <thead>
                 <tr>
-                  <th scope="col">id</th>
+                  <th scope="col">S .NO</th>
                   <th scope="col">Name</th>
                   <th scope="col">Email</th>
-                  <th scope="col">Service</th>
-                  <th scope="col">Time</th>
+                  <th scope="col">gender</th>
+                  <th scope="col">appoinmentApproval</th>
                   <th scope="col">VIEW</th>
                 </tr>
               </thead>
-              {records.map((item, index) => (
+              {records?.map((item, index) => (
                 <tbody key={index}>
                   <tr>
-                    <th scope="row">{item.id}</th>
+                    <th scope="row">{index + 1}</th>
                     <td>{item.name}</td>
                     <td>{item.email}</td>
-                    <td>{item.service}</td>
-                    <td>{item.time}</td>
+                    <td>{item.gender}</td>
+                    <td>{item.appoinmentApproval ? "Yes" : "No"}</td>
                     <td>
-                      <Link to={"/elite-care/dashboard/viewusers/14141313"}>
+                      <Link to={`/elite-care/dashboard/viewusers/${item._id}`}>
                         view
                       </Link>
                     </td>
@@ -201,14 +73,12 @@ const Users = () => {
               ))}
             </table>
             <PaginationComponent
-            currentpage={currentpage}
-            setCurrentpage={setCurrentpage}
-            numberpages={numberpages}
-            numbers={numbers}
-          />
+              currentpage={currentpage}
+              setCurrentpage={setCurrentpage}
+              numberpages={numberpages}
+              numbers={numbers}
+            />
           </div>
-
-    
         </div>
       </div>
     </div>

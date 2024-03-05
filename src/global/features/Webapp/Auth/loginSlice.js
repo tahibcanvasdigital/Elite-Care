@@ -45,7 +45,8 @@ const loginSlice = createSlice({
         role: null,
         isDeleted: null,
         refreshToken: null,
-        errorMessage: null
+        errorMessage: null,
+        errorTrue: null
     },
     extraReducers: (builder) => {
         builder
@@ -70,7 +71,9 @@ const loginSlice = createSlice({
             })
             .addCase(loginSliceApi.rejected, (state, action) => {
                 state.isError = true
-                state.errorMessage = action?.error?.message
+                state.success = false
+                state.errorTrue = false
+                state.message = action?.error?.message
             })
     }
 })

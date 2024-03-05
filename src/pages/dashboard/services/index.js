@@ -5,14 +5,15 @@ import Sidebar from "../sidebar/Sidebar";
 import Headers from "../header/Headers";
 import useSWR from 'swr'
 import PaginationComponent from "../../../components/pagination";
+import Loader from "../../../components/Loader";
 const Service = () => {
   const fetcher = (...args) => fetch(...args).then(res => res.json())
   const { data, error, isLoading } = useSWR('http://localhost:8080/api/services', fetcher)
   const serviceData = data?.data
-  console.log(serviceData);
+  console.log(serviceData, isLoading);
 
   const [currentpage, setCurrentpage] = useState(1);
-  const recordPage = 10;
+  const recordPage = 5;
   const lastindex = currentpage * recordPage;
   const firstindex = lastindex - recordPage;
   // const records = data.slice(firstindex, lastindex);
@@ -39,6 +40,7 @@ const Service = () => {
         </div>
         <div className="container mt-4   ">
           <h1> Services </h1>
+
           <table style={{ width: '100%' }} className={`table  table-responsive table-striped table-bordered table-hover ${Style.tables} }`}>
             <thead>
               <tr>
@@ -50,35 +52,30 @@ const Service = () => {
                 <th scope="col">VIEW</th>
               </tr>
             </thead>
-            {/* {
-          records.map((item,index)=>(
-          <tbody key={index}>
-            <tr>
-              <th scope="row">{item.id}</th>
-              <td>{item.name}</td>
-              <td>{item.email}</td>
-              <td>{item.service}</td>
-              <td>{item.time}</td>
-              <td><Link to={'/elite-care/dashboard/viewservice/14141313'}>view</Link></td>
-            </tr>
-            </tbody>
-          ))
-        } */}
             {
-              serviceData && serviceData.map((item) => {
-                return (
-                  <tbody >
-                    <tr key={item._id}>
-                      <th scope="row">{item._id}</th>
-                      <td>{item.serviceName}</td>
-                      <td>{item.description}</td>
-                      <td>${item.price}</td>
-                      <td><Link to={`/elite-care/dashboard/viewservice/${item._id}`}>View</Link></td>
-                    </tr>
-                  </tbody>
+              isLoading ?
+                (
+                  <div className={Style.loader} > <Loader /></div>
                 )
-              })
+                :
+                (
+                  serviceData && serviceData.map((item) => {
+                    return (
+                      <tbody >
+                        <tr key={item._id}>
+                          <th scope="row">{item._id}</th>
+                          <td>{item.serviceName}</td>
+                          <td>{item.description}</td>
+                          <td>${item.price}</td>
+                          <td><Link to={`/elite-care/dashboard/viewservice/${item._id}`}>View</Link></td>
+                        </tr>
+                      </tbody>
+                    )
+                  })
+                )
+
             }
+
           </table>
           <div>
             <PaginationComponent
