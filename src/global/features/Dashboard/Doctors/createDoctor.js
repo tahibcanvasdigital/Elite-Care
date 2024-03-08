@@ -7,7 +7,6 @@ export const createDoctorApi = createAsyncThunk("createDoctorApi", async (body) 
     const user = JSON.parse(localStorage.getItem('user'));
     let token = user.data?.refreshToken
 
-    console.log(token, "body", body);
     const formData = new FormData()
     formData.append('name', body.name);
     formData.append('email', body.email);
@@ -24,7 +23,6 @@ export const createDoctorApi = createAsyncThunk("createDoctorApi", async (body) 
             body: formData
         })
         const result = await response.json();
-        console.log("resultsssssssssss", result)
         return result;
 
     } catch (error) {

@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const getdoctors = createAsyncThunk("doctors/getdoctors", async () => {
-  let Url = await fetch("http://localhost:8080/api/doctor", {
+  let Url = await fetch("https://flutterapi.testdevlink.net/elite-care-db/api/doctor", {
     method: "GET",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: JSON.stringify(),

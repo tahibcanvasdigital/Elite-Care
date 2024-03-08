@@ -31,6 +31,14 @@ import ViewAppoitment from "./pages/dashboard/appointment/ViewAppoitment";
 import ViewContact from "./pages/dashboard/contactus/ViewContact";
 import ViewUser from "./pages/dashboard/users/ViewUser";
 
+import Blogs from "./pages/dashboard/blog";
+import Addblog from "./pages/dashboard/blog/Addblog";
+import Viewblogs from "./pages/dashboard/blog/Viewblogs";
+import Category from "./pages/dashboard/category";
+import AddCategory from "./pages/dashboard/category/AddCategory";
+import ViewCategory from "./pages/dashboard/category/ViewCategory";
+
+
 function App() {
   const user = JSON.parse(localStorage.getItem('user'));
   console.log("User", user);
@@ -112,6 +120,12 @@ function App() {
                 path="/elite-care/dashboard/viewusers/:id"
                 element={<ViewUser />}
               />
+                       <Route path="/elite-care/dashboard/blogs" element={<Blogs />}/>
+         <Route path="/elite-care/dashboard/addblogs" element={<Addblog />}/>
+         <Route path="/elite-care/dashboard/viewblogs/:id" element={<Viewblogs />}/>
+         <Route path="/elite-care/dashboard/category" element={<Category />}/>
+         <Route path="/elite-care/dashboard/addcategory" element={<AddCategory />}/>
+         <Route path="/elite-care/dashboard/viewcategory/:id" element={<ViewCategory />}/>
             </>
           )
             : (

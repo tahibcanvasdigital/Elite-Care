@@ -2,6 +2,8 @@
   "name": "elitecare",
   "version": "0.1.0",
   "homepage": "https://flutterapi.testdevlink.net/elite-care",
+  "proxy":"https://flutterapi.testdevlink.net/elite-care",
+  
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",

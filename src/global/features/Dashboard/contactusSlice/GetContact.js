@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const getcontact = createAsyncThunk("getcontact", async () => {
   const token =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWQ3MzE1NzJiZjczMjE3YWZlYWYzZGIiLCJpYXQiOjE3MDkxMTI4MTAsImV4cCI6MTcwOTcxNzYxMH0.zK0fHyXlPXYhIjgB3AAJBWvIUbYyxqyDFOZJ977hHlw"
-  let Url = await fetch("http://localhost:8080/api/contactus", {
+  let Url = await fetch("https://flutterapi.testdevlink.net/elite-care-db/api/contactus", {
     method: "GET",
     headers: { "Content-Type": "application/x-www-form-urlencoded ", 'Authorization': `Bearer ${token}`, },
     body: JSON.stringify(),

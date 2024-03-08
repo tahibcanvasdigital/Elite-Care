@@ -22,7 +22,7 @@ const Doctors = () => {
   const recordPage = 10;
   const lastindex = currentpage * recordPage;
   const firstindex = lastindex - recordPage;
-  const records = data?.data.data?.slice();
+  const records = data?.data.data?.results?.slice();
 
   const numberpages = Math.ceil(data?.length / recordPage);
 
@@ -63,10 +63,10 @@ const Doctors = () => {
               <tbody key={index}>
                 <tr>
                   <th scope="row">{item.id}</th>
-                  <td>{item.name}</td>
-                  <td>{item.email}</td>
-                  <td>{item.serviceOffered[0]?.serviceName}</td>
-                  <td>{item.availableTime}</td>
+                  <td>{item?.name}</td>
+                  <td>{item?.email}</td>
+                  <td>{item?.serviceOffered[0]?.serviceName}</td>
+                  <td>{item?.availableTime}</td>
                   <td>
                     <Link to={`/elite-care/dashboard/viewdoctor/${item._id}`}>view</Link>
                   </td>

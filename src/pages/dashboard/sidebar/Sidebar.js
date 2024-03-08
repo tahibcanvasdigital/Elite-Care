@@ -29,11 +29,11 @@ const Sidebar = () => {
       path: "elite-care/dashboard/services",
       icon: <FaServicestack />,
     },
-    {
-      title: "Users",
-      path: "elite-care/dashboard/users",
-      icon: <FaUserCheck />,
-    },
+    // {
+    //   title: "Users",
+    //   path: "elite-care/dashboard/users",
+    //   icon: <FaUserCheck />,
+    // },
 
     {
       title: "Contact Us",
@@ -43,6 +43,11 @@ const Sidebar = () => {
     {
       title: "Appointments",
       path: "elite-care/dashboard/appointments",
+      icon: <FaBriefcaseMedical />,
+    },
+    {
+      title: "Blogs",
+      path: "elite-care/dashboard/blogs",
       icon: <FaBriefcaseMedical />,
     },
   ]
@@ -81,7 +86,7 @@ const Sidebar = () => {
           </div>
         </div>
         {
-          data.map((items, index) => (
+          data?.map((items, index) => (
             <NavLink
               to={`/${items.path}`}
               key={index}
