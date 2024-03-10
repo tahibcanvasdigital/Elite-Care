@@ -1,57 +1,76 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Sidebar from '../sidebar/Sidebar'
 import Headers from '../header/Headers'
 import style from './style.module.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { createCategoryApi } from '../../../global/features/Dashboard/categorySlice/createCategory'
+import { toast } from 'react-toastify'
 // import { Postcategory } from '../../../global/features/Dashboard/categorySlice/Addcategory'
 
 const AddCategory = () => {
-    const [category, getsetcategory] = useState({});
-    const dispatch = useDispatch();
-    const getdata = (e) => {
-        getsetcategory({ ...category, [e.target.name]: e.target.value });
-    };
-  
+  const [category, setCategory] = useState({
+    name: ''
+  });
+  const dispatch = useDispatch();
+  const { success, message } = useSelector((value) => value.createCategorySlice)
 
-  
-    const handlesubmit = (e) => {
-      e.preventDefault();
-      
-      console.log(category);
-    
+
+
+  const handlesubmit = (e) => {
+    e.preventDefault();
+    dispatch(createCategoryApi(category))
+  }
+  useEffect(() => {
+    if (success == true) {
+      toast.success(message, {
+        position: 'top-center'
+      })
+      setCategory({
+        name: ''
+      })
     }
-    console.log(category);
+    else if (success == null) {
+      return;
+    }
+    else {
+      toast.error(message, {
+        position: 'top-center'
+      })
+    }
+  }, [success])
+  console.log(category);
   return (
     <div className="d-flex">
-    <div className={style.sidecolor}>
-      <Sidebar/>
+      <div className={style.sidecolor}>
+        <Sidebar />
+      </div>
+      <div className=" w-100 my-[120px]">
+        <Headers />
+        <div className="mx-4">
+          <h1>Create Category</h1>
+          <form onSubmit={handlesubmit}>
+            <div class="mb-3">
+              <label for="name" class="form-label">
+                Name
+              </label>
+              <input
+                type="name"
+                name="name"
+                class="form-control"
+                id="name"
+                onChange={(e) => setCategory({ ...category, name: e.target.value })}
+                value={category.name}
+                aria-describedby="emailHelp"
+              />
+            </div>
+            <button type="submit" class="btn btn-dark">
+              Submit
+            </button>
+          </form>
+        </div>
+
+      </div>
     </div>
-    <div className=" w-100 my-[120px]">
-      <Headers/>
-      <div className="mx-4">
-      <h1>Create Category</h1>
-    <form onSubmit={handlesubmit}>
-      <div class="mb-3">
-        <label for="name" class="form-label">
-          Name
-        </label>
-        <input
-          type="name"
-          name="name"
-          class="form-control"
-          id="name"
-          onChange={getdata}
-          aria-describedby="emailHelp"
-        />
-      </div>
-      <button type="submit" class="btn btn-dark">
-        Submit
-      </button>
-    </form>
-      </div>
-  
-  </div>
-  </div>
   )
 }
 

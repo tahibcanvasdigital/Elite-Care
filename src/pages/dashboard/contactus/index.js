@@ -21,7 +21,7 @@ const ContactUs = () => {
   const recordPage = 10;
   const lastindex = currentpage * recordPage;
   const firstindex = lastindex - recordPage;
-  const records = data.data.data?.results?.slice(firstindex, lastindex);
+  const records = data?.data?.data?.results?.results.slice(firstindex, lastindex);
 
   const numberpages = Math.ceil(data.length / recordPage);
 

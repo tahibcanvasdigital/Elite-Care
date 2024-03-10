@@ -9,9 +9,10 @@ import ViewdoctorSlice from './features/Dashboard/getdoctorSlice/Viewdoctor';
 import ViewUsersSlice from './features/Dashboard/usersSlice/Getusers'
 import GetSContactSlice from './features/Dashboard/contactusSlice/GetContact'
 import GetBlogs from "./features/Dashboard/blogsSlice/GetBlogs";
-import GetCategorySlice  from "./features/Dashboard/categorySlice/Getgcategory";
-import ViewCategorySlice  from "./features/Dashboard/categorySlice/Viewcategory";
+import getAllCategoriesSlice from "./features/Dashboard/categorySlice/getAllCategories";
+import ViewCategorySlice from "./features/Dashboard/categorySlice/Viewcategory";
 import createBlog from './features/Dashboard/blogsSlice/createBlog';
+import createCategorySlice from './features/Dashboard/categorySlice/createCategory'
 
 // Web app Slices
 import getServicesSlice from './features/Webapp/Services/getServicesSlice';
@@ -31,14 +32,15 @@ export const store = configureStore({
         createService: createService,
         viewusers: ViewUsersSlice,
         contactus: GetSContactSlice,
-        blogs:GetBlogs,
-        category:GetCategorySlice,
-        viewcategory:ViewCategorySlice,
-        createBlog:createBlog,
+        blogs: GetBlogs,
+        viewcategory: ViewCategorySlice,
+        createBlog: createBlog,
+        getAllCategoriesSlice: getAllCategoriesSlice,
+        createCategorySlice: createCategorySlice,
         // WebAPP slices
         getServicesSlice: getServicesSlice,
         loginSlice: loginSlice,
         signUpSlice: signUpSlice,
-        createAppointmentSlice:createAppointmentSlice
+        createAppointmentSlice: createAppointmentSlice
     },
 })

@@ -1,11 +1,20 @@
+.loaderContainer {
+    width: 90%;
+    height: 70vh;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    display: flex;
+}
+
 .svg {
     width: 3.25em;
     transform-origin: center;
     animation: rotate4 2s linear infinite;
     /* text-align: center; */
-   }
-   
-   .circle {
+}
+
+.circle {
     fill: none;
     stroke: hsl(214, 97%, 59%);
     stroke-width: 2;
@@ -13,27 +22,26 @@
     stroke-dashoffset: 0;
     stroke-linecap: round;
     animation: dash4 1.5s ease-in-out infinite;
-   }
-   
-   @keyframes rotate4 {
+}
+
+@keyframes rotate4 {
     100% {
-     transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-   }
-   
-   @keyframes dash4 {
+}
+
+@keyframes dash4 {
     0% {
-     stroke-dasharray: 1, 200;
-     stroke-dashoffset: 0;
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
     }
-   
+
     50% {
-     stroke-dasharray: 90, 200;
-     stroke-dashoffset: -35px;
+        stroke-dasharray: 90, 200;
+        stroke-dashoffset: -35px;
     }
-   
+
     100% {
-     stroke-dashoffset: -125px;
+        stroke-dashoffset: -125px;
     }
-   }
-   
+}

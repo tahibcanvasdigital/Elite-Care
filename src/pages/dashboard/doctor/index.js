@@ -23,7 +23,8 @@ const Doctors = () => {
   const lastindex = currentpage * recordPage;
   const firstindex = lastindex - recordPage;
   const records = data?.data.data?.results?.slice();
-
+  const isSuccess = data?.data?.success
+  console.log(isSuccess);
   const numberpages = Math.ceil(data?.length / recordPage);
 
   const numbers = Array.from({ length: numberpages }, (_, index) =>
@@ -59,6 +60,9 @@ const Doctors = () => {
                 <th scope="col">VIEW</th>
               </tr>
             </thead>
+            {
+
+            }
             {records?.map((item, index) => (
               <tbody key={index}>
                 <tr>

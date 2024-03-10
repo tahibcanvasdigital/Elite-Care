@@ -5,8 +5,9 @@ import useSWR from 'swr'
 const Services = () => {
 
   const fetcher = (...args) => fetch(...args).then(res => res.json())
-  const { data, error, isLoading } = useSWR('http://localhost:8080/api/services', fetcher)
-  const serviceData = data?.data
+  const { data, error, isLoading } = useSWR('https://flutterapi.testdevlink.net/elite-care-db/api/services', fetcher)
+  const serviceData = data?.data?.results?.results
+  console.log(serviceData);
 
   return (
     <section className={styles.servicesWrapper}>

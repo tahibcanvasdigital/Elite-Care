@@ -38,11 +38,11 @@ const ViewCategory = () => {
                       <div className={style.profiletext}>
                         <div className="">
                           <h5>Name :</h5>
-                          <p>{data.data?.name}</p>
+                          <p>{data?.name}</p>
                         </div>
                         <div>
                           <h5>Date / Time</h5>
-                          <p>{data.data?.createdAt}</p>
+                          <p>{data?.createdAt}</p>
                         </div>
                       </div>
                     </div>

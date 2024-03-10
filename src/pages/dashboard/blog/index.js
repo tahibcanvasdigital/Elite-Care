@@ -20,7 +20,7 @@ const Blogs = () => {
   const recordPage = 10;
   const lastindex = currentpage * recordPage;
   const firstindex = lastindex - recordPage;
-  const records = data?.data?.results.slice(firstindex, lastindex);
+  const records = data?.data?.results?.results.slice(firstindex, lastindex);
 
   const numberpages = Math.ceil(data?.length / recordPage);
 
@@ -40,24 +40,45 @@ const Blogs = () => {
             <button>Add Blogs</button>
           </Link>
         </div>
-        {
-           loading ? <Loader/> :  <div className="container mt-4   ">
-           <h1> Blogs </h1>
-           <table
-             style={{ width: "100%" }}
-             className={`table  table-responsive table-striped table-bordered table-hover ${styles.tables} }`}
-           >
-             <thead>
-               <tr>
-                 <th scope="col">S .NO</th>
-                 <th scope="col">Title</th>
-                 <th scope="col">Description</th>
-                 <th scope="col">Category</th>
-                 <th scope="col">Time</th>
-                 <th scope="col">VIEW</th>
-               </tr>
-             </thead>
-             {records?.map((item, index) => (
+
+        {/* //  loading ? <Loader/> :  <div className="container mt-4   "> */}
+        <h1> Blogs </h1>
+        <table
+          style={{ width: "100%" }}
+          className={`table  table-responsive table-striped table-bordered table-hover ${styles.tables} }`}
+        >
+          <thead>
+            <tr>
+              <th scope="col">S .NO</th>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+              <th scope="col">Category</th>
+              <th scope="col">Time</th>
+              <th scope="col">VIEW</th>
+            </tr>
+          </thead>
+
+          {
+            loading ? <Loader /> : (
+              records?.map((item, index) => (
+                <tbody key={index}>
+                  <tr>
+                    <th scope="row">{index + 1}</th>
+                    <td>{item.title}</td>
+                    <td>{item.description}</td>
+                    <td>{item.category.name}</td>
+                    <td>{item.createdAt}</td>
+                    <td>
+                      <Link to={`/elite-care/dashboard/viewblogs/${item._id}`}>
+                        view
+                      </Link>
+                    </td>
+                  </tr>
+                </tbody>
+              ))
+            )
+          }
+          {/* {records?.map((item, index) => (
                <tbody key={index}>
                  <tr>
                    <th scope="row">{index + 1}</th>
@@ -72,21 +93,21 @@ const Blogs = () => {
                    </td>
                  </tr>
                </tbody>
-             ))}
-           </table>
-           <div>
-             <PaginationComponent
-               currentpage={currentpage}
-               setCurrentpage={setCurrentpage}
-               numberpages={numberpages}
-               numbers={numbers}
-             />
-           </div>
-         </div>
-        }
-      
+             ))} */}
+        </table>
+        <div>
+          <PaginationComponent
+            currentpage={currentpage}
+            setCurrentpage={setCurrentpage}
+            numberpages={numberpages}
+            numbers={numbers}
+          />
+        </div>
       </div>
+
+
     </div>
+
   );
 };
 

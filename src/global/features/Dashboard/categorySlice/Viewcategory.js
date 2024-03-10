@@ -1,30 +1,33 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { constants } from "../../../constants";
 
 export const viewcategory = createAsyncThunk("viewcategory", async (id) => {
-    try {
-        const token = 
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWQ3MzE1NzJiZjczMjE3YWZlYWYzZGIiLCJpYXQiOjE3MDk3Mjk5MDAsImV4cCI6MTcxMDMzNDcwMH0.ffWZ6IMnLHX_pllWBqmk2oiS02MINrBmLdnR9u0rbi0"
-      let Url = await fetch(`http://localhost:8080/api/category/${id}`, {
-        method: "GET",
-        headers: { "Content-Type": "application/x-www-form-urlencoded " ,   'Authorization':`Bearer ${token}`, },
-        body: JSON.stringify(),
-      });
-    
-      let result = await Url.json();
-        console.log(result);
-      return result;
-        
-    } catch (error) {
-        console.log(error.message)
-        
-    }
-   
+  try {
+
+    const user = JSON.parse(localStorage.getItem('user'));
+    let token = user.data?.refreshToken
+
+    let Url = await fetch(`${constants.baseUrl}api/category/${id}`, {
+      method: "GET",
+      headers: { "Content-Type": "application/x-www-form-urlencoded ", 'Authorization': `Bearer ${token}`, },
+      // body: JSON.stringify(),
+    });
+
+    let result = await Url.json();
+    console.log(result);
+    return result;
+
+  } catch (error) {
+    console.log(error.message)
+
+  }
+
 });
 
 export const ViewCategorySlice = createSlice({
   name: "viewcategory",
   initialState: {
-    data: [],
+    data: null,
     loading: false,
   },
   extraReducers: (builder) => {
@@ -35,7 +38,7 @@ export const ViewCategorySlice = createSlice({
       })
       .addCase(viewcategory.fulfilled, (state, action) => {
         state.loading = false;
-        state.data = action.payload;
+        state.data = action.payload.data;
       })
       .addCase(viewcategory.rejected, (state, action) => {
         state.loading = false;

@@ -19,6 +19,11 @@ const LoginForm = () => {
     confirmPassword: "",
     gender: "",
   });
+
+  // Data from LocalStorage
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log("userrrrrrr", user);
+
   const navigate = useNavigate();
   const { success, message, errorTrue } = useSelector(
     (value) => value.loginSlice
@@ -33,31 +38,33 @@ const LoginForm = () => {
 
   // SignUp Handler
 
-  const signupHandler = () => {
-    dispatch(
-      signUpApi({
-        name: signUpValue.name,
-        email: signUpValue.email,
-        password: signUpValue.password,
-        confirmPassword: signUpValue.confirmPassword,
-        gender: signUpValue.gender,
-      })
-    );
-    setSignUpValue({
-      name: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-      gender: "",
-    });
-  };
+  // const signupHandler = () => {
+  //   dispatch(
+  //     signUpApi({
+  //       name: signUpValue.name,
+  //       email: signUpValue.email,
+  //       password: signUpValue.password,
+  //       confirmPassword: signUpValue.confirmPassword,
+  //       gender: signUpValue.gender,
+  //     })
+  //   );
+  //   setSignUpValue({
+  //     name: "",
+  //     email: "",
+  //     password: "",
+  //     confirmPassword: "",
+  //     gender: "",
+  //   });
+  // };
+
+
   // SignIn UseEffect
   useEffect(() => {
     if (success == true || errorTrue == true) {
       toast.success(message, {
         position: "top-center",
       });
-      navigate('/elite-care/dashboard/home')
+      navigate('/elite-care/dashboard/home', { state: success })
       // window.location.href = "/elite-care/dashboard/home";
     } else if (success == null) {
       return;
@@ -98,7 +105,7 @@ const LoginForm = () => {
             {/* MESSAGE */}
             {/* {isLoading && <Loader/>} */}
             <ul class="nav nav-tabs" id="myTab" role="tablist">
-             
+
               <li class="nav-item" role="presentation">
                 <button
                   class="nav-link active"

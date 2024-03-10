@@ -49,7 +49,11 @@ const Sidebar = () => {
       title: "Blogs",
       path: "elite-care/dashboard/blogs",
       icon: <FaBriefcaseMedical />,
-    },
+    }, {
+      title: "Catogory",
+      path: "elite-care/dashboard/category",
+      icon: <FaBriefcaseMedical />,
+    }
   ]
   const disptach = useDispatch();
 

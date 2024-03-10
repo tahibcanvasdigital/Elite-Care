@@ -5,8 +5,12 @@ import { MdSupervisedUserCircle } from "react-icons/md";
 import Styles from "./Style.module.css";
 import { FaBriefcaseMedical, FaServicestack, FaUserCheck, FaUserDoctor } from "react-icons/fa6";
 import Chart from "../chart";
+import { useLocation } from "react-router-dom";
 
 const Dashboardview = () => {
+
+  const location = useLocation()
+
   const data = [
     {
       title: "Total Doctors",

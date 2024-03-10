@@ -8,8 +8,8 @@ import PaginationComponent from "../../../components/pagination";
 import Loader from "../../../components/Loader";
 const Service = () => {
   const fetcher = (...args) => fetch(...args).then(res => res.json())
-  const { data, error, isLoading } = useSWR('http://localhost:8080/api/services', fetcher)
-  const serviceData = data?.data
+  const { data, error, isLoading } = useSWR('https://flutterapi.testdevlink.net/elite-care-db/api/services', fetcher)
+  const serviceData = data?.data?.results?.results
   console.log(serviceData, isLoading);
 
   const [currentpage, setCurrentpage] = useState(1);
