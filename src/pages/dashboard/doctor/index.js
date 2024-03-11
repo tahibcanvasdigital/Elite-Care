@@ -5,34 +5,26 @@ import Sidebar from "../sidebar/Sidebar";
 import Headers from "../header/Headers";
 import PaginationComponent from "../../../components/pagination";
 import { useDispatch, useSelector } from "react-redux";
+import Loader from "../../../components/Loader";
 import {
-  getdoctors,
-  selectdoctor,
+  getdoctors
 } from "../../../global/features/Dashboard/getdoctorSlice/Getdoctor";
 
 const Doctors = () => {
   const dispatch = useDispatch();
-  const data = useSelector(selectdoctor);
-
-  console.log(data);
-  useEffect(() => {
-    dispatch(getdoctors());
-  }, [dispatch]);
+  const { data, loading } = useSelector((state) => state.doctors);
   const [currentpage, setCurrentpage] = useState(1);
-  const recordPage = 10;
-  const lastindex = currentpage * recordPage;
-  const firstindex = lastindex - recordPage;
-  const records = data?.data.data?.results?.slice();
-  const isSuccess = data?.data?.success
-  console.log(isSuccess);
-  const numberpages = Math.ceil(data?.length / recordPage);
+  const [limit, setLimit] = useState(10);
 
-  const numbers = Array.from({ length: numberpages }, (_, index) =>
-    (index + 1).toString().padStart(2, "0")
-  );
+  useEffect(() => {
+    const paginate = { limit: limit, page: currentpage };
+
+    dispatch(getdoctors(paginate));
+  }, [currentpage, dispatch, limit]);
+
+  const records = data?.data?.results?.slice();
 
   return (
-
     <div className="d-flex">
       <div className={Style.sidecolor}>
         <Sidebar />
@@ -44,7 +36,7 @@ const Doctors = () => {
             <button>Add Doctor</button>
           </Link>
         </div>
-        <div className="container mt-4   ">
+        <div className="container mt-4  ">
           <h1> Doctors </h1>
           <table
             style={{ width: "100%" }}
@@ -55,32 +47,39 @@ const Doctors = () => {
                 <th scope="col">id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
-                <th scope="col">Service</th>
+
                 <th scope="col">Time</th>
                 <th scope="col">VIEW</th>
               </tr>
             </thead>
-            {
 
-            }
-            {records?.map((item, index) => (
-              <tbody key={index}>
-                <tr>
-                  <th scope="row">{item.id}</th>
-                  <td>{item?.name}</td>
-                  <td>{item?.email}</td>
-                  <td>{item?.serviceOffered[0]?.serviceName}</td>
-                  <td>{item?.availableTime}</td>
-                  <td>
-                    <Link to={`/elite-care/dashboard/viewdoctor/${item._id}`}>view</Link>
-                  </td>
-                </tr>
-              </tbody>
-            ))}
+            {loading ? (
+              <Loader />
+            ) : (
+              records?.map((item, index) => (
+                <tbody key={index}>
+                  <tr>
+                    <th scope="row">{item.id}</th>
+                    <td>{item?.name}</td>
+                    <td>{item?.email}</td>
+
+                    <td>{item?.availableTime}</td>
+                    <td>
+                      <Link to={`/elite-care/dashboard/viewdoctor/${item._id}`}>
+                        view
+                      </Link>
+                    </td>
+                  </tr>
+                </tbody>
+              ))
+            )}
           </table>
-
-          <PaginationComponent numberpages={numberpages} numbers={numbers} setCurrentpage={setCurrentpage} currentpage={currentpage} />
-
+          <PaginationComponent
+              totalPost={data?.data?.count}
+              postPerPage={limit}
+              setCurrentPage={setCurrentpage}
+              currentPage={currentpage}
+            />
         </div>
       </div>
     </div>

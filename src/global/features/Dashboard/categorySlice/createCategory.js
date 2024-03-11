@@ -29,6 +29,17 @@ const createCategorySlice = createSlice({
     message: null,
     success: null
   },
+  reducers:{
+    clearCategory(state,action){
+      return{
+        isLoading: false,
+        isError: false,
+        data: null,
+        message: null,
+        success: null
+      }
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(createCategoryApi.pending, (state) => {
@@ -47,5 +58,5 @@ const createCategorySlice = createSlice({
       })
   }
 })
-
+export const { clearCategory } = createCategorySlice.actions
 export default createCategorySlice.reducer

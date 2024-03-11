@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Sidebar from "../sidebar/Sidebar";
 import Headers from "../header/Headers";
 import { createServiceApi } from "../../../global/features/Dashboard/Services/createService";
+import { clearService } from "../../../global/features/Dashboard/Services/createService";
 import { toast } from "react-toastify";
 
 const AddService = () => {
@@ -34,13 +35,7 @@ const AddService = () => {
       price: serviceValues.price,
       pageName: serviceValues.pageName
     }));
-    setServiceValues({
-      serviceName: '',
-      description: '',
-      serviceImg: '',
-      price: '',
-      pageName: ''
-    })
+   
 
   };
 
@@ -49,11 +44,20 @@ const AddService = () => {
       toast.success(message, {
         position: "top-center"
       })
+      dispatch(clearService())
+      setServiceValues({
+        serviceName: '',
+        description: '',
+        serviceImg: '',
+        price: '',
+        pageName: ''
+      })
     } else if (success == null) { return; }
     else {
       toast.error(message, {
         position: "top-center"
       })
+      dispatch(clearService())
     }
   }, [success])
   return (

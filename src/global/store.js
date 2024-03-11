@@ -13,6 +13,8 @@ import getAllCategoriesSlice from "./features/Dashboard/categorySlice/getAllCate
 import ViewCategorySlice from "./features/Dashboard/categorySlice/Viewcategory";
 import createBlog from './features/Dashboard/blogsSlice/createBlog';
 import createCategorySlice from './features/Dashboard/categorySlice/createCategory'
+import  ViewblogsSlice  from './features/Dashboard/blogsSlice/Viewblog';
+import ViewContactSlice from './features/Dashboard/contactusSlice/Viewcontact'
 
 // Web app Slices
 import getServicesSlice from './features/Webapp/Services/getServicesSlice';
@@ -37,6 +39,8 @@ export const store = configureStore({
         createBlog: createBlog,
         getAllCategoriesSlice: getAllCategoriesSlice,
         createCategorySlice: createCategorySlice,
+        viewcontactus: ViewContactSlice,
+        viewblogs:ViewblogsSlice,
         // WebAPP slices
         getServicesSlice: getServicesSlice,
         loginSlice: loginSlice,

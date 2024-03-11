@@ -1,11 +1,12 @@
 import React from "react";
 import Navbar from "../../components/navbar";
-import styles from "./style.module.css";
+import useSWR from "swr";
 import logo from "../../assets/Dentist.png";
 import ShowCasesComponent from "../../components/showCasesComp";
 import DentistServices from "../../components/dentistServices";
 import ImageComparison from "../../components/Imagecomparison/ImageCamparison";
 import Footer from "../../components/footer";
+import {constants} from '../../global/constants'
 // Denstist Services Images
 
 import dentist1 from "../../assets/denist1.png";
@@ -25,7 +26,7 @@ import ShowCase3 from "../../assets/dentistShowcase3.png";
 import ShowCase4 from "../../assets/dentistShowcase4.png";
 
 const Dentist = () => {
-  const data = {
+  const Navdata = {
     h1: null,
     h2: "DENTIST",
     h3: null,
@@ -70,13 +71,17 @@ const Dentist = () => {
     ],
   };
 
+  
+  const fetcher = (...args) => fetch(...args).then(res => res.json())
+  const {data, error, isLoading } = useSWR(`${constants.baseUrl}api/services?pagename=dentist`,fetcher)
+const serviceData =data?.data?.results?.results
   const topImage = { src: beforeImg, alt: "Before" };
   const bottomImage = { src: afterImg, alt: "After" };
   return (
     <>
-      <Navbar data={data} />
+      <Navbar data={Navdata} />
       <ShowCasesComponent showCaseImgs={showCaseImgs} />
-      <DentistServices carddata={carddata} />
+      <DentistServices carddata={serviceData} head1="SERVICES" head2="THE COSMETIC DENTISTRY PROCEDURES" />
       <ImageComparison topImage={topImage} bottomImage={bottomImage} />
       <Footer />
     </>

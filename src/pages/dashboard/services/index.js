@@ -1,23 +1,22 @@
+import useSWR from 'swr';
 import React, { useState } from "react";
 import Style from '../style.module.css'
 import { Link } from "react-router-dom";
 import Sidebar from "../sidebar/Sidebar";
 import Headers from "../header/Headers";
-import useSWR from 'swr'
 import PaginationComponent from "../../../components/pagination";
 import Loader from "../../../components/Loader";
-const Service = () => {
-  const fetcher = (...args) => fetch(...args).then(res => res.json())
-  const { data, error, isLoading } = useSWR('https://flutterapi.testdevlink.net/elite-care-db/api/services', fetcher)
-  const serviceData = data?.data?.results?.results
-  console.log(serviceData, isLoading);
+import {constants} from '../../../global/constants'
 
+const Service = () => {
   const [currentpage, setCurrentpage] = useState(1);
   const recordPage = 5;
   const lastindex = currentpage * recordPage;
   const firstindex = lastindex - recordPage;
-  // const records = data.slice(firstindex, lastindex);
-
+  const [limit, setLimit] = useState(10);
+  const fetcher = (...args) => fetch(...args).then(res => res.json())
+  const { data, error, isLoading } = useSWR(`${constants.baseUrl}api/services?limit=${limit}&page=${currentpage}`, fetcher)
+  const serviceData = data?.data?.results?.results
   const numberpages = Math.ceil(data?.data.length / recordPage);
 
   const numbers = Array.from({ length: numberpages }, (_, index) =>
@@ -78,11 +77,11 @@ const Service = () => {
 
           </table>
           <div>
-            <PaginationComponent
-              currentpage={currentpage}
-              setCurrentpage={setCurrentpage}
-              numberpages={numberpages}
-              numbers={numbers}
+          <PaginationComponent
+              totalPost={data?.data?.count}
+              postPerPage={limit}
+              setCurrentPage={setCurrentpage}
+              currentPage={currentpage}
             />
           </div>
         </div>

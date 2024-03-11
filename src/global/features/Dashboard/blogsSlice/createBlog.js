@@ -34,6 +34,17 @@ const createBlog = createSlice({
     success: null,
     message: null,
   },
+  reducers:{
+    clearBlog(state,action){
+      return{
+          isLoading: false,
+          isError: false,
+          data: null,
+          message: null,
+          success: null
+      }
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(createBlogApi.pending, (state, action) => {
@@ -56,5 +67,5 @@ const createBlog = createSlice({
       });
   },
 });
-
+export const { clearBlog } = createBlog.actions
 export default createBlog.reducer;

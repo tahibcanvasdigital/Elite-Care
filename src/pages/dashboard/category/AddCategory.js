@@ -3,7 +3,7 @@ import Sidebar from '../sidebar/Sidebar'
 import Headers from '../header/Headers'
 import style from './style.module.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { createCategoryApi } from '../../../global/features/Dashboard/categorySlice/createCategory'
+import { createCategoryApi,clearCategory } from '../../../global/features/Dashboard/categorySlice/createCategory'
 import { toast } from 'react-toastify'
 // import { Postcategory } from '../../../global/features/Dashboard/categorySlice/Addcategory'
 
@@ -28,7 +28,9 @@ const AddCategory = () => {
       setCategory({
         name: ''
       })
+      dispatch(clearCategory())
     }
+
     else if (success == null) {
       return;
     }
@@ -36,6 +38,8 @@ const AddCategory = () => {
       toast.error(message, {
         position: 'top-center'
       })
+      dispatch(clearCategory())
+
     }
   }, [success])
   console.log(category);

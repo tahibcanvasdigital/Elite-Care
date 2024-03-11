@@ -1,13 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-export const getblogs = createAsyncThunk("getblogs", async () => {
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWQ3MzE1NzJiZjczMjE3YWZlYWYzZGIiLCJpYXQiOjE3MDk4MTc1MDcsImV4cCI6MTcxMDQyMjMwN30.bNNHXeI1Nb-92q9_P-Q7f_xKmsfbhYeEVPhKzMClMcM";
-  let Url = await fetch("https://flutterapi.testdevlink.net/elite-care-db/api/blog?limit=5&page=1", {
+export const getblogs = createAsyncThunk("getblogs", async (paginate) => {
+ const user  = JSON.parse( localStorage.getItem("user"));
+  let Url = await fetch(`https://flutterapi.testdevlink.net/elite-care-db/api/blog?limit=${paginate.limit}&page=${paginate.page}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded ",
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${user.data.refreshToken}`,
     },
 
   });

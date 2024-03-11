@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const viewdoctors = createAsyncThunk("viewdoctors", async (id) => {
-  let Url = await fetch(`http://localhost:8080/api/doctor/${id}`, {
+  let Url = await fetch(`https://flutterapi.testdevlink.net/elite-care-db/${id}`, {
     method: "GET",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: JSON.stringify(),
@@ -33,6 +33,6 @@ export const ViewdoctorSlice = createSlice({
   },
 });
 
-export const viewdoctor = (state) => state.viewdoctors;
+
 
 export default ViewdoctorSlice.reducer;

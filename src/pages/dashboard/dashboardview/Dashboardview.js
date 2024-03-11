@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
+
 import Sidebar from "../sidebar/Sidebar";
 import Headers from "../header/Headers";
-import { MdSupervisedUserCircle } from "react-icons/md";
 import Styles from "./Style.module.css";
 import { FaBriefcaseMedical, FaServicestack, FaUserCheck, FaUserDoctor } from "react-icons/fa6";
 import Chart from "../chart";
-import { useLocation } from "react-router-dom";
 
 const Dashboardview = () => {
+  const navigation = useNavigate();
+  const currUser = localStorage.getItem('user');
 
-  const location = useLocation()
+  if (currUser === null) {
+    navigation('/elite-care');
+  }
+  const cUser = JSON.parse(currUser);
+
+  useEffect(() => {
+    if (!cUser || cUser?.data?.role !== "admin") {
+      navigation('/elite-care')
+    }
+  }, [cUser, navigation]);
 
   const data = [
     {

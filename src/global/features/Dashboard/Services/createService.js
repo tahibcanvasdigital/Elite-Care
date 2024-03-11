@@ -40,6 +40,17 @@ const createService = createSlice({
         message: null,
         success: null
     },
+reducers:{
+clearService(){
+return{
+    isLoading: false,
+    isError: false,
+    data: null,
+    message: null,
+    success: null
+}
+}
+},
     extraReducers: (builder) => {
         builder
             .addCase(createServiceApi.pending, (state, action) => {
@@ -57,5 +68,5 @@ const createService = createSlice({
             })
     }
 })
-
+export const { clearService } = createService.actions
 export default createService.reducer

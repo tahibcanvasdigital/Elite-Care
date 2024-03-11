@@ -24,6 +24,16 @@ const createAppointmentSlice = createSlice({
         success:null,
         message:null
     },
+    reducers:{
+        clearAppointment(state,action){
+            return{
+                isLoading: false,
+                isError: false,
+                success: null,
+                message: null
+            }
+        }
+    },
     extraReducers:(builder)=>{
         builder
         .addCase(createAppointmentApi.pending,(state)=>{
@@ -43,5 +53,5 @@ const createAppointmentSlice = createSlice({
         })
     }
 })
-
+export const { clearAppointment } = createAppointmentSlice.actions
 export default createAppointmentSlice.reducer

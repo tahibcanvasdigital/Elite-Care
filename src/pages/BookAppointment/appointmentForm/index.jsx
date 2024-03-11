@@ -5,8 +5,9 @@ import { GoArrowRight } from "react-icons/go";
 import { constants } from "../../../global/constants";
 import useSWR from "swr";
 import { useDispatch,useSelector } from "react-redux";
-import { createAppointmentApi } from "../../../global/features/Webapp/Book Appointment/createAppointment";
+import { createAppointmentApi,clearAppointment } from "../../../global/features/Webapp/Book Appointment/createAppointment";
 import { toast } from "react-toastify";
+
 const AppointmentForm = () => {
 
  const [appointments,setAppointments] = React.useState({
@@ -22,7 +23,7 @@ const {success,message} = useSelector(value=>value.createAppointmentSlice)
  const fetcher = (...args) => fetch(...args).then(res => res.json())
 //  GET SERVICES -- NAMES OF SERVICES
  const { data, error, isLoading } = useSWR(`${constants.baseUrl}api/services`, fetcher)
- const serviceData = data?.data
+ const serviceData = data?.data?.results?.results
 
 
 // GET DOCTORS -- NAMES OF DOCTOR
@@ -64,6 +65,7 @@ getDoctors()
     toast.success(message,{
       position:"top-center"
     })
+    dispatch(clearAppointment())
   }
   else if(success == null){
     return;
@@ -72,6 +74,8 @@ getDoctors()
     toast.error(message,{
       position:'top-center'
     })
+    dispatch(clearAppointment())
+
   }
  },[success])
 
@@ -199,7 +203,7 @@ getDoctors()
                     <option value="" selected disabled hidden>
                      Services
                     </option>
-                    {serviceData && serviceData.map((item)=>{
+                    { serviceData?.map((item)=>{
                       return(
                         <option key={item.id} value={item.serviceName}>{item.serviceName}</option>
                       )
@@ -216,7 +220,7 @@ getDoctors()
                   Doctors
                     </option>
                     {
-                      doctorName && doctorName.map((item)=>{
+                       doctorName?.map((item)=>{
                         return(
                          <option key={item?.id} value={item?.name}>{item?.name}</option>
                         )

@@ -2,10 +2,11 @@ import React from "react";
 import styles from "./style.module.css";
 import Arrow from "../../../assets/rightArrow.png";
 import useSWR from 'swr'
+import {constants} from '../../../global/constants'
 const Services = () => {
 
   const fetcher = (...args) => fetch(...args).then(res => res.json())
-  const { data, error, isLoading } = useSWR('https://flutterapi.testdevlink.net/elite-care-db/api/services', fetcher)
+  const { data, error, isLoading } = useSWR(`${constants.baseUrl}api/services?pagename=home&page=1&limit=10`, fetcher)
   const serviceData = data?.data?.results?.results
   console.log(serviceData);
 

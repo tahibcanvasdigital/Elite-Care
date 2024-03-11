@@ -3,8 +3,15 @@ import Headers from '../header/Headers'
 import Sidebar from '../sidebar/Sidebar'
 import Style from './Style.module.css'
 import img from "../../../assets/Dentist.png";
-
+import useSWR from 'swr';
+import { constants } from '../../../global/constants';
+import { useParams } from 'react-router-dom';
 const ViewAppoitment = () => {
+const {id} = useParams()
+console.log(id);
+  const fetcher = (...args) => fetch(...args).then(res => res.json())
+  const {data, error, isLoading } = useSWR(`${constants.baseUrl}/api/appoinment/${id}`,fetcher)
+const viewData = data?.data
   return (
     <div className="d-flex">
     <div>
@@ -19,17 +26,17 @@ const ViewAppoitment = () => {
               <div className={Style.profiletext}>
                 <div className="">
                   <h5>Name :</h5>
-                  <p>John</p>
+                  <p>{viewData?.name}</p>
                   
                 </div>
                 <div>
                   <h5>Email :</h5>
-                  <p>John@gmail.com</p>
+                  <p>{viewData?.email}</p>
                   
                 </div>
                 <div>
                   <h5>Gender : </h5>
-                  <p>Male</p>
+                  <p>{viewData?.phoneno}</p>
                   
                 </div>
              

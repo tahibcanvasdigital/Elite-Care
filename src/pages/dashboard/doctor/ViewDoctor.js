@@ -7,15 +7,16 @@ import Headers from "../header/Headers";
 import Style from '../style.module.css'
 import { useParams } from "react-router-dom";
 import { selectdoctor } from "../../../global/features/Dashboard/getdoctorSlice/Getdoctor";
-import { viewdoctor, viewdoctors } from "../../../global/features/Dashboard/getdoctorSlice/Viewdoctor";
+import { viewdoctors } from "../../../global/features/Dashboard/getdoctorSlice/Viewdoctor";
+import Loader from "../../../components/Loader";
 
 const ViewDoctor = () => {
 
   const { id } = useParams()
   console.log(id);
   const dispatch = useDispatch();
-  const data = useSelector(viewdoctor);
-  console.log(data);
+  const {data ,loading} = useSelector((state) => state.viewdoctors);
+
 
   useEffect(() => {
     dispatch(viewdoctors(id))
@@ -47,7 +48,8 @@ const ViewDoctor = () => {
       </div>
       <div className=" w-100 my-[120px]">
         <Headers />
-        <div className="mx-4">
+        {
+          loading ? <Loader/> :  <div className="mx-4">
           <h1>Create Doctor</h1>
           <form onSubmit={handlesubmit}>
             <div class="mb-3">
@@ -58,7 +60,7 @@ const ViewDoctor = () => {
                 type="text"
                 name="name"
                 class="form-control"
-                value={data.data.data?.name}
+                value={data.data?.name}
                 id="name"
                 onChange={getdata}
                 aria-describedby="emailHelp"
@@ -72,7 +74,7 @@ const ViewDoctor = () => {
                 type="email"
                 name="email"
                 class="form-control"
-                value={data.data.data?.email}
+                value={data.data?.email}
                 onChange={getdata}
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
@@ -94,7 +96,7 @@ const ViewDoctor = () => {
                 name="availabletime"
                 onChange={getdata}
                 class="form-control"
-                value={data.data.data?.availableTime}
+                value={data.data?.availableTime}
                 id=" available-time"
               />
             </div>
@@ -118,6 +120,8 @@ const ViewDoctor = () => {
             </button>
           </form>
         </div>
+        }
+       
       </div>
     </div>
   );

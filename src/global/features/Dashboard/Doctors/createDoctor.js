@@ -39,6 +39,17 @@ const createDoctor = createSlice({
         success: null,
         message: ''
     },
+    reducers:{
+        clearDoctor(){
+            return{
+                isLoading: false,
+                isError: false,
+                data: null,
+                success: null,
+                message: null
+            }
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(createDoctorApi.pending, (state, action) => {
@@ -56,5 +67,5 @@ const createDoctor = createSlice({
             })
     }
 })
-
+export const { clearDoctor } = createDoctor.actions
 export default createDoctor.reducer

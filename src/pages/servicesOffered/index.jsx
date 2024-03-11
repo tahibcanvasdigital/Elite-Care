@@ -27,47 +27,7 @@ const ServicesOffered = () => {
     imgTop: "165px",
   };
 
-  // Surgical Card Data
-
-  const carddata = {
-    mainheading: "SERVICES",
-    mainHeadingtwo: "Affordable Services That Provide By Surgical",
-    card: [
-      {
-        image: Surgical1,
-        heading1: "Flight",
-        price: "$40.00",
-        para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harumqui nihil quos sequi, quam cumque consectetur fugit, ipsamveritatis iure eaque? Harum quam ipsa, esse minima aspernaturiste reprehenderit cupiditate.",
-      },
-      {
-        image: Surgical2,
-        heading1: "Hotel",
-        price: "$40.00",
-        para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harumqui nihil quos sequi, quam cumque consectetur fugit, ipsamveritatis iure eaque? Harum quam ipsa, esse minima aspernaturiste reprehenderit cupiditate.",
-      },
-      {
-        image: Surgical3,
-        heading1: "Transport",
-        price: "$40.00",
-        para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harumqui nihil quos sequi, quam cumque consectetur fugit, ipsamveritatis iure eaque? Harum quam ipsa, esse minima aspernaturiste reprehenderit cupiditate.",
-      },
-      {
-        image: Surgical4,
-        heading1: "Breast Augmentation",
-        para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harumqui nihil quos sequi, quam cumque consectetur fugit, ipsamveritatis iure eaque? Harum quam ipsa, esse minima aspernaturiste reprehenderit cupiditate.",
-      },
-      {
-        image: Surgical5,
-        heading1: "Non Surgical",
-        para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harumqui nihil quos sequi, quam cumque consectetur fugit, ipsamveritatis iure eaque? Harum quam ipsa, esse minima aspernaturiste reprehenderit cupiditate.",
-      },
-      {
-        image: Surgical6,
-        heading1: "Lips Surgery",
-        para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harumqui nihil quos sequi, quam cumque consectetur fugit, ipsamveritatis iure eaque? Harum quam ipsa, esse minima aspernaturiste reprehenderit cupiditate.",
-      },
-    ],
-  };
+  
 
   const topImage = { src: img1, alt: "Before" };
   const bottomImage = { src: img2, alt: "After" };
@@ -75,7 +35,7 @@ const ServicesOffered = () => {
     <>
       <Navbar data={data} />
       <SurgeryCenter />
-      <SurgicalCard carddata={carddata} />
+      <SurgicalCard  />
       <Ourmission />
       <ImageComparison topImage={topImage} bottomImage={bottomImage} />
       <Footer />

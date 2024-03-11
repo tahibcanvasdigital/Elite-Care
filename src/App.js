@@ -38,133 +38,87 @@ import Category from "./pages/dashboard/category";
 import AddCategory from "./pages/dashboard/category/AddCategory";
 import ViewCategory from "./pages/dashboard/category/ViewCategory";
 
-
 function App() {
-  const user = JSON.parse(localStorage.getItem('user'));
-  console.log("User", user);
   return (
-
     <Router>
       <Routes>
-        {
-          user?.data?.role == 'admin' ? (
-            <>
-              <Route path="/elite-care" element={<Home />} />
-              <Route path="/elite-care/about-us" element={<About />} />
-              <Route
-                path="/elite-care/services-offered"
-                element={<ServicesOffered />}
-              />
-              <Route
-                path="/elite-care/surgical-asthetics"
-                element={<SurgicalAsthetics />}
-              />
-              <Route
-                path="/elite-care/non-surgical-asthetics"
-                element={<NonSurgicalAsthetics />}
-              />
-              <Route path="/elite-care/for-men" element={<ForMen />} />
-              <Route path="/elite-care/dentist" element={<Dentist />} />
-              <Route path="/elite-care/contact-us" element={<Contact />} />
-              <Route path="/elite-care/blog" element={<Blog />} />
-              <Route path="/elite-care/transportation" element={<Transportation />} />
-              <Route path="/elite-care/login" element={<Login />} />
-              <Route path="/elite-care/register" element={<Register />} />
-              <Route
-                path="/elite-care/book-appointment"
-                element={<BookAppointment />}
-              />
-              <Route path="/elite-care/termsandcondition" element={<TermsAndCondition />} />
-              <Route path="/elite-care/privacypolicy" element={<Privacaypolicy />} />
-              <Route path="/elite-care/profile" element={<Profile />} />
-              <Route
-                path="/elite-care/dashboard/home"
-                element={<Dashboardview />}
-              />
-              <Route path="/elite-care/dashboard/doctors" element={<Doctors />} />
-              <Route path="/elite-care/dashboard/adddoctor" element={<AddDoctor />} />
-              <Route path="/elite-care/dashboard/services" element={<Service />} />
-              <Route
-                path="/elite-care/dashboard/addservice"
-                element={<AddService />}
-              />
-              <Route
-                path="/elite-care/dashboard/viewdoctor/:id"
-                element={<ViewDoctor />}
-              />
-              <Route
-                path="/elite-care/dashboard/viewservice/:id"
-                element={<ViewService />}
-              />
-              <Route
-                path="/elite-care/dashboard/users"
-                element={<Users />}
-              />
-              <Route
-                path="/elite-care/dashboard/contactus"
-                element={<ContactUs />}
-              />
-              <Route
-                path="/elite-care/dashboard/appointments"
-                element={<Appointment />}
-              />
-              <Route
-                path="/elite-care/dashboard/viewappoitment/:id"
-                element={<ViewAppoitment />}
-              />
-              <Route
-                path="/elite-care/dashboard/viewcontactus/:id"
-                element={<ViewContact />}
-              />
-              <Route
-                path="/elite-care/dashboard/viewusers/:id"
-                element={<ViewUser />}
-              />
-                       <Route path="/elite-care/dashboard/blogs" element={<Blogs />}/>
-         <Route path="/elite-care/dashboard/addblogs" element={<Addblog />}/>
-         <Route path="/elite-care/dashboard/viewblogs/:id" element={<Viewblogs />}/>
-         <Route path="/elite-care/dashboard/category" element={<Category />}/>
-         <Route path="/elite-care/dashboard/addcategory" element={<AddCategory />}/>
-         <Route path="/elite-care/dashboard/viewcategory/:id" element={<ViewCategory />}/>
-            </>
-          )
-            : (
-              <>
-                <Route path="/elite-care" element={<Home />} />
-                <Route path="/elite-care/about-us" element={<About />} />
-                <Route
-                  path="/elite-care/services-offered"
-                  element={<ServicesOffered />}
-                />
-                <Route
-                  path="/elite-care/surgical-asthetics"
-                  element={<SurgicalAsthetics />}
-                />
-                <Route
-                  path="/elite-care/non-surgical-asthetics"
-                  element={<NonSurgicalAsthetics />}
-                />
-                <Route path="/elite-care/for-men" element={<ForMen />} />
-                <Route path="/elite-care/dentist" element={<Dentist />} />
-                <Route path="/elite-care/contact-us" element={<Contact />} />
-                <Route path="/elite-care/blog" element={<Blog />} />
-                <Route path="/elite-care/transportation" element={<Transportation />} />
-                <Route path="/elite-care/login" element={<Login />} />
-                <Route path="/elite-care/register" element={<Register />} />
-                <Route
-                  path="/elite-care/book-appointment"
-                  element={<BookAppointment />}
-                />
-                <Route path="/elite-care/termsandcondition" element={<TermsAndCondition />} />
-                <Route path="/elite-care/privacypolicy" element={<Privacaypolicy />} />
-                <Route path="/elite-care/profile" element={<Profile />} />
-              </>
-            )
-        }
-
-        {/*  Dashboard Routes */}
-
-
+        <Route path="/elite-care" element={<Home />} />
+        <Route path="/elite-care/about-us" element={<About />} />
+        <Route
+          path="/elite-care/services-offered"
+          element={<ServicesOffered />}
+        />
+        <Route
+          path="/elite-care/surgical-asthetics"
+          element={<SurgicalAsthetics />}
+        />
+        <Route
+          path="/elite-care/non-surgical-asthetics"
+          element={<NonSurgicalAsthetics />}
+        />
+        <Route path="/elite-care/for-men" element={<ForMen />} />
+        <Route path="/elite-care/dentist" element={<Dentist />} />
+        <Route path="/elite-care/contact-us" element={<Contact />} />
+        <Route path="/elite-care/blog" element={<Blog />} />
+        <Route path="/elite-care/transportation" element={<Transportation />} />
+        <Route path="/elite-care/login" element={<Login />} />
+        <Route path="/elite-care/register" element={<Register />} />
+        <Route
+          path="/elite-care/book-appointment"
+          element={<BookAppointment />}
+        />
+        <Route path="/elite-care/termsandcondition" element={<TermsAndCondition />} />
+        <Route path="/elite-care/privacypolicy" element={<Privacaypolicy />} />
+        <Route path="/elite-care/profile" element={<Profile />} />
+        <Route
+          path="/elite-care/dashboard/home"
+          element={<Dashboardview />}
+        />
+        <Route path="/elite-care/dashboard/doctors" element={<Doctors />} />
+        <Route path="/elite-care/dashboard/adddoctor" element={<AddDoctor />} />
+        <Route path="/elite-care/dashboard/services" element={<Service />} />
+        <Route
+          path="/elite-care/dashboard/addservice"
+          element={<AddService />}
+        />
+        <Route
+          path="/elite-care/dashboard/viewdoctor/:id"
+          element={<ViewDoctor />}
+        />
+        <Route
+          path="/elite-care/dashboard/viewservice/:id"
+          element={<ViewService />}
+        />
+        <Route
+          path="/elite-care/dashboard/users"
+          element={<Users />}
+        />
+        <Route
+          path="/elite-care/dashboard/contactus"
+          element={<ContactUs />}
+        />
+        <Route
+          path="/elite-care/dashboard/appointments"
+          element={<Appointment />}
+        />
+        <Route
+          path="/elite-care/dashboard/viewappoitment/:id"
+          element={<ViewAppoitment />}
+        />
+        <Route
+          path="/elite-care/dashboard/viewcontactus/:id"
+          element={<ViewContact />}
+        />
+        <Route
+          path="/elite-care/dashboard/viewusers/:id"
+          element={<ViewUser />}
+        />
+        <Route path="/elite-care/dashboard/blogs" element={<Blogs />} />
+        <Route path="/elite-care/dashboard/addblogs" element={<Addblog />} />
+        <Route path="/elite-care/dashboard/viewblogs/:id" element={<Viewblogs />} />
+        <Route path="/elite-care/dashboard/category" element={<Category />} />
+        <Route path="/elite-care/dashboard/addcategory" element={<AddCategory />} />
+        <Route path="/elite-care/dashboard/viewcategory/:id" element={<ViewCategory />} />
       </Routes>
     </Router>
   );

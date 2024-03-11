@@ -6,7 +6,7 @@ import Sidebar from "../sidebar/Sidebar";
 import Headers from "../header/Headers";
 import { createDoctorApi } from "../../../global/features/Dashboard/Doctors/createDoctor";
 import { toast } from "react-toastify";
-
+import { clearDoctor } from "../../../global/features/Dashboard/Doctors/createDoctor";
 const AddDoctor = () => {
 
   const dispatch = useDispatch();
@@ -61,11 +61,13 @@ const AddDoctor = () => {
       toast.success(message, {
         position: "top-center"
       })
+      dispatch(clearDoctor())
     } else if (success == null) { return; }
     else {
       toast.error(message, {
         position: "top-center"
       })
+      dispatch(clearDoctor())
     }
   }, [success])
 

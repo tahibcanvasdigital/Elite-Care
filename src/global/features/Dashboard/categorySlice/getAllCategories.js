@@ -1,12 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { constants } from '../../../constants'
-export const getAllCategoriesApi = createAsyncThunk("getAllCategoriesApi", async () => {
+export const getAllCategoriesApi = createAsyncThunk("getAllCategoriesApi", async (paginate) => {
   try {
 
     const user = JSON.parse(localStorage.getItem('user'));
     let token = user.data?.refreshToken
 
-    const response = await fetch(`${constants.baseUrl}api/category`, {
+    const response = await fetch(`${constants.baseUrl}api/category?limit=${paginate.limit}&page=${paginate.page}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,

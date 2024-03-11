@@ -6,30 +6,24 @@ import PaginationComponent from "../../../components/pagination";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getblogs } from "../../../global/features/Dashboard/blogsSlice/GetBlogs";
-import Loader from '../../../components/Loader'
+import Loader from '../../../components/Loader';
 
 const Blogs = () => {
   const dispatch = useDispatch();
   const { data, loading } = useSelector((state) => state.blogs);
 
-  useEffect(() => {
-    dispatch(getblogs());
-  }, [dispatch]);
-
   const [currentpage, setCurrentpage] = useState(1);
-  const recordPage = 10;
-  const lastindex = currentpage * recordPage;
-  const firstindex = lastindex - recordPage;
-  const records = data?.data?.results?.results.slice(firstindex, lastindex);
+  const [limit, setLimit] = useState(10);
 
-  const numberpages = Math.ceil(data?.length / recordPage);
+  const records = data?.data?.results?.results?.slice();
 
-  const numbers = Array.from({ length: numberpages }, (_, index) =>
-    (index + 1).toString().padStart(2, "0")
-  );
+  useEffect(() => {
+    const paginate = { limit: limit, page: currentpage }
+    dispatch(getblogs(paginate));
+  }, [currentpage, dispatch, limit]);
 
   return (
-    <div className="d-flex ">
+    <div className="d-flex">
       <div className={styles.sidecolor}>
         <Sidebar />
       </div>
@@ -40,74 +34,55 @@ const Blogs = () => {
             <button>Add Blogs</button>
           </Link>
         </div>
-
-        {/* //  loading ? <Loader/> :  <div className="container mt-4   "> */}
-        <h1> Blogs </h1>
-        <table
-          style={{ width: "100%" }}
-          className={`table  table-responsive table-striped table-bordered table-hover ${styles.tables} }`}
-        >
-          <thead>
-            <tr>
-              <th scope="col">S .NO</th>
-              <th scope="col">Title</th>
-              <th scope="col">Description</th>
-              <th scope="col">Category</th>
-              <th scope="col">Time</th>
-              <th scope="col">VIEW</th>
-            </tr>
-          </thead>
-
-          {
-            loading ? <Loader /> : (
-              records?.map((item, index) => (
-                <tbody key={index}>
-                  <tr>
-                    <th scope="row">{index + 1}</th>
-                    <td>{item.title}</td>
-                    <td>{item.description}</td>
-                    <td>{item.category.name}</td>
-                    <td>{item.createdAt}</td>
-                    <td>
-                      <Link to={`/elite-care/dashboard/viewblogs/${item._id}`}>
-                        view
-                      </Link>
-                    </td>
-                  </tr>
-                </tbody>
-              ))
-            )
-          }
-          {/* {records?.map((item, index) => (
-               <tbody key={index}>
-                 <tr>
-                   <th scope="row">{index + 1}</th>
-                   <td>{item.title}</td>
-                   <td>{item.description}</td>
-                   <td>{item.category.name}</td>
-                   <td>{item.createdAt}</td>
-                   <td>
-                     <Link to={`/elite-care/dashboard/viewblogs/${item._id}`}>
-                       view
-                     </Link>
-                   </td>
-                 </tr>
-               </tbody>
-             ))} */}
-        </table>
-        <div>
-          <PaginationComponent
-            currentpage={currentpage}
-            setCurrentpage={setCurrentpage}
-            numberpages={numberpages}
-            numbers={numbers}
-          />
+        <div className="container mt-4">
+          <h1> Blogs </h1>
+          <table
+            style={{ width: "100%" }}
+            className={`table table-responsive table-striped table-bordered table-hover ${styles.tables} }`}
+          >
+            <thead>
+              <tr>
+                <th scope="col">S .NO</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Category</th>
+                <th scope="col">Time</th>
+                <th scope="col">VIEW</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                loading ? (<Loader />) : (
+                  records?.map((item, index) => {
+                    return (
+                      <tr key={index}>
+                        <th scope="row">{index + 1}</th>
+                        <td>{item.title}</td>
+                        <td>{item.description}</td>
+                        <td>{item.category?.name}</td>
+                        <td>{item.createdAt}</td>
+                        <td>
+                          <Link to={`/elite-care/dashboard/viewblogs/${item._id}`}>view</Link>
+                        </td>
+                      </tr>
+                    )
+                  })
+                )
+              }
+            </tbody>
+          </table>
+          <div>
+            <PaginationComponent
+              totalPost={data?.data?.count}
+              postPerPage={limit}
+              setCurrentPage={setCurrentpage}
+              currentPage={currentpage}
+            />
+          </div>
         </div>
+
       </div>
-
-
     </div>
-
   );
 };
 

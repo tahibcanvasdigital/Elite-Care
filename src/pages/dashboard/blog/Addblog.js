@@ -3,9 +3,10 @@ import styles from "./style.module.css";
 import Sidebar from "../sidebar/Sidebar";
 import Headers from "../header/Headers";
 import { useDispatch,useSelector } from "react-redux";
-import { createBlogApi } from "../../../global/features/Dashboard/blogsSlice/createBlog";
+import { createBlogApi} from "../../../global/features/Dashboard/blogsSlice/createBlog";
 import { constants } from "../../../global/constants";
 import { toast } from "react-toastify";
+import { clearBlog } from "../../../global/features/Dashboard/blogsSlice/createBlog";
 const Addblog = () => {
   const [blog, setBlog] = React.useState({
     title: "",
@@ -14,7 +15,7 @@ const Addblog = () => {
     blogImg: null,
   });
   const [category,setCategory] = React.useState([])
-  const categoryData = category?.data?.results
+  const categoryData = category?.data?.results?.results
   console.log(categoryData);
   const dispatch = useDispatch();
 const {success,message} = useSelector(value=>value.createBlog)
@@ -67,6 +68,7 @@ if(success == true){
   toast.success(message,{
     position:'top-center'
   })
+  dispatch(clearBlog())
 }
 else if(success == null){
   return ;
@@ -75,6 +77,8 @@ else{
   toast.error(message,{
     position:"top-center"
   })
+  dispatch(clearBlog())
+
 }
   },[success])
   return (
