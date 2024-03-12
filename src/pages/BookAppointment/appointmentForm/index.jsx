@@ -1,85 +1,59 @@
-import React,{useEffect, useState} from "react";
+import React, { useEffect } from "react";
 import styles from "./style.module.css";
 import Banner from "../../../assets/bookAppointmentBanner.png";
 import { GoArrowRight } from "react-icons/go";
 import { constants } from "../../../global/constants";
 import useSWR from "swr";
-import { useDispatch,useSelector } from "react-redux";
-import { createAppointmentApi,clearAppointment } from "../../../global/features/Webapp/Book Appointment/createAppointment";
+import { useDispatch, useSelector } from "react-redux";
+import { createAppointmentApi } from "../../../global/features/Webapp/Book Appointment/createAppointment";
 import { toast } from "react-toastify";
 
 const AppointmentForm = () => {
+  const [appointments, setAppointments] = React.useState({
+    name: '',
+    email: '',
+    phoneno: null,
+    serviceOffered: '',
+    doctorOffered: ''
+  });
 
- const [appointments,setAppointments] = React.useState({
-  name:'',
-  email:'',
-  phoneno:null,
-  serviceOffered:'',
-  doctorOffered:''
- })
-const [doctorName,setDoctorName] = useState({})
-const dispatch = useDispatch()
-const {success,message} = useSelector(value=>value.createAppointmentSlice)
- const fetcher = (...args) => fetch(...args).then(res => res.json())
-//  GET SERVICES -- NAMES OF SERVICES
- const { data, error, isLoading } = useSWR(`${constants.baseUrl}api/services`, fetcher)
- const serviceData = data?.data?.results?.results
+  const dispatch = useDispatch()
+  const { success, message } = useSelector(value => value.createAppointmentSlice)
+  const fetcher = (...args) => fetch(...args).then(res => res.json())
+  //  GET SERVICES -- NAMES OF SERVICES
+  const { data } = useSWR(`${constants.baseUrl}api/services`, fetcher)
+  const serviceData = data?.data?.results?.results;
 
+  const { data: docData } = useSWR(`${constants.baseUrl}api/doctor?service=${appointments?.serviceOffered}`, fetcher)
+  const doctorName = docData?.data;
 
-// GET DOCTORS -- NAMES OF DOCTOR
- const getDoctors = async()=>{
-try {
-  const response = await fetch(`${constants.baseUrl}api/doctor?service=${appointments.serviceOffered}`,{
-    method:'GET',
-    headers:{
-      'pragma':'no-cache',
-      'cache-control':'no-cache'
+  //  Create an Appointment
+  const createAppointmentHandler = () => {
+    dispatch(createAppointmentApi(appointments)).then(() => setAppointments({
+      name: '',
+      email: '',
+      phoneno: '',
+      serviceOffered: '',
+      doctorOffered: ''
+    }))
+  }
+
+  useEffect(() => {
+    if (success === true) {
+      toast.success(message, {
+        position: "top-center"
+      })
     }
-  })
-  const result = await response.json()
-  setDoctorName(result?.data)
-} catch (error) {
-  console.log(error.message)
-}
- }
+    else if (success == null) {
+      return;
+    }
+    else {
+      toast.error(message, {
+        position: 'top-center'
+      })
+    }
+  }, [message, success]);
 
- //  Create an Appointment
- const createAppointmentHandler = () =>{
-  dispatch(createAppointmentApi(appointments)).then(()=>setAppointments({
-    name:'',
-    email:'',
-    phoneno:'',
-    serviceOffered:'',
-    doctorOffered:''
-  }))
- }
-
-
- useEffect(()=>{
-getDoctors()
- },[appointments.serviceOffered])
-
-
- useEffect(()=>{
-  if(success === true){
-    toast.success(message,{
-      position:"top-center"
-    })
-    dispatch(clearAppointment())
-  }
-  else if(success == null){
-    return;
-  }
-  else{
-    toast.error(message,{
-      position:'top-center'
-    })
-    dispatch(clearAppointment())
-
-  }
- },[success])
-
- console.log(appointments);
   return (
     <section className={styles.appointmentFormContainer}>
       <div className="container">
@@ -158,7 +132,7 @@ getDoctors()
                       id=""
                       placeholder="Enter Your Name"
                       value={appointments.name}
-                      onChange={(e)=>setAppointments({...appointments,name:e.target.value})}
+                      onChange={(e) => setAppointments({ ...appointments, name: e.target.value })}
                     />
                   </div>
                 </div>
@@ -171,7 +145,7 @@ getDoctors()
                       id=""
                       placeholder="Enter Your Phone"
                       value={appointments.phoneno}
-                      onChange={(e)=>setAppointments({...appointments,phoneno:e.target.value})}
+                      onChange={(e) => setAppointments({ ...appointments, phoneno: e.target.value })}
                     />
                   </div>
                 </div>
@@ -186,7 +160,7 @@ getDoctors()
                       id=""
                       placeholder="Enter Your Email Address"
                       value={appointments.email}
-                      onChange={(e)=>setAppointments({...appointments,email:e.target.value})}
+                      onChange={(e) => setAppointments({ ...appointments, email: e.target.value })}
                     />
                   </div>
                 </div>
@@ -198,36 +172,38 @@ getDoctors()
                     className={styles.inputWrapper3}
                     value={appointments.serviceOffered}
 
-                    onChange={(e)=>setAppointments({...appointments,serviceOffered:e.target.value})}
+                    onChange={(e) => setAppointments({ ...appointments, serviceOffered: e.target.value })}
                   >
                     <option value="" selected disabled hidden>
-                     Services
+                      Services
                     </option>
-                    { serviceData?.map((item)=>{
-                      return(
+                    {serviceData && serviceData?.map((item) => {
+                      return (
                         <option key={item.id} value={item.serviceName}>{item.serviceName}</option>
                       )
                     })}
                   </select>
-                  {appointments?.serviceOffered?.length > 0 &&  <select
-                    name="cars"
-                    id="cars"
-                    className={styles.inputWrapper3}
-                    value={appointments.doctorOffered}
-                    onChange={(e)=>setAppointments({...appointments,doctorOffered:e.target.value})}
-                  >
-                    <option value="" selected disabled hidden>
-                  Doctors
-                    </option>
-                    {
-                       doctorName?.map((item)=>{
-                        return(
-                         <option key={item?.id} value={item?.name}>{item?.name}</option>
-                        )
-                      })
-                    }
-                  </select>}
-                 
+                  {
+                    appointments?.serviceOffered?.length > 0 && <select
+                      name="cars"
+                      id="cars"
+                      className={styles.inputWrapper3}
+                      value={appointments.doctorOffered}
+                      onChange={(e) => setAppointments({ ...appointments, doctorOffered: e.target.value })}
+                    >
+                      <option value="" selected disabled hidden>
+                        Doctors
+                      </option>
+                      {
+                        doctorName && doctorName?.map((item) => {
+                          return (
+                            <option key={item?.id} value={item?.name}>{item?.name}</option>
+                          )
+                        })
+                      }
+                    </select>
+                  }
+
                 </div>
               </div>
               <div className={`row ${styles.btnWrapper}`}>

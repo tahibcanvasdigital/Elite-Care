@@ -46,13 +46,12 @@ const ContactUs = () => {
               >
                 <thead>
                   <tr>
-                    <th scope="col">id</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">message</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Subject</th>
-                    <th scope="col">VIEW</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">NAME</th>
+                    <th scope="col">EMAIL</th>
+                    <th scope="col">MESSAGE</th>
+                    <th scope="col">PHONE</th>
+                    <th scope="col">SUBJECT</th>
                   </tr>
                 </thead>
 
@@ -68,13 +67,6 @@ const ContactUs = () => {
                         <td>{item.message}</td>
                         <td>{item.phone}</td>
                         <td>{item.subject}</td>
-                        <td>
-                          <Link
-                            to={`/elite-care/dashboard/viewcontactus/${item._id} `}
-                          >
-                            view
-                          </Link>
-                        </td>
                       </tr>
                     </tbody>
                   ))

@@ -1,24 +1,34 @@
-.loader{}
-
 .sidebar {
-  background-color: #1E1E1E;
+  
   color: white;
-  height: 100vh !important;
   width: 300px;
+  font-family: "Inter";
 }
 .top_section {
   display: flex;
   align-items: center;
   padding: 30px 15px;
 }
+.top_section h1 a{
+  text-decoration: none;
+  color: #fff;
+  font-family: "Antic";
+  font-size: 35px;
+}
 .logo {
   font-size: 25px;
+  cursor: pointer;
 }
 .bars {
   display: flex;
-  font-size: 25px;
+  font-size: 28px;
   margin-left: 220px;
   color: #fff;
+  cursor: pointer;
+ 
+}
+.bars svg{
+  cursor: pointer;
 }
 .link {
   display: flex;
@@ -26,8 +36,8 @@
   padding: 10px 15px;
   gap: 15px;
   transition: all 0.5s;
-  /* margin-top: 10px; */
-  /* margin: 10px; */
+  align-items: center;
+
 }
 
 .link:hover {
@@ -43,6 +53,11 @@
 .icon,
 .link_text {
   font-size: 20px;
+  cursor: pointer;
+}
+.link_text{
+  margin-top: 10px;
+  font-family: "Inter";
 }
 .padd {
   display: flex;
@@ -52,6 +67,7 @@
 }
 .abc {
   width: 100%;
+  font-family: "Inter";
 }
 .btn_doc button {
   background-color: #1E1E1E;
@@ -62,13 +78,27 @@
   float: right;
   margin-right: 10px;
   margin-bottom: 30px;
+  font-family: "Inter";
 }
 
 .tab {
   margin-top: 30px;
 }
-.main {
-  background-color: #000;
-  height: 100vh !important;
+.sidecolor {
+  background-color: #1E1E1E;
+  flex: 1;
+  min-height: 100vh;
 }
+.main{
+ 
+  background-color: #1E1E1E;
+
+}
+
+
+
+
+
+/*  */
+
 

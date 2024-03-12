@@ -50,7 +50,7 @@ const AddCategory = () => {
       </div>
       <div className=" w-100 my-[120px]">
         <Headers />
-        <div className="mx-4">
+        <div className="mx-4 container">
           <h1>Create Category</h1>
           <form onSubmit={handlesubmit}>
             <div class="mb-3">

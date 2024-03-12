@@ -6,7 +6,7 @@ import PaginationComponent from "../../../components/pagination";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getblogs } from "../../../global/features/Dashboard/blogsSlice/GetBlogs";
-import Loader from '../../../components/Loader';
+import Loader from "../../../components/Loader";
 
 const Blogs = () => {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const Blogs = () => {
   const records = data?.data?.results?.results?.slice();
 
   useEffect(() => {
-    const paginate = { limit: limit, page: currentpage }
+    const paginate = { limit: limit, page: currentpage };
     dispatch(getblogs(paginate));
   }, [currentpage, dispatch, limit]);
 
@@ -43,32 +43,39 @@ const Blogs = () => {
             <thead>
               <tr>
                 <th scope="col">S .NO</th>
-                <th scope="col">Title</th>
-                <th scope="col">Description</th>
-                <th scope="col">Category</th>
-                <th scope="col">Time</th>
+                <th scope="col">TITLE</th>
+
+                <th scope="col">CATEGORY</th>
+                <th scope="col">CREATED AT</th>
                 <th scope="col">VIEW</th>
               </tr>
             </thead>
             <tbody>
-              {
-                loading ? (<Loader />) : (
-                  records?.map((item, index) => {
-                    return (
-                      <tr key={index}>
-                        <th scope="row">{index + 1}</th>
-                        <td>{item.title}</td>
-                        <td>{item.description}</td>
-                        <td>{item.category?.name}</td>
-                        <td>{item.createdAt}</td>
-                        <td>
-                          <Link to={`/elite-care/dashboard/viewblogs/${item._id}`}>view</Link>
-                        </td>
-                      </tr>
-                    )
-                  })
-                )
-              }
+              {loading ? (
+                <Loader />
+              ) : (
+                records?.map((item, index) => {
+                  const timestamp = item.createdAt;
+                  const dateOnly = new Date(timestamp)
+                    .toISOString()
+                    .slice(0, 10);
+                  return (
+                    <tr key={index}>
+                      <th scope="row">{(currentpage * limit) - limit + (index + 1)}</th>
+                      <td>{item.title}</td>
+                      <td>{item.category?.name}</td>
+                      <td>{dateOnly}</td>
+                      <td>
+                        <Link
+                          to={`/elite-care/dashboard/viewblogs/${item._id}`}
+                        >
+                          view
+                        </Link>
+                      </td>
+                    </tr>
+                  );
+                })
+              )}
             </tbody>
           </table>
           <div>
@@ -80,7 +87,6 @@ const Blogs = () => {
             />
           </div>
         </div>
-
       </div>
     </div>
   );

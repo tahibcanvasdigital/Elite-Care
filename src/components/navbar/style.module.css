@@ -5,7 +5,9 @@
   color: #d4ae3d;
   transform: translateY(-10px) rotate(-35deg);
 }
-
+.hoverLinks:hover{
+  color: #d4ae3d;
+}
 .mobupperText svg {
   transition: 0.7s;
 }

@@ -21,7 +21,7 @@ import getServicesSlice from './features/Webapp/Services/getServicesSlice';
 import loginSlice from './features/Webapp/Auth/loginSlice';
 import signUpSlice from './features/Webapp/Auth/signUpSlice';
 import createAppointmentSlice from './features/Webapp/Book Appointment/createAppointment'
-
+import postContactUs from './features/Webapp/contactUs/postContactUs';
 
 export const store = configureStore({
     reducer: {
@@ -45,6 +45,7 @@ export const store = configureStore({
         getServicesSlice: getServicesSlice,
         loginSlice: loginSlice,
         signUpSlice: signUpSlice,
-        createAppointmentSlice: createAppointmentSlice
+        createAppointmentSlice: createAppointmentSlice,
+        postContactUs:postContactUs
     },
 })

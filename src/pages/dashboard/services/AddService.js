@@ -6,7 +6,7 @@ import Headers from "../header/Headers";
 import { createServiceApi } from "../../../global/features/Dashboard/Services/createService";
 import { clearService } from "../../../global/features/Dashboard/Services/createService";
 import { toast } from "react-toastify";
-
+import styles from '../style.module.css'
 const AddService = () => {
 
   const dispatch = useDispatch();
@@ -62,12 +62,12 @@ const AddService = () => {
   }, [success])
   return (
     <div className="d-flex">
-      <div>
+      <div className={styles.sidecolor}>
         <Sidebar />
       </div>
       <div className="w-100 my-[120px]">
         <Headers />
-        <div className="mx-4">
+        <div className="mx-4 container">
           <h1>Add Service</h1>
           <form onSubmit={handlesubmit}>
             <div class="mb-3">

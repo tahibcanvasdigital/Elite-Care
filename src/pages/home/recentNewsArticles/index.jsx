@@ -47,7 +47,7 @@ const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', '
                     <div className={styles.cardContentWrapper}>
                       <p className={styles.date}>{finalDate}</p>
                       <p className={styles.question}>{item.title}</p>
-                      <p className={styles.answer}>{item.description}</p>
+                      <p className={styles.answer}>{item?.description?.slice(0,150)}</p>
                       <div className={styles.readMoreWrapper}>
                         <Link to={"/elite-care/blog"} >READ MORE</Link>
                         <HiOutlineArrowNarrowRight />

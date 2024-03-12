@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import {constants} from '../../../constants'
 
 export const getdoctors = createAsyncThunk("doctors/getdoctors", async (paginate) => {
-  let Url = await fetch(`${constants.baseUrl}api/doctor?limit=${paginate.limit}&page=${paginate.page}`, {
+  let Url = await fetch(`${constants.baseUrl}api/doctor?limit=10&page=${paginate.page}`, {
     method: "GET",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: JSON.stringify(),
@@ -34,6 +34,6 @@ export const GetdoctorSlice = createSlice({
   },
 });
 
-
+export const selectdoctor = (state) => state.doctors;
 
 export default GetdoctorSlice.reducer;

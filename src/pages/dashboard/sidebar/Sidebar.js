@@ -1,13 +1,16 @@
 import React, { useEffect } from "react";
 import { MdDashboard } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { screenSet } from "../../../global/features/Dashboard/screensize/ScreenSlice";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { selectIsMenuOpen, toggleMenu } from "../../../global/features/Dashboard/screenmenu/MenuSlice";
-import { FaServicestack, FaUserCheck } from "react-icons/fa";
-import { FaUserDoctor, FaBriefcaseMedical } from "react-icons/fa6";
+import {  selectIsMenuOpen, toggleMenu } from "../../../global/features/Dashboard/screenmenu/MenuSlice";
+import { FaServicestack ,FaUserCheck } from "react-icons/fa";
+import { FaUserDoctor,FaBriefcaseMedical } from "react-icons/fa6";
 import { BiSolidContact } from "react-icons/bi";
+import { MdOutlineWeb } from "react-icons/md";
+import { BsDisplayFill } from "react-icons/bs";
+
 
 
 import Style from '../style.module.css'
@@ -17,7 +20,7 @@ const Sidebar = () => {
     {
       title: "Dashboard",
       path: "elite-care/dashboard/home",
-      icon: <MdDashboard />,
+      icon: <BsDisplayFill />,
     },
     {
       title: "Doctors",
@@ -48,19 +51,19 @@ const Sidebar = () => {
     {
       title: "Blogs",
       path: "elite-care/dashboard/blogs",
-      icon: <FaBriefcaseMedical />,
-    }, {
-      title: "Catogory",
-      path: "elite-care/dashboard/category",
-      icon: <FaBriefcaseMedical />,
-    }
+      icon: <MdOutlineWeb />,
+    },
+    {
+      title: "Blog Category",
+      path: "elite-care/dashboard/blogcategory",
+      icon: <MdDashboard />,
+    },
   ]
   const disptach = useDispatch();
 
   const isMenuOpen = useSelector(selectIsMenuOpen);
   const { screensize } = useSelector((state) => state.screen);
-  console.log(screensize);
-
+ 
   useEffect(() => {
     const handlesize = () => disptach(screenSet(window.innerWidth));
 
@@ -75,30 +78,30 @@ const Sidebar = () => {
     <div className={`container-fluid  gx-0 ${Style.main}`}>
       <div
         className={Style.sidebar}
-        style={{ width: isMenuOpen ? "300px" : "50px" }}
+        style={{ width: isMenuOpen ? "300px" : "50px"   } }
       >
         <div className={Style.top_section}>
           <h1 style={{ display: isMenuOpen ? "block" : "none" }}>
-            ELITE CARE
+            <Link to={'/elite-care'}>ELITE CARE</Link>
+            
           </h1>
           <div
             style={{ marginLeft: isMenuOpen ? "40px" : "0px" }}
-            className={`bars`}
+            className={Style.bars}
             onClick={() => disptach(toggleMenu())}
           >
-            <GiHamburgerMenu color="#fff" />
+            <GiHamburgerMenu  size={26} color="#fff"/>
           </div>
         </div>
         {
-          data?.map((items, index) => (
+          data.map((items, index) => (
             <NavLink
-              to={`/${items.path}`}
+            to={`/${items.path}`}
               key={index}
-              // className={Style.link}
               className={({ isActive }) =>
-                isActive ? `${Style.active} ${Style.link}` : ` ${Style.link}`
-              }
-
+               isActive ?`${Style.active} ${Style.link}` : ` ${Style.link}`
+            }           
+             
               data-toggle="tooltip" data-placement="right" title={items.title}
             >
               <div className={Style.icon}>{items.icon}</div>
@@ -111,7 +114,7 @@ const Sidebar = () => {
             </NavLink>
           ))}
       </div>
-
+      
     </div>
   );
 };

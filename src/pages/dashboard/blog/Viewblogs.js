@@ -14,8 +14,14 @@ const Viewblogs = () => {
   const { id } = useParams()
   console.log(id)
   const { data, loading } = useSelector((state) => state.viewblogs);
-  console.log(
-    );
+  console.log();
+  const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+            const createdDate = new Date(data.data?.createdAt)
+            const day = createdDate.getDate()
+            const month = months[createdDate.getMonth()]
+            const year = createdDate.getFullYear()
+
+            const finalDate = `${day < 10 ? '0' + day : day} ${month} ${year}`
   useEffect(() => {
     dispatch(Viewblog(id));
   }, [dispatch]);
@@ -33,32 +39,34 @@ const Viewblogs = () => {
           ) : (
             <div className={`container `}>
               <div className="row align-items-center">
-              <div className="col col-md-12">
+              <div className="col col-md-8">
                   <div
                     class={`row justify-content-between align-items-center  ${styles.profilecard}`}
                   >
-                    <div className="col col-md-6 ">
-                      <div className="">
+                    <div className="col col-md-12 p-0 ">
+                      <div className="p-0">
                       <div className={styles.profile}>
                         <img  src={data.data?.image?.imageUrl}/>
                       </div>
                       </div>
                    
                     </div>
-                    <div className="col col-md-6 ">
+                    <div className="col col-md-12 ">
                       <div className={styles.profiletext}>
-                        <div className="">
-                          <h5>Title :</h5>
+                      <div className={styles.text}>
+                          <h5>CreatedAt :</h5>
+                          <p>{finalDate}</p>
+                        </div>
+                        <div className={styles.text}>
+                          <h5 >Title :</h5>
                           <p>{data.data?.title}</p>
                         </div>
-                        <div>
+                        <div className={styles.text}>
                           <h5>description :</h5>
                           <p>{data.data?.description}</p>
                         </div>
-                        <div>
-                          <h5>Gender : </h5>
-                          {/* <p>{data.data}</p> */}
-                        </div>
+                        
+                      
                       </div>
                     </div>
                   </div>

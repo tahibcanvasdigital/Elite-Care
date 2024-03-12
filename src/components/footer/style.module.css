@@ -1,3 +1,10 @@
+.linkHover{
+  color :white;
+}
+.linkHover:hover{
+color: #d4ae3d;
+
+}
 .imgfooter {
   background-image: url("../../assets/footerbg.png");
   background-size: cover;
@@ -6,6 +13,9 @@
 
   overflow: hidden;
 }
+/* #contactrow .text{
+  line-height: 80px;
+} */
 @-webkit-keyframes zoom-a {
   0% {
     background-size: 100% auto;
@@ -158,12 +168,14 @@ input::placeholder {
   }
   #footerrow h4 {
     font-size: 14px;
-    line-height: 26px;
+    line-height: 32px !important;
     font-weight: bold;
   }
   #footerrow p {
  
     font-size: 14px;
+    line-height: 30px !important;
+ 
   }
   #footerrow .ul a {
   

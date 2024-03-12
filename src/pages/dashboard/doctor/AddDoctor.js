@@ -7,6 +7,7 @@ import Headers from "../header/Headers";
 import { createDoctorApi } from "../../../global/features/Dashboard/Doctors/createDoctor";
 import { toast } from "react-toastify";
 import { clearDoctor } from "../../../global/features/Dashboard/Doctors/createDoctor";
+import styles from '../style.module.css'
 const AddDoctor = () => {
 
   const dispatch = useDispatch();
@@ -72,13 +73,14 @@ const AddDoctor = () => {
   }, [success])
 
   return (
-    <div className="d-flex">
-      <div>
+
+    <div className="d-flex ">
+      <div className={styles.sidecolor}>
         <Sidebar />
       </div>
       <div className=" w-100 my-[120px]">
         <Headers />
-        <div className="mx-4">
+        <div className="mx-4 container">
           <h1>Create Doctor</h1>
           <form onSubmit={handlesubmit}>
             <div class="mb-3">

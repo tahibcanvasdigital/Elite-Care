@@ -3,7 +3,7 @@ import Navbar from "../../components/navbar";
 import Aesthetic from "../../components/asthetics";
 import Footer from "../../components/footer";
 
-import Surgical from "../../assets/Non-SurgicalAesthetics.png";
+import Surgical from "../../assets/Non-SurgicalAesthetics.webp";
 
 const NonSurgicalAsthetics = () => {
   const data = {

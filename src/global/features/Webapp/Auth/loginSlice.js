@@ -48,6 +48,29 @@ const loginSlice = createSlice({
         errorMessage: null,
         errorTrue: null
     },
+    reducers: {
+        logout() {
+            return {
+                isLoading: false,
+                isError: false,
+                data: null,
+                success: false,
+                message: null,
+                _id: null,
+                name: null,
+                email: null,
+                profile: null,
+                gender: null,
+                appoinmentApproval: null,
+                verified: null,
+                role: null,
+                isDeleted: null,
+                refreshToken: null,
+                errorMessage: null,
+                errorTrue: null
+            }
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(loginSliceApi.pending, (state) => {
@@ -78,4 +101,6 @@ const loginSlice = createSlice({
     }
 })
 
+export const { logout } = loginSlice.actions;
 export default loginSlice.reducer
+

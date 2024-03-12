@@ -5,29 +5,23 @@ import PaginationComponent from "../../../components/pagination";
 import { Link } from "react-router-dom";
 import style from "./style.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllCategoriesApi } from "../../../global/features/Dashboard/categorySlice/getAllCategories";
+import { getAllCategoriesApi,selectCategory } from "../../../global/features/Dashboard/categorySlice/getAllCategories";
 import Loader from "../../../components/Loader";
 
 const Category = () => {
+  const dispatch = useDispatch();
   const [currentpage, setCurrentpage] = useState(1);
   const [limit, setLimit] = useState(10);
-  const dispatch = useDispatch();
 
-  const { data, isLoading } = useSelector(
-    (value) => value.getAllCategoriesSlice
-  );
+  const { data, isLoading } = useSelector(selectCategory);
 
   useEffect(() => {
-    const paginate = { limit: limit, page: currentpage }
+    const paginate = { limit: limit, page: currentpage };
 
     dispatch(getAllCategoriesApi(paginate));
   }, [currentpage, dispatch, limit]);
-  
 
-  const recordPage = 10;
-  const lastindex = currentpage * recordPage;
-  const firstindex = lastindex - recordPage;
-  const records = data?.results?.results.slice(firstindex, lastindex);
+  const records = data?.results?.results.slice();
 
   return (
     <div className="d-flex">
@@ -38,11 +32,11 @@ const Category = () => {
         <Headers />
         <div className={style.btn_doc}>
           <Link to={"/elite-care/dashboard/addcategory"}>
-            <button>Add Category</button>
+            <button>Add Blog Category</button>
           </Link>
         </div>
         <div className="container mt-4   ">
-          <h1> Category </h1>
+          <h1> Blog Category </h1>
           <table
             style={{ width: "100%" }}
             className={`table  table-responsive table-striped table-bordered table-hover ${style.tables} }`}
@@ -50,8 +44,7 @@ const Category = () => {
             <thead>
               <tr>
                 <th scope="col">S .NO</th>
-                <th scope="col">Name</th>
-                <th scope="col">VIEW</th>
+                <th scope="col">NAME</th>
               </tr>
             </thead>
 
@@ -61,15 +54,10 @@ const Category = () => {
               records?.map((item, index) => (
                 <tbody key={index}>
                   <tr>
-                    <th scope="row">{index + 1}</th>
+                    <th scope="row">
+                      {currentpage * limit - limit + (index + 1)}
+                    </th>
                     <td>{item.name}</td>
-                    <td>
-                      <Link
-                        to={`/elite-care/dashboard/viewcategory/${item._id}`}
-                      >
-                        view
-                      </Link>
-                    </td>
                   </tr>
                 </tbody>
               ))
@@ -77,7 +65,7 @@ const Category = () => {
           </table>
           <div>
             <PaginationComponent
-              totalPost={data?.data?.count}
+              totalPost={data?.count}
               postPerPage={limit}
               setCurrentPage={setCurrentpage}
               currentPage={currentpage}

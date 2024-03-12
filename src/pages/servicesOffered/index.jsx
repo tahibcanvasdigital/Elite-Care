@@ -1,15 +1,9 @@
 import React from "react";
-import styles from "./style.module.css";
 import Navbar from "../../components/navbar";
-import logo from "../../assets/services-offered.png";
+import logo from "../../assets/services-offered.webp";
 import SurgeryCenter from "./surgeryCenter";
 import SurgicalCard from "./surgicalCard";
-import Surgical1 from "../../assets/Surgicalimge1.png";
-import Surgical2 from "../../assets/Surgicalimge2.png";
-import Surgical3 from "../../assets/Surgicalimge3.png";
-import Surgical4 from "../../assets/Surgicalimge4.png";
-import Surgical5 from "../../assets/Surgicalimge5.png";
-import Surgical6 from "../../assets/Surgicalimge6.png";
+
 import Ourmission from "./Ourmission";
 import ImageComparison from "../../components/Imagecomparison/ImageCamparison";
 

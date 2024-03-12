@@ -6,7 +6,7 @@ export const getblogs = createAsyncThunk("getblogs", async (paginate) => {
     method: "GET",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded ",
-      Authorization: `Bearer ${user.data.refreshToken}`,
+      // Authorization: `Bearer ${user.data.refreshToken}`,
     },
 
   });

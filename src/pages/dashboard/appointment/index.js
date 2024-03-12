@@ -1,14 +1,13 @@
-import React, { useState } from 'react'
-import Headers from '../header/Headers'
-import Sidebar from '../sidebar/Sidebar'
-import Style from '../style.module.css'
-import { Link } from 'react-router-dom'
-import PaginationComponent from '../../../components/pagination'
-import useSWR from 'swr'
-import {constants} from '../../../global/constants'
-import Loader from '../../../components/Loader'
+import React, { useState } from "react";
+import Headers from "../header/Headers";
+import Sidebar from "../sidebar/Sidebar";
+import Style from "../style.module.css";
+import { Link } from "react-router-dom";
+import PaginationComponent from "../../../components/pagination";
+import useSWR from "swr";
+import { constants } from "../../../global/constants";
+import Loader from "../../../components/Loader";
 const Appointment = () => {
-
   // const data = [
   //   {
   //     id: "1",
@@ -151,77 +150,75 @@ const Appointment = () => {
   //   },
   // ];
 
-
-  const fetcher = (...args) => fetch(...args).then(res => res.json())
-  const {data, error, isLoading } = useSWR(`${constants.baseUrl}api/appoinment?page=1&limit=5`,fetcher)
-const appointmentData = data?.data?.results?.results
-console.log(appointmentData);
   const [currentpage, setCurrentpage] = useState(1);
-  const recordPage = 10;
-  const lastindex = currentpage * recordPage;
-  const firstindex = lastindex - recordPage;
-  // const records = data.slice(firstindex, lastindex);
+  const [limit, setLimit] = useState(10);
 
-  const numberpages = Math.ceil(data?.length / recordPage);
-
-  const numbers = Array.from({ length: numberpages }, (_, index) =>
-    (index + 1).toString().padStart(2, "0")
+  const fetcher = (...args) => fetch(...args).then((res) => res.json());
+  const { data, error, isLoading } = useSWR(
+    `${constants.baseUrl}api/appoinment?page=${currentpage}limit=${limit}`,
+    fetcher
   );
+  const appointmentData = data?.data?.results?.results;
   return (
     <div className="d-flex">
-      <div>
+      <div className={Style.sidecolor}>
         <Sidebar />
       </div>
       <div className="w-100">
         <Headers />
-        <div className='mx-4'>
+        <div className="mx-4">
           <h1> Appointment</h1>
           <div className="container mt-4   ">
-            <table style={{ width: '100%' }} className={`table  table-responsive table-striped table-bordered table-hover ${Style.tables} }`}>
+            <table
+              style={{ width: "100%" }}
+              className={`table  table-responsive table-striped table-bordered table-hover ${Style.tables} }`}
+            >
               <thead>
                 <tr>
-                  <th scope="col">id</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Service</th>
-                  <th scope="col">Time</th>
-                  <th scope="col">VIEW</th>
+                  <th scope="col">ID</th>
+                  <th scope="col">NAME</th>
+                  <th scope="col">EMAIL</th>
+                  <th scope="col">SERVICE</th>
+                  <th scope="col">CREATED AT</th>
+
                 </tr>
               </thead>
-              {
-                  isLoading ? (
-                    <Loader/>
-                  )
-                  :(
-                    appointmentData?.map((item, index) => {
-                      // retrun
-                      return(
-                        <>
-                         <tbody key={index}>
+              {isLoading ? (
+                <Loader />
+              ) : (
+                appointmentData?.map((item, index) => {
+                  const timestamp = item?.createdAt;
+                  const dateOnly = new Date(timestamp)
+                    .toISOString()
+                    .slice(0, 10);
+                  return (
+                    <>
+                      <tbody key={index}>
                         <tr>
-                          <th scope="row">{item._id}</th>
+                          <th scope="row">{(currentpage * limit) - limit + (index + 1)}</th>
                           <td>{item?.name}</td>
                           <td>{item?.email}</td>
                           <td>{item?.serviceOffered}</td>
-                          <td>{item?.createdAt}</td>
-                          <td><Link to={`/elite-care/dashboard/viewappoitment/${item._id}`}>view</Link></td>
+                          <td>{dateOnly}</td>
+                          
                         </tr>
                       </tbody>
-                        </>
-                      )
-                     
-                      })
-                  )
-
-               
-              }
+                    </>
+                  );
+                })
+              )}
             </table>
-            <PaginationComponent numbers={numbers} numberpages={numberpages} setCurrentpage={setCurrentpage} currentpage={currentpage} />
+            <PaginationComponent
+              totalPost={data?.data?.count}
+              postPerPage={limit}
+              setCurrentPage={setCurrentpage}
+              currentPage={currentpage}
+            />
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Appointment
+export default Appointment;

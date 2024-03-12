@@ -116,7 +116,7 @@ function App() {
         <Route path="/elite-care/dashboard/blogs" element={<Blogs />} />
         <Route path="/elite-care/dashboard/addblogs" element={<Addblog />} />
         <Route path="/elite-care/dashboard/viewblogs/:id" element={<Viewblogs />} />
-        <Route path="/elite-care/dashboard/category" element={<Category />} />
+        <Route path="/elite-care/dashboard/blogcategory" element={<Category />} />
         <Route path="/elite-care/dashboard/addcategory" element={<AddCategory />} />
         <Route path="/elite-care/dashboard/viewcategory/:id" element={<ViewCategory />} />
       </Routes>

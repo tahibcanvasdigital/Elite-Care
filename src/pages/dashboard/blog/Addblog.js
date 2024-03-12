@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import styles from "./style.module.css";
 import Sidebar from "../sidebar/Sidebar";
 import Headers from "../header/Headers";
-import { useDispatch,useSelector } from "react-redux";
-import { createBlogApi} from "../../../global/features/Dashboard/blogsSlice/createBlog";
+import { useDispatch, useSelector } from "react-redux";
+import { createBlogApi } from "../../../global/features/Dashboard/blogsSlice/createBlog";
 import { constants } from "../../../global/constants";
 import { toast } from "react-toastify";
 import { clearBlog } from "../../../global/features/Dashboard/blogsSlice/createBlog";
@@ -14,11 +14,11 @@ const Addblog = () => {
     category: "",
     blogImg: null,
   });
-  const [category,setCategory] = React.useState([])
-  const categoryData = category?.data?.results?.results
+  const [category, setCategory] = React.useState([]);
+  const categoryData = category?.data?.results?.results;
   console.log(categoryData);
   const dispatch = useDispatch();
-const {success,message} = useSelector(value=>value.createBlog)
+  const { success, message } = useSelector((value) => value.createBlog);
   const user = JSON.parse(localStorage.getItem("user"));
   let token = user.data?.refreshToken;
 
@@ -28,17 +28,15 @@ const {success,message} = useSelector(value=>value.createBlog)
       const response = await fetch(`${constants.baseUrl}api/category`, {
         method: "GET",
         headers: {
-          'Authorization': `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
         },
       });
-      const result = await response.json()
-      setCategory(result)
-
+      const result = await response.json();
+      setCategory(result);
     } catch (error) {
       console.log(error.message);
     }
   };
-
 
   console.log(category);
   const imageHandler = (e) => {
@@ -48,39 +46,34 @@ const {success,message} = useSelector(value=>value.createBlog)
 
   const handlesubmit = (e) => {
     e.preventDefault();
-    dispatch(createBlogApi(blog)).then(()=>{
+    dispatch(createBlogApi(blog));
+  };
+
+  useEffect(() => {
+    getCategories();
+  }, []);
+
+  useEffect(() => {
+    if (success == true) {
+      toast.success(message, {
+        position: "top-center",
+      });
+      dispatch(clearBlog());
       setBlog({
         title: "",
         description: "",
         category: "",
         blogImg: null,
-      })
-    })
-  };
-
-
-  useEffect(()=>{
-    getCategories()
-  },[])
-
-  useEffect(()=>{
-if(success == true){
-  toast.success(message,{
-    position:'top-center'
-  })
-  dispatch(clearBlog())
-}
-else if(success == null){
-  return ;
-}
-else{
-  toast.error(message,{
-    position:"top-center"
-  })
-  dispatch(clearBlog())
-
-}
-  },[success])
+      });
+    } else if (success == null) {
+      return;
+    } else {
+      toast.error(message, {
+        position: "top-center",
+      });
+      dispatch(clearBlog());
+    }
+  }, [success]);
   return (
     <div className="d-flex">
       <div className={styles.sidecolor}>
@@ -88,7 +81,7 @@ else{
       </div>
       <div className={`w-100  ${styles.widthdiv}`}>
         <Headers />
-        <div className="mx-4">
+        <div className="mx-4 container">
           <h1> Create Blogs </h1>
           <form onSubmit={handlesubmit}>
             <div class="mb-3">
@@ -107,19 +100,21 @@ else{
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">
-                Discription
+                Description
               </label>
-              <input
-                type="text"
+
+              <textarea  type="text"
                 name="discription"
                 class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
+                id="exampleInputEmail1" rows="4" cols="50"
                 value={blog.description}
                 onChange={(e) =>
                   setBlog({ ...blog, description: e.target.value })
                 }
-              />
+                >
+                At w3schools.com you will learn how to make a website. They
+                offer free tutorials in all web development technologies.
+              </textarea>
             </div>
             <div class="mb-3 ">
               <label for="" class="form-label">
@@ -137,11 +132,14 @@ else{
                   Select Category
                 </option>
 
-              {categoryData && categoryData.map((item)=>{
-                return (
-                  <option key={item?._id} value={item?.name}>{item?.name}</option>
-                )
-              })}
+                {categoryData &&
+                  categoryData.map((item) => {
+                    return (
+                      <option key={item?._id} value={item?.name}>
+                        {item?.name}
+                      </option>
+                    );
+                  })}
               </select>
             </div>
 

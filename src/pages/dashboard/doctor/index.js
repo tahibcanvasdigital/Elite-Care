@@ -5,24 +5,25 @@ import Sidebar from "../sidebar/Sidebar";
 import Headers from "../header/Headers";
 import PaginationComponent from "../../../components/pagination";
 import { useDispatch, useSelector } from "react-redux";
-import Loader from "../../../components/Loader";
 import {
-  getdoctors
+  getdoctors,
+  selectdoctor,
 } from "../../../global/features/Dashboard/getdoctorSlice/Getdoctor";
+import Loader from "../../../components/Loader";
+import useSWR from "swr";
+import { constants } from "../../../global/constants";
 
 const Doctors = () => {
-  const dispatch = useDispatch();
-  const { data, loading } = useSelector((state) => state.doctors);
+
+
   const [currentpage, setCurrentpage] = useState(1);
-  const [limit, setLimit] = useState(10);
+  let limit = 10;
 
-  useEffect(() => {
-    const paginate = { limit: limit, page: currentpage };
+  const fetcher = (...args) => fetch(...args).then(res => res.json())
+  const {data, error, isLoading } = useSWR(`${constants.baseUrl}/api/doctor?page=${currentpage}&limit=${limit}`,fetcher)
+  const doctorData = data?.data?.results
+  console.log("docor",doctorData);
 
-    dispatch(getdoctors(paginate));
-  }, [currentpage, dispatch, limit]);
-
-  const records = data?.data?.results?.slice();
 
   return (
     <div className="d-flex">
@@ -36,7 +37,7 @@ const Doctors = () => {
             <button>Add Doctor</button>
           </Link>
         </div>
-        <div className="container mt-4  ">
+        <div className="container mt-4">
           <h1> Doctors </h1>
           <table
             style={{ width: "100%" }}
@@ -44,42 +45,45 @@ const Doctors = () => {
           >
             <thead>
               <tr>
-                <th scope="col">id</th>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-
-                <th scope="col">Time</th>
-                <th scope="col">VIEW</th>
+                <th scope="col">ID</th>
+                <th scope="col">NAME</th>
+                <th scope="col">EMAIL</th>
+                <th scope="col">TIME</th>
               </tr>
             </thead>
+            <tbody>
+              {isLoading ? (
+                <Loader />
+              ) : (
+                doctorData?.map((item, index) => {
+                  const timestamp = item?.createdAt;
+                  const dateOnly = new Date(timestamp)
+                    .toISOString()
+                    .slice(0, 10);
+                  return(
+                   
+                <tr key={index}>
+                  <th scope="row">
+                    {currentpage * limit - limit + (index + 1)}
+                  </th>
+                  <td>{item.name}</td>
+                  <td>{item.email}</td>
 
-            {loading ? (
-              <Loader />
-            ) : (
-              records?.map((item, index) => (
-                <tbody key={index}>
-                  <tr>
-                    <th scope="row">{item.id}</th>
-                    <td>{item?.name}</td>
-                    <td>{item?.email}</td>
-
-                    <td>{item?.availableTime}</td>
-                    <td>
-                      <Link to={`/elite-care/dashboard/viewdoctor/${item._id}`}>
-                        view
-                      </Link>
-                    </td>
-                  </tr>
-                </tbody>
-              ))
-            )}
+                  <td>{dateOnly}</td>
+                </tr>
+              
+                  )
+                })
+              )}
+            </tbody>
           </table>
+
           <PaginationComponent
-              totalPost={data?.data?.count}
-              postPerPage={limit}
-              setCurrentPage={setCurrentpage}
-              currentPage={currentpage}
-            />
+            totalPost={data?.data?.results?.length}
+            postPerPage={doctorData?.length}
+            setCurrentPage={setCurrentpage}
+            currentPage={currentpage}
+          />
         </div>
       </div>
     </div>

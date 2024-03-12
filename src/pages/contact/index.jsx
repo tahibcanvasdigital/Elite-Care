@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./style.module.css";
-import logo from "../../assets/ContactUs.png";
+import logo from "../../assets/ContactUs.webp";
 import ContactForm from "./contactForm";
 import Footer from "../../components/footer";
 import Navbar from "../../components/navbar";

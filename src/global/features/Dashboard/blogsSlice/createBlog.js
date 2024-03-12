@@ -35,7 +35,7 @@ const createBlog = createSlice({
     message: null,
   },
   reducers:{
-    clearBlog(state,action){
+    clearBlog(){
       return{
           isLoading: false,
           isError: false,

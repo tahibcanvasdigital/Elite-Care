@@ -1,28 +1,22 @@
-import React, { useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
-
+import React from "react";
 import Sidebar from "../sidebar/Sidebar";
 import Headers from "../header/Headers";
+import { MdSupervisedUserCircle } from "react-icons/md";
 import Styles from "./Style.module.css";
 import { FaBriefcaseMedical, FaServicestack, FaUserCheck, FaUserDoctor } from "react-icons/fa6";
 import Chart from "../chart";
-
+import useSWR from "swr";
+import { constants } from "../../../global/constants";
 const Dashboardview = () => {
-  const navigation = useNavigate();
-  const currUser = localStorage.getItem('user');
 
-  if (currUser === null) {
-    navigation('/elite-care');
-  }
-  const cUser = JSON.parse(currUser);
 
-  useEffect(() => {
-    if (!cUser || cUser?.data?.role !== "admin") {
-      navigation('/elite-care')
-    }
-  }, [cUser, navigation]);
 
-  const data = [
+  const fetcher = (...args) => fetch(...args).then(res => res.json())
+  const {data, error, isLoading } = useSWR(`${constants.baseUrl}/api/dashboard`,fetcher)
+
+  const dashbaordData = data?.data
+  console.log(dashbaordData);
+  const Carddata = [
     {
       title: "Total Doctors",
       path: "elite-care/dashboard/doctors",
@@ -38,13 +32,7 @@ const Dashboardview = () => {
       details: '12% more thenprevious work',
       totalCount: '10,980'
     },
-    {
-      title: "Total Users",
-      path: "elite-care/dashboard/users",
-      icon: <FaUserCheck size={24} />,
-      details: '12% more thenprevious work',
-      totalCount: '10,980',
-    },
+
     {
       title: "Total Appointments",
       path: "elite-care/dashboard/appointments",
@@ -65,17 +53,14 @@ const Dashboardview = () => {
           <div className={`${Styles.maindiv} container`}>
             <div className="row justify-content-between  ">
               {
-                data.map((items, index) => (
+                dashbaordData?.map((items, index) => (
                   <div key={index} className="col-12 mt-3 col-md-3   ">
                     <div className={Styles.card}>
-                      <p>{items.icon}</p>
+                      <p><FaBriefcaseMedical size={24} /></p>
                       <div className={Styles.text}>
-                        <span className={Styles.title}>{items.title}</span>
-                        <span className={Styles.count}>{items.totalCount}</span>
-                        <span className={Styles.detail}>
-                          <span className={Styles.positive}>{items.details}
-                          </span>
-                        </span>
+                        <span className={Styles.title}>{items?.heading}</span>
+                        <span className={Styles.count}>{items?.data}</span>
+                        
                       </div>
                     </div>
 

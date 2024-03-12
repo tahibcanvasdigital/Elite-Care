@@ -24,7 +24,7 @@ const ViewCategory = () => {
       <div className="w-100">
         <Headers />
         <div className="mx-4">
-          <h1> ViewCategory </h1>
+          <h1> View Blog Category </h1>
           {loading ? (
             <Loader />
           ) : (
