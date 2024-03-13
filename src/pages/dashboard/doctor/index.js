@@ -54,7 +54,7 @@ const Doctors = () => {
             <tbody>
               {isLoading ? (
                 <Loader />
-              ) : (
+               ) : (
                 doctorData?.map((item, index) => {
                   const timestamp = item?.createdAt;
                   const dateOnly = new Date(timestamp)
@@ -74,16 +74,16 @@ const Doctors = () => {
               
                   )
                 })
-              )}
+              )} 
             </tbody>
           </table>
-
-          <PaginationComponent
+          {isLoading ? "": <PaginationComponent
             totalPost={data?.data?.results?.length}
             postPerPage={doctorData?.length}
             setCurrentPage={setCurrentpage}
             currentPage={currentpage}
-          />
+          />}
+         
         </div>
       </div>
     </div>
@@ -91,3 +91,4 @@ const Doctors = () => {
 };
 
 export default Doctors;
+

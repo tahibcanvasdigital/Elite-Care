@@ -10,23 +10,31 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getcontact,
 } from "../../../global/features/Dashboard/contactusSlice/GetContact";
+import useSWR from "swr";
+import { constants } from "../../../global/constants";
 
 const ContactUs = () => {
-  const disptach = useDispatch();
-  const { data, loading } = useSelector((state) => state.contactus);
+  // const disptach = useDispatch();
+  // const { data, loading } = useSelector((state) => state.contactus);
   const [currentpage, setCurrentpage] = useState(1);
   const [limit, setLimit] = useState(10);
 
-  useEffect(() => {
-    const paginate = { limit: limit, page: currentpage }
+  // useEffect(() => {
+  //   const paginate = { limit: limit, page: currentpage }
 
-    disptach(getcontact(paginate));
-  }, [currentpage, disptach, limit]);
-  const recordPage = 10;
-  const lastindex = currentpage * recordPage;
-  const firstindex = lastindex - recordPage;
-  const records = data?.data?.results?.results.slice(firstindex, lastindex);
+  //   disptach(getcontact(paginate));
+  // }, [currentpage, disptach, limit]);
+  // const recordPage = 10;
+  // const lastindex = currentpage * recordPage;
+  // const firstindex = lastindex - recordPage;
+  // const records = data?.data?.results?.results.slice(firstindex, lastindex);
 
+
+// Contact Us Data using SWR
+
+const fetcher = (...args) => fetch(...args).then(res => res.json())
+const { data: contactData,isLoading } = useSWR(`${constants.baseUrl}api/contactus?limit=${limit}&page=${currentpage}`, fetcher);
+const conData = contactData?.data?.results?.results
   return (
     <div className="d-flex">
       <div className={Style.sidecolor}>
@@ -55,10 +63,10 @@ const ContactUs = () => {
                   </tr>
                 </thead>
 
-                {loading ? (
+                {isLoading ? (
                   <Loader />
                 ) : (
-                  records?.map((item, index) => (
+                  conData?.map((item, index) => (
                     <tbody key={index}>
                       <tr>
                         <th scope="row">{index + 1}</th>
@@ -72,12 +80,15 @@ const ContactUs = () => {
                   ))
                 )}
               </table>
-              <PaginationComponent
-              totalPost={data?.data?.count}
-              postPerPage={limit}
-              setCurrentPage={setCurrentpage}
-              currentPage={currentpage}
-            />
+              {
+                isLoading ? "":<PaginationComponent
+                totalPost={conData?.data?.data?.count}
+                postPerPage={limit}
+                setCurrentPage={setCurrentpage}
+                currentPage={currentpage}
+              />
+              }
+              
             </div>
           </div>
         </div>

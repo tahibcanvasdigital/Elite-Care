@@ -63,7 +63,10 @@ const Viewblogs = () => {
                         </div>
                         <div className={styles.text}>
                           <h5>description :</h5>
-                          <p>{data.data?.description}</p>
+                          {/* <p>{data.data?.description}</p> */}
+                          <p
+                        dangerouslySetInnerHTML={{ __html: data.data?.description }}
+                      ></p>
                         </div>
                         
                       

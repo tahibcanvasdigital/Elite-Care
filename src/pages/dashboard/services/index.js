@@ -77,12 +77,15 @@ const Service = () => {
             )}
           </table>
           <div>
-            <PaginationComponent
+            {
+              isLoading ? "": <PaginationComponent
               totalPost={data?.data?.count}
               postPerPage={limit}
               setCurrentPage={setCurrentpage}
               currentPage={currentpage}
             />
+            }
+           
           </div>
         </div>
       </div>

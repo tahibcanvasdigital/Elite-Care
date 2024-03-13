@@ -117,7 +117,7 @@ const Navbar = ({ data }) => {
                   />
                   <div className={styles.rightSide}>
                     <div className={styles.upperSection}>
-                      <p onClick={() => window.open("mailto://Gendusarose@gmail.com", "_blank")} style={{ cursor: "pointer" }} className={`${styles.email} ${styles.upperText}`}>
+                      <p  onClick={() => window.open("mailto://Gendusarose@gmail.com", "_blank")} style={{ cursor: "pointer" }} className={`${styles.email} ${styles.upperText}`}>
                         <FaEnvelope /> Gendusarose@gmail.com
                       </p>
                       <p onClick={() => window.open('tel://40989989899', '_blank')} style={{ cursor: "pointer" }} className={`${styles.phone} ${styles.upperText}`}>
@@ -161,7 +161,7 @@ const Navbar = ({ data }) => {
                         }
                         {
                           currUser && currUser?.data?.role === "admin" && (
-                            <Link to={"/elite-care/dashboard/home"}>Dashboard</Link>
+                            <Link  className={styles.hoverLinks} to={"/elite-care/dashboard/home"}>Dashboard</Link>
                           )
                         }
                       </div>

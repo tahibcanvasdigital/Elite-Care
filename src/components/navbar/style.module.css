@@ -5,6 +5,17 @@
   color: #d4ae3d;
   transform: translateY(-10px) rotate(-35deg);
 }
+
+
+.email:hover{
+  color: #d4ae3d;
+}
+.phone:hover{
+  color: #d4ae3d;
+}
+.address:hover{
+  color: #d4ae3d;
+}
 .hoverLinks:hover{
   color: #d4ae3d;
 }

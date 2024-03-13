@@ -79,12 +79,15 @@ const Blogs = () => {
             </tbody>
           </table>
           <div>
-            <PaginationComponent
+            {
+              loading?"":<PaginationComponent
               totalPost={data?.data?.count}
               postPerPage={limit}
               setCurrentPage={setCurrentpage}
               currentPage={currentpage}
             />
+            }
+            
           </div>
         </div>
       </div>

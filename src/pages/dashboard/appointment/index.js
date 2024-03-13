@@ -208,12 +208,15 @@ const Appointment = () => {
                 })
               )}
             </table>
-            <PaginationComponent
+            {
+              isLoading ? "":<PaginationComponent
               totalPost={data?.data?.count}
               postPerPage={limit}
               setCurrentPage={setCurrentpage}
               currentPage={currentpage}
             />
+            }
+            
           </div>
         </div>
       </div>

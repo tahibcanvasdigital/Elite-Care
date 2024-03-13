@@ -7,21 +7,16 @@ import style from "./style.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCategoriesApi,selectCategory } from "../../../global/features/Dashboard/categorySlice/getAllCategories";
 import Loader from "../../../components/Loader";
+import useSWR from "swr";
+import { constants } from "../../../global/constants";
 
 const Category = () => {
-  const dispatch = useDispatch();
   const [currentpage, setCurrentpage] = useState(1);
   const [limit, setLimit] = useState(10);
-
-  const { data, isLoading } = useSelector(selectCategory);
-
-  useEffect(() => {
-    const paginate = { limit: limit, page: currentpage };
-
-    dispatch(getAllCategoriesApi(paginate));
-  }, [currentpage, dispatch, limit]);
-
-  const records = data?.results?.results.slice();
+// Cateogry Data
+  const fetcher = (...args) => fetch(...args).then(res => res.json())
+  const {data:catData,isLoading } = useSWR(`${constants.baseUrl}api/category?limit=${limit}&page=${constants}`,fetcher)
+  const categoryData = catData?.data?.results?.results
 
   return (
     <div className="d-flex">
@@ -51,7 +46,7 @@ const Category = () => {
             {isLoading ? (
               <Loader />
             ) : (
-              records?.map((item, index) => (
+              categoryData?.map((item, index) => (
                 <tbody key={index}>
                   <tr>
                     <th scope="row">
@@ -64,12 +59,15 @@ const Category = () => {
             )}
           </table>
           <div>
-            <PaginationComponent
-              totalPost={data?.count}
+            {
+              isLoading ? "":<PaginationComponent
+              totalPost={categoryData?.data?.data?.count}
               postPerPage={limit}
               setCurrentPage={setCurrentpage}
               currentPage={currentpage}
             />
+            }
+            
           </div>
         </div>
       </div>
