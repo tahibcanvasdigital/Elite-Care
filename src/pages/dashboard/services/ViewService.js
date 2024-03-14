@@ -1,39 +1,59 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import useSWR from 'swr'
-import MultiSelect from "../../../components/dropdown/Dropdown";
+import React, { useEffect, useState } from "react";
+import { useDispatch,useSelector } from "react-redux";
 import Sidebar from "../sidebar/Sidebar";
 import Headers from "../header/Headers";
 import Style from '../style.module.css'
 import { useParams } from "react-router-dom";
+import { updateServiceApi,clearUpdateService} from "../../../global/features/Dashboard/Services/updateService";
+import { toast } from "react-toastify";
 const ViewService = () => {
   const { id } = useParams()
-  console.log(id);
-  const [service, getsetservice] = useState({});
+  const [updateService,setUpdateService] = useState({
+    serviceName: "",
+    description: "",
+    serviceImg: null,
+    price: "",
+    pageName: "",
+  });
   const dispatch = useDispatch();
-  // const getdata = (e) => {
-  //   getsetservice({ ...service, [e.target.name]: e.target.value });
-  // };
+  const {success,message} = useSelector((value)=>value.updateService)
 
-  //dropdown
-  const options = ["Option 1", "Option 2", "Option 3", "Option 4"];
-  const [selectedOptions, setSelectedOptions] = useState([]);
+const imageHandler = function(e){
+const selectedFile = e.target.files[0];
+setUpdateService({...updateService,serviceImg:selectedFile});
+}
 
-  const handleChange = (newSelectedOptions) => {
-    setSelectedOptions(newSelectedOptions);
-  };
-  //dropend
 
   const handlesubmit = (e) => {
     e.preventDefault();
-    console.log(service);
-    // dispatch(Createservice(service));
+    dispatch(updateServiceApi({
+      id: id,
+      serviceName: updateService.serviceName,
+      description: updateService.description,
+      serviceImg: updateService.serviceImg,
+      price: updateService.price,
+      pageName: updateService.pageName,
+    }))
   };
 
-  const fetcher = (...args) => fetch(...args).then(res => res.json())
-  const { data, error, isLoading } = useSWR(`http://localhost:8080/api/services/${id}`, fetcher)
-  const serviceData = data?.data
-  console.log(serviceData);
+  useEffect(() => {
+if(success === true){
+toast.success(message,{
+  position:"top-center"
+})
+dispatch(clearUpdateService())
+}
+
+else if(success === null){
+  return;
+}
+else{
+  toast.error(message,{position:"top-center"})
+dispatch(clearUpdateService())
+
+}
+  }, [success, message])
+  
   return (
     <div className="d-flex">
       <div className={Style.sidecolor}>
@@ -42,11 +62,11 @@ const ViewService = () => {
       <div className=" w-100 my-[120px]">
         <Headers />
         <div className="mx-4">
-          <h1>Add Service</h1>
+          <h1>Update Service</h1>
           <form onSubmit={handlesubmit}>
             <div class="mb-3">
               <label for="name" class="form-label">
-                ServiceName
+                Service Name
               </label>
               <input
                 type="text"
@@ -55,7 +75,8 @@ const ViewService = () => {
                 id="name"
                 // onChange={getdata}
                 aria-describedby="emailHelp"
-                value={serviceData?.serviceName}
+                value={updateService.serviceName}
+                onChange={(e)=>setUpdateService({...updateService,serviceName:e.target.value})}
               />
             </div>
             <div class="mb-3">
@@ -66,8 +87,8 @@ const ViewService = () => {
                 type="text"
                 name="description"
                 class="form-control"
-                // onChange={getdata}
-                value={serviceData?.description}
+                value={updateService.description}
+                onChange={(e)=>setUpdateService({...updateService,description:e.target.value})}
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
               />
@@ -80,8 +101,8 @@ const ViewService = () => {
               <input
                 type="text"
                 name="price"
-                // onChange={getdata}
-                value={serviceData?.price}
+                value={updateService.price}
+                onChange={(e)=>setUpdateService({...updateService,price:e.target.value})}
                 class="form-control"
                 id=" available-time"
               />
@@ -90,15 +111,25 @@ const ViewService = () => {
               <label for="Experience" class="form-label">
                 PageName
               </label>
-              <input
-                type="text"
-                name="pageName"
-                // onChange={getdata}
-                value={serviceData?.pageName
-                }
-                class="form-control"
-                id=" available-time"
-              />
+              <select
+               value={updateService.pageName}
+               onChange={(e)=>setUpdateService({...updateService,pageName:e.target.value})}
+              >
+                <option value="" selected disabled hidden>
+                  Select PageName
+                </option>
+                <option value="home">Home</option>
+                <option value="about">About</option>
+                <option value="serviceOffered">Services Offered</option>
+                <option value="surgicalAstehtics">Surgical Astehtics</option>
+                <option value="nonSurgicalAstehtics">
+                  Non Surgical Astehtics
+                </option>
+                <option value="dentist">Dentist</option>
+                <option value="forMen">For Men</option>
+                <option value="transportation">Transportation</option>
+                <option value="contactUs">Contact Us</option>
+              </select>
             </div>
 
             <div class="mb-3">
@@ -110,8 +141,8 @@ const ViewService = () => {
                 type="file"
                 id="formFile"
                 name="image"
-              // onChange={getdata}
-              // value={serviceData.image}
+                value={updateService.serviceImg}
+                onChange={imageHandler}
               />
             </div>
 

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getblogs } from "../../../global/features/Dashboard/blogsSlice/GetBlogs";
 import Loader from "../../../components/Loader";
+import deleteBlog, { deleteBlogApi } from "../../../global/features/Dashboard/blogsSlice/deleteBlog";
 
 const Blogs = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,12 @@ const Blogs = () => {
     const paginate = { limit: limit, page: currentpage };
     dispatch(getblogs(paginate));
   }, [currentpage, dispatch, limit]);
+
+  const deleteHandler = (id) =>{
+    dispatch(deleteBlogApi({
+      id:id
+    }))
+  }
 
   return (
     <div className="d-flex">
@@ -47,6 +54,8 @@ const Blogs = () => {
 
                 <th scope="col">CATEGORY</th>
                 <th scope="col">CREATED AT</th>
+                <th scope="col">UPDATE</th>
+                <th scope="col">DELETE</th>
                 <th scope="col">VIEW</th>
               </tr>
             </thead>
@@ -65,6 +74,8 @@ const Blogs = () => {
                       <td>{item.title}</td>
                       <td>{item.category?.name}</td>
                       <td>{dateOnly}</td>
+                      <td> <Link to={`/elite-care/dashboard/updateblogs/${item?._id}`}><button type="button" class="btn btn-primary">Update</button></Link></td>
+                      <td><button onClick={()=>deleteHandler(item?._id)} type="button" class="btn btn-danger">Delete</button></td>
                       <td>
                         <Link
                           to={`/elite-care/dashboard/viewblogs/${item._id}`}

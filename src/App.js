@@ -38,6 +38,9 @@ import Category from "./pages/dashboard/category";
 import AddCategory from "./pages/dashboard/category/AddCategory";
 import ViewCategory from "./pages/dashboard/category/ViewCategory";
 
+import UpdateblogCategory from "./pages/dashboard/category/Updatecategory";
+import Updateblog from "./pages/dashboard/blog/Updateblog";
+
 function App() {
   return (
     <Router>
@@ -116,12 +119,15 @@ function App() {
         <Route path="/elite-care/dashboard/blogs" element={<Blogs />} />
         <Route path="/elite-care/dashboard/addblogs" element={<Addblog />} />
         <Route path="/elite-care/dashboard/viewblogs/:id" element={<Viewblogs />} />
+        <Route path="/elite-care/dashboard/updateblogs/:id" element={<Updateblog/>} />
         <Route path="/elite-care/dashboard/blogcategory" element={<Category />} />
         <Route path="/elite-care/dashboard/addcategory" element={<AddCategory />} />
         <Route path="/elite-care/dashboard/viewcategory/:id" element={<ViewCategory />} />
+        <Route path="/elite-care/dashboard/updatecategory/:id" element={<UpdateblogCategory />} />
       </Routes>
     </Router>
-  );
+
+);
 }
 
 export default App;

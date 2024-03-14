@@ -7,24 +7,27 @@ import Headers from "../header/Headers";
 import PaginationComponent from "../../../components/pagination";
 import Loader from "../../../components/Loader";
 import { constants } from "../../../global/constants";
+import { useDispatch,useSelector } from "react-redux";
+import { deleteServiceApi } from "../../../global/features/Dashboard/Services/deleteService";
 
 const Service = () => {
   const [currentpage, setCurrentpage] = useState(1);
-  const recordPage = 5;
-  const lastindex = currentpage * recordPage;
-  const firstindex = lastindex - recordPage;
   const [limit, setLimit] = useState(10);
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
-  const { data, error, isLoading } = useSWR(
+  const { data, mutate, isLoading } = useSWR(
     `${constants.baseUrl}api/services?limit=${limit}&page=${currentpage}`,
     fetcher
   );
   const serviceData = data?.data?.results?.results;
-  const numberpages = Math.ceil(data?.data.length / recordPage);
+const dispatch = useDispatch()
+const deleteHandler = (id) =>{
+  dispatch(deleteServiceApi({
+    id:id,
+    mutate:mutate
+  }))
+}
 
-  const numbers = Array.from({ length: numberpages }, (_, index) =>
-    (index + 1).toString().padStart(2, "0")
-  );
+
 
   return (
     <div className="d-flex ">
@@ -51,6 +54,8 @@ const Service = () => {
                 <th scope="col">SERVICE NAME</th>
                 <th scope="col">DESCRIPTION</th>
                 <th scope="col">PRICE</th>
+                <th scope="col">UPDATE</th>
+                <th scope="col">DELETE</th>
               </tr>
             </thead>
             {isLoading ? (
@@ -70,6 +75,8 @@ const Service = () => {
                       <td>{item.serviceName}</td>
                       <td>{item.description}</td>
                       <td>${item.price}</td>
+                      <td><Link to={`/elite-care/dashboard/viewservice/${item?._id}`}><button type="button" class="btn btn-primary">Update</button></Link></td>
+                      <td><button onClick={()=>deleteHandler(item?._id)} type="button" class="btn btn-danger">Delete</button></td>
                     </tr>
                   </tbody>
                 );

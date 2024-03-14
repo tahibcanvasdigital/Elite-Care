@@ -12,18 +12,21 @@ import {
 import Loader from "../../../components/Loader";
 import useSWR from "swr";
 import { constants } from "../../../global/constants";
+import { Deletedoctors } from "../../../global/features/Dashboard/getdoctorSlice/Deletedoctor";
+import { updatedoctors } from "../../../global/features/Dashboard/getdoctorSlice/Updatedoctor";
 
 const Doctors = () => {
-
+  const dispatch = useDispatch();
 
   const [currentpage, setCurrentpage] = useState(1);
   let limit = 10;
 
-  const fetcher = (...args) => fetch(...args).then(res => res.json())
-  const {data, error, isLoading } = useSWR(`${constants.baseUrl}/api/doctor?page=${currentpage}&limit=${limit}`,fetcher)
-  const doctorData = data?.data?.results
-  console.log("docor",doctorData);
-
+  const fetcher = (...args) => fetch(...args).then((res) => res.json());
+  const { data, error, isLoading, mutate } = useSWR(
+    `${constants.baseUrl}/api/doctor?page=${currentpage}&limit=${limit}`,
+    fetcher
+  );
+  const doctorData = data?.data?.results;
 
   return (
     <div className="d-flex">
@@ -54,36 +57,57 @@ const Doctors = () => {
             <tbody>
               {isLoading ? (
                 <Loader />
-               ) : (
+              ) : (
                 doctorData?.map((item, index) => {
                   const timestamp = item?.createdAt;
                   const dateOnly = new Date(timestamp)
                     .toISOString()
                     .slice(0, 10);
-                  return(
-                   
-                <tr key={index}>
-                  <th scope="row">
-                    {currentpage * limit - limit + (index + 1)}
-                  </th>
-                  <td>{item.name}</td>
-                  <td>{item.email}</td>
+                  return (
+                    <tr key={index}>
+                      <th scope="row">
+                        {currentpage * limit - limit + (index + 1)}
+                      </th>
+                      <td>{item.name}</td>
+                      <td>{item.email}</td>
 
-                  <td>{dateOnly}</td>
-                </tr>
-              
-                  )
+                      <td>{dateOnly}</td>
+                      <td>
+                        {" "}
+                        <Link
+                          to={`/elite-care/dashboard/viewdoctor/${item._id}`}
+                        >
+                          <button className=" btn btn-primary p-2 m-2">
+                            Update{" "}
+                          </button>
+                        </Link>
+                      </td>
+                      <td>
+                        {" "}
+                        <button
+                          onClick={() =>
+                            dispatch(
+                              Deletedoctors({ id: item._id, mutate: mutate })
+                            )
+                          }
+                          className=" btn btn-danger p-2 m-2"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  );
                 })
-              )} 
+              )}
             </tbody>
           </table>
-          {isLoading ? "": <PaginationComponent
+
+          <PaginationComponent
             totalPost={data?.data?.results?.length}
             postPerPage={doctorData?.length}
             setCurrentPage={setCurrentpage}
             currentPage={currentpage}
-          />}
-         
+          />
         </div>
       </div>
     </div>
@@ -91,4 +115,4 @@ const Doctors = () => {
 };
 
 export default Doctors;
-
+  

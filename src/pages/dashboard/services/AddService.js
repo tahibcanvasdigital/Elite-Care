@@ -6,60 +6,61 @@ import Headers from "../header/Headers";
 import { createServiceApi } from "../../../global/features/Dashboard/Services/createService";
 import { clearService } from "../../../global/features/Dashboard/Services/createService";
 import { toast } from "react-toastify";
-import styles from '../style.module.css'
+import styles from "../style.module.css";
+import style from "./style.module.css";
 const AddService = () => {
-
   const dispatch = useDispatch();
-  const { message, success } = useSelector((value) => value.createService)
+  const { message, success } = useSelector((value) => value.createService);
   const [serviceValues, setServiceValues] = useState({
-    serviceName: '',
-    description: '',
+    serviceName: "",
+    description: "",
     serviceImg: null,
-    price: '',
-    pageName: ''
-  })
+    price: "",
+    pageName: "",
+  });
 
   const imageHandler = (e) => {
     const selectedFile = e.target.files[0];
     setServiceValues({ ...serviceValues, serviceImg: selectedFile });
-  }
-  console.log("services valuesss", serviceValues)
+  };
+  console.log("services valuesss", serviceValues);
 
   const handlesubmit = (e) => {
     e.preventDefault();
-    dispatch(createServiceApi({
-      // token: refreshToken,
-      serviceName: serviceValues.serviceName,
-      description: serviceValues.description,
-      serviceImg: serviceValues.serviceImg,
-      price: serviceValues.price,
-      pageName: serviceValues.pageName
-    }));
-   
-
+    dispatch(
+      createServiceApi({
+        // token: refreshToken,
+        serviceName: serviceValues.serviceName,
+        description: serviceValues.description,
+        serviceImg: serviceValues.serviceImg,
+        price: serviceValues.price,
+        pageName: serviceValues.pageName,
+      })
+    );
   };
 
   useEffect(() => {
     if (success) {
       toast.success(message, {
-        position: "top-center"
-      })
-      dispatch(clearService())
+        position: "top-center",
+      });
+      dispatch(clearService());
       setServiceValues({
-        serviceName: '',
-        description: '',
-        serviceImg: '',
-        price: '',
-        pageName: ''
-      })
-    } else if (success == null) { return; }
-    else {
+        serviceName: "",
+        description: "",
+        serviceImg: "",
+        price: "",
+        pageName: "",
+      });
+    } else if (success == null) {
+      return;
+    } else {
       toast.error(message, {
-        position: "top-center"
-      })
-      dispatch(clearService())
+        position: "top-center",
+      });
+      dispatch(clearService());
     }
-  }, [success])
+  }, [success]);
   return (
     <div className="d-flex">
       <div className={styles.sidecolor}>
@@ -79,7 +80,12 @@ const AddService = () => {
                 name="serviceName"
                 class="form-control"
                 id="name"
-                onChange={(e) => { setServiceValues({ ...serviceValues, serviceName: e.target.value }) }}
+                onChange={(e) => {
+                  setServiceValues({
+                    ...serviceValues,
+                    serviceName: e.target.value,
+                  });
+                }}
                 aria-describedby="emailHelp"
                 value={serviceValues.serviceName}
               />
@@ -92,7 +98,12 @@ const AddService = () => {
                 type="text"
                 name="description"
                 class="form-control"
-                onChange={(e) => { setServiceValues({ ...serviceValues, description: e.target.value }) }}
+                onChange={(e) => {
+                  setServiceValues({
+                    ...serviceValues,
+                    description: e.target.value,
+                  });
+                }}
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
                 value={serviceValues.description}
@@ -106,24 +117,50 @@ const AddService = () => {
               <input
                 type="text"
                 name="price"
-                onChange={(e) => { setServiceValues({ ...serviceValues, price: e.target.value }) }}
+                onChange={(e) => {
+                  setServiceValues({ ...serviceValues, price: e.target.value });
+                }}
                 class="form-control"
                 id=" available-time"
                 value={serviceValues.price}
               />
             </div>
-            <div class="mb-3">
+            <div className={style.dropDownPages}>
               <label for="Experience" class="form-label">
                 PageName
               </label>
-              <input
+              {/* <input
                 type="text"
                 name="pageName"
                 onChange={(e) => { setServiceValues({ ...serviceValues, pageName: e.target.value }) }}
                 class="form-control"
                 id=" available-time"
                 value={serviceValues.pageName}
-              />
+              /> */}
+              <select
+                value={serviceValues.pageName}
+                onChange={(e) => {
+                  setServiceValues({
+                    ...serviceValues,
+                    pageName: e.target.value,
+                  });
+                }}
+              >
+                <option value="" selected disabled hidden>
+                  Select PageName
+                </option>
+                <option value="home">Home</option>
+                <option value="about">About</option>
+                <option value="serviceOffered">Services Offered</option>
+                <option value="surgicalAstehtics">Surgical Astehtics</option>
+                <option value="nonSurgicalAstehtics">
+                  Non Surgical Astehtics
+                </option>
+                <option value="dentist">Dentist</option>
+                <option value="forMen">For Men</option>
+                <option value="transportation">Transportation</option>
+                <option value="contactUs">Contact Us</option>
+              </select>
             </div>
 
             <div class="mb-3">
@@ -136,8 +173,6 @@ const AddService = () => {
                 id="formFile"
                 name="image"
                 onChange={imageHandler}
-
-
               />
             </div>
 
@@ -146,10 +181,8 @@ const AddService = () => {
             </button>
           </form>
         </div>
-
       </div>
     </div>
-
   );
 };
 

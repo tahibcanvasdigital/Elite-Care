@@ -5,7 +5,7 @@ import { GoArrowRight } from "react-icons/go";
 import { constants } from "../../../global/constants";
 import useSWR from "swr";
 import { useDispatch, useSelector } from "react-redux";
-import { createAppointmentApi } from "../../../global/features/Webapp/Book Appointment/createAppointment";
+import { createAppointmentApi,clearAppointment } from "../../../global/features/Webapp/Book Appointment/createAppointment";
 import { toast } from "react-toastify";
 
 const AppointmentForm = () => {
@@ -43,6 +43,7 @@ const AppointmentForm = () => {
       toast.success(message, {
         position: "top-center"
       })
+      dispatch(clearAppointment())
     }
     else if (success == null) {
       return;
@@ -51,6 +52,8 @@ const AppointmentForm = () => {
       toast.error(message, {
         position: 'top-center'
       })
+      dispatch(clearAppointment())
+
     }
   }, [message, success]);
 

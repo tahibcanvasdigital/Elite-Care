@@ -57,9 +57,9 @@ const createDoctor = createSlice({
             })
             .addCase(createDoctorApi.fulfilled, (state, action) => {
                 state.isLoading = false
-                state.data = action.payload.data
-                state.success = action.payload.success
-                state.message = action.payload.message
+                state.data = action?.payload?.data
+                state.success = action?.payload?.success
+                state.message = action?.payload?.message
             })
             .addCase(createDoctorApi.rejected, (state, action) => {
                 state.isError = true

@@ -5,19 +5,46 @@ import PaginationComponent from "../../../components/pagination";
 import { Link } from "react-router-dom";
 import style from "./style.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllCategoriesApi,selectCategory } from "../../../global/features/Dashboard/categorySlice/getAllCategories";
+
 import Loader from "../../../components/Loader";
 import useSWR from "swr";
 import { constants } from "../../../global/constants";
 
+import { deleteCategoryApi } from "../../../global/features/Dashboard/categorySlice/deleteCategory";
+import { toast } from "react-toastify";
 const Category = () => {
   const [currentpage, setCurrentpage] = useState(1);
   const [limit, setLimit] = useState(10);
+  const dispatch = useDispatch()
 // Cateogry Data
   const fetcher = (...args) => fetch(...args).then(res => res.json())
-  const {data:catData,isLoading } = useSWR(`${constants.baseUrl}api/category?limit=${limit}&page=${constants}`,fetcher)
+  const {data:catData,isLoading,mutate } = useSWR(`${constants.baseUrl}api/category?limit=${limit}&page=${constants}`,fetcher)
   const categoryData = catData?.data?.results?.results
 
+  const {success,message} = useSelector((value)=>value.deleteCategory)
+
+  const deleteHandler = (id)=>{
+    dispatch(deleteCategoryApi({
+      id:id,
+      mutate:mutate
+    }))
+  }
+
+  useEffect(()=>{
+if(success === true){
+  toast.success(message, {
+    position: "top-center",
+  });
+}
+else if(success === null){
+  return;
+}
+else{
+  toast.error(message, {
+    position: "top-center",
+  });
+}
+  },[success, message])
   return (
     <div className="d-flex">
       <div className={style.sidecolor}>
@@ -40,6 +67,8 @@ const Category = () => {
               <tr>
                 <th scope="col">S .NO</th>
                 <th scope="col">NAME</th>
+                <th scope="col">UPDATE</th>
+                <th scope="col">DELETE</th>
               </tr>
             </thead>
 
@@ -53,6 +82,8 @@ const Category = () => {
                       {currentpage * limit - limit + (index + 1)}
                     </th>
                     <td>{item.name}</td>
+                    <td> <Link to={`/elite-care/dashboard/updatecategory/${item?._id}`}><button type="button" class="btn btn-primary">Update</button></Link></td>
+                    <td><button onClick={()=>deleteHandler(item?._id)} type="button" class="btn btn-danger">Delete</button></td>
                   </tr>
                 </tbody>
               ))
