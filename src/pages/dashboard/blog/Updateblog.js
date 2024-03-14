@@ -13,7 +13,7 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { useParams } from "react-router-dom";
 
 const Updateblog = () => {
-  const {id} = useParams()
+  const { id } = useParams()
   const [blog, setBlog] = React.useState({
     title: "",
     description: "",
@@ -52,8 +52,11 @@ const Updateblog = () => {
   const handlesubmit = (e) => {
     e.preventDefault();
     dispatch(updateBlogApi({
-      id:id,
-      blog:blog
+      id: id,
+      title: blog.title,
+      description: blog.description,
+      category: blog.category,
+      blogImg: blog.blogImg
     }))
 
   };
@@ -83,7 +86,7 @@ const Updateblog = () => {
       dispatch(clearUpdateBlog())
 
     }
-  }, [success,message]);
+  }, [success, message]);
   return (
     <div className="d-flex">
       <div className={styles.sidecolor}>

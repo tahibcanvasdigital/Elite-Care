@@ -6,13 +6,7 @@ import ShowCasesComponent from "../../components/showCasesComp";
 import DentistServices from "../../components/dentistServices";
 import ImageComparison from "../../components/Imagecomparison/ImageCamparison";
 import Footer from "../../components/footer";
-import {constants} from '../../global/constants'
-// Denstist Services Images
-
-import dentist1 from "../../assets/denist1.png";
-import dentist2 from "../../assets/denist2.png";
-import dentist3 from "../../assets/denist3.png";
-import dentist4 from "../../assets/denist4.png";
+import { constants } from '../../global/constants'
 
 // Image Compare Imgs
 import beforeImg from "../../assets/dentistBefore.png";
@@ -43,10 +37,10 @@ const Dentist = () => {
     img4: ShowCase4,
   };
 
-  
+
   const fetcher = (...args) => fetch(...args).then(res => res.json())
-  const {data, error, isLoading } = useSWR(`${constants.baseUrl}api/services?pagename=dentist`,fetcher)
-const serviceData =data?.data?.results?.results
+  const { data, error, isLoading } = useSWR(`${constants.baseUrl}api/services?pagename=dentist`, fetcher)
+  const serviceData = data?.data?.results?.results
   const topImage = { src: beforeImg, alt: "Before" };
   const bottomImage = { src: afterImg, alt: "After" };
   return (

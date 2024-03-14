@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Sidebar from "../sidebar/Sidebar";
 import Headers from "../header/Headers";
 import Style from '../style.module.css'
 import { useParams } from "react-router-dom";
-import { updateServiceApi,clearUpdateService} from "../../../global/features/Dashboard/Services/updateService";
+import { updateServiceApi, clearUpdateService } from "../../../global/features/Dashboard/Services/updateService";
 import { toast } from "react-toastify";
 const ViewService = () => {
   const { id } = useParams()
-  const [updateService,setUpdateService] = useState({
+  const [updateService, setUpdateService] = useState({
     serviceName: "",
     description: "",
     serviceImg: null,
@@ -16,44 +16,44 @@ const ViewService = () => {
     pageName: "",
   });
   const dispatch = useDispatch();
-  const {success,message} = useSelector((value)=>value.updateService)
+  const { success, message } = useSelector((value) => value.updateService)
 
-const imageHandler = function(e){
-const selectedFile = e.target.files[0];
-setUpdateService({...updateService,serviceImg:selectedFile});
-}
+  const imageHandler = function (e) {
+    const selectedFile = e.target.files[0];
+    setUpdateService({ ...updateService, serviceImg: selectedFile });
+  }
 
 
   const handlesubmit = (e) => {
     e.preventDefault();
     dispatch(updateServiceApi({
       id: id,
-      serviceName: updateService.serviceName,
-      description: updateService.description,
-      serviceImg: updateService.serviceImg,
-      price: updateService.price,
-      pageName: updateService.pageName,
+      serviceName: updateService?.serviceName,
+      description: updateService?.description,
+      serviceImg: updateService?.serviceImg,
+      price: updateService?.price,
+      pageName: updateService?.pageName,
     }))
   };
 
   useEffect(() => {
-if(success === true){
-toast.success(message,{
-  position:"top-center"
-})
-dispatch(clearUpdateService())
-}
+    if (success === true) {
+      toast.success(message, {
+        position: "top-center"
+      })
+      dispatch(clearUpdateService())
+    }
 
-else if(success === null){
-  return;
-}
-else{
-  toast.error(message,{position:"top-center"})
-dispatch(clearUpdateService())
+    else if (success === null) {
+      return;
+    }
+    else {
+      toast.error(message, { position: "top-center" })
+      dispatch(clearUpdateService())
 
-}
+    }
   }, [success, message])
-  
+
   return (
     <div className="d-flex">
       <div className={Style.sidecolor}>
@@ -76,7 +76,7 @@ dispatch(clearUpdateService())
                 // onChange={getdata}
                 aria-describedby="emailHelp"
                 value={updateService.serviceName}
-                onChange={(e)=>setUpdateService({...updateService,serviceName:e.target.value})}
+                onChange={(e) => setUpdateService({ ...updateService, serviceName: e.target.value })}
               />
             </div>
             <div class="mb-3">
@@ -88,7 +88,7 @@ dispatch(clearUpdateService())
                 name="description"
                 class="form-control"
                 value={updateService.description}
-                onChange={(e)=>setUpdateService({...updateService,description:e.target.value})}
+                onChange={(e) => setUpdateService({ ...updateService, description: e.target.value })}
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
               />
@@ -102,7 +102,7 @@ dispatch(clearUpdateService())
                 type="text"
                 name="price"
                 value={updateService.price}
-                onChange={(e)=>setUpdateService({...updateService,price:e.target.value})}
+                onChange={(e) => setUpdateService({ ...updateService, price: e.target.value })}
                 class="form-control"
                 id=" available-time"
               />
@@ -112,8 +112,8 @@ dispatch(clearUpdateService())
                 PageName
               </label>
               <select
-               value={updateService.pageName}
-               onChange={(e)=>setUpdateService({...updateService,pageName:e.target.value})}
+                value={updateService.pageName}
+                onChange={(e) => setUpdateService({ ...updateService, pageName: e.target.value })}
               >
                 <option value="" selected disabled hidden>
                   Select PageName
@@ -141,7 +141,7 @@ dispatch(clearUpdateService())
                 type="file"
                 id="formFile"
                 name="image"
-                value={updateService.serviceImg}
+
                 onChange={imageHandler}
               />
             </div>

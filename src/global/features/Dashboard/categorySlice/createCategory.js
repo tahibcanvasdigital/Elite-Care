@@ -1,10 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { constants } from "../../../constants";
 export const createCategoryApi = createAsyncThunk("createCategoryApi", async (body) => {
-  try {
 
-    const user = JSON.parse(localStorage.getItem('user'));
-    let token = user.data?.refreshToken
+  const user = JSON.parse(localStorage.getItem('user'));
+  let token = user.data?.refreshToken
+  try {
     const response = await fetch(`${constants.baseUrl}api/category`, {
       method: 'POST',
       headers: {
@@ -29,9 +29,9 @@ const createCategorySlice = createSlice({
     message: null,
     success: null
   },
-  reducers:{
-    clearCategory(state,action){
-      return{
+  reducers: {
+    clearCategory(state, action) {
+      return {
         isLoading: false,
         isError: false,
         data: null,

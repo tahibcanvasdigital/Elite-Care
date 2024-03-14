@@ -9,9 +9,9 @@ export const createServiceApi = createAsyncThunk("createServiceApi", async (body
     const formData = new FormData()
     formData.append('serviceName', body.serviceName);
     formData.append('description', body.description);
-    formData.append('serviceImg', body.serviceImg); // Assuming serviceImg is a file object
+    formData.append('serviceImg', body.serviceImg);
     formData.append('price', body.price);
-    formData.append('pageName', body.pageName); // Assuming pageName is a string
+    formData.append('pageName', body.pageName);
     try {
         const response = await fetch(`${constants.baseUrl}api/services`, {
             method: 'post',
@@ -20,13 +20,13 @@ export const createServiceApi = createAsyncThunk("createServiceApi", async (body
             },
             body: formData
         })
-        const result = await response.json(); // Extract JSON data from response
+        const result = await response.json();
         console.log("resultsssssssssss", result)
-        return result; // Return serializable data
+        return result;
 
     } catch (error) {
         console.log("error in create Service", error.message)
-        throw error; // Rethrow the error to be handled by rejected case
+        throw error;
     }
 
 })
@@ -40,17 +40,17 @@ const createService = createSlice({
         message: null,
         success: null
     },
-reducers:{
-clearService(){
-return{
-    isLoading: false,
-    isError: false,
-    data: null,
-    message: null,
-    success: null
-}
-}
-},
+    reducers: {
+        clearService() {
+            return {
+                isLoading: false,
+                isError: false,
+                data: null,
+                message: null,
+                success: null
+            }
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(createServiceApi.pending, (state, action) => {

@@ -1,7 +1,7 @@
 import React from "react";
 import Styles from "./style.module.css";
 
-const DentistServices = ({carddata,head1,head2}) => {
+const DentistServices = ({ carddata, head1, head2 }) => {
   return (
     <div className="container-fluid">
       <div className="row" id={Styles.sec1main}>
@@ -16,7 +16,7 @@ const DentistServices = ({carddata,head1,head2}) => {
             <div className="col-12 col-md-6 col-lg-3">
               <div className={Styles.column}>
                 <div className={Styles.imgdiv}>
-                  <img src={items?.image?.imageUrl} alt={items?.image?.imageName}/>
+                  <img src={items?.image?.imageUrl} alt={items?.image?.imageName} />
                 </div>
                 <div className={Styles.columtext}>
                   <h2>{items?.serviceName}</h2>
@@ -25,7 +25,7 @@ const DentistServices = ({carddata,head1,head2}) => {
                 </div>
               </div>
             </div>
-          ))}
+          )).slice(0, 4)}
         </div>
       </div>
     </div>

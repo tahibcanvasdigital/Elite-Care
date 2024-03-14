@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getblogs } from "../../../global/features/Dashboard/blogsSlice/GetBlogs";
 import Loader from "../../../components/Loader";
 import deleteBlog, { deleteBlogApi } from "../../../global/features/Dashboard/blogsSlice/deleteBlog";
+import useSWR from "swr";
+import { constants } from "../../../global/constants";
 
 const Blogs = () => {
   const dispatch = useDispatch();
@@ -23,9 +25,28 @@ const Blogs = () => {
     dispatch(getblogs(paginate));
   }, [currentpage, dispatch, limit]);
 
-  const deleteHandler = (id) =>{
+  const user = JSON.parse(localStorage.getItem("user"));
+  let token = user?.data?.refreshToken;
+
+  const fetcherWithToken = async (url, token, ...args) => {
+    const response = await fetch(url, {
+      ...args,
+      headers: {
+        ...args.headers,
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.json();
+  };
+  const { data: blogData, isLoading, mutate } = useSWR([`${constants.baseUrl}api/blog?limit=${limit}&page=${currentpage}`, token], fetcherWithToken);
+  console.log(blogData)
+  const blogsData = blogData?.data?.results?.results
+
+
+  const deleteHandler = (id) => {
     dispatch(deleteBlogApi({
-      id:id
+      id: id,
+      mutate: mutate
     }))
   }
 
@@ -60,10 +81,10 @@ const Blogs = () => {
               </tr>
             </thead>
             <tbody>
-              {loading ? (
+              {isLoading ? (
                 <Loader />
               ) : (
-                records?.map((item, index) => {
+                blogsData?.map((item, index) => {
                   const timestamp = item.createdAt;
                   const dateOnly = new Date(timestamp)
                     .toISOString()
@@ -71,14 +92,14 @@ const Blogs = () => {
                   return (
                     <tr key={index}>
                       <th scope="row">{(currentpage * limit) - limit + (index + 1)}</th>
-                      <td>{item.title}</td>
-                      <td>{item.category?.name}</td>
+                      <td>{item?.title}</td>
+                      <td>{item?.category?.name}</td>
                       <td>{dateOnly}</td>
                       <td> <Link to={`/elite-care/dashboard/updateblogs/${item?._id}`}><button type="button" class="btn btn-primary">Update</button></Link></td>
-                      <td><button onClick={()=>deleteHandler(item?._id)} type="button" class="btn btn-danger">Delete</button></td>
+                      <td><button onClick={() => deleteHandler(item?._id)} type="button" class="btn btn-danger">Delete</button></td>
                       <td>
                         <Link
-                          to={`/elite-care/dashboard/viewblogs/${item._id}`}
+                          to={`/elite-care/dashboard/viewblogs/${item?._id}`}
                         >
                           view
                         </Link>
@@ -91,14 +112,14 @@ const Blogs = () => {
           </table>
           <div>
             {
-              loading?"":<PaginationComponent
-              totalPost={data?.data?.count}
-              postPerPage={limit}
-              setCurrentPage={setCurrentpage}
-              currentPage={currentpage}
-            />
+              loading ? "" : <PaginationComponent
+                totalPost={data?.data?.count}
+                postPerPage={limit}
+                setCurrentPage={setCurrentpage}
+                currentPage={currentpage}
+              />
             }
-            
+
           </div>
         </div>
       </div>
