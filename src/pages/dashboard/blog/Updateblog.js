@@ -11,7 +11,7 @@ import { clearBlog } from "../../../global/features/Dashboard/blogsSlice/createB
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { useParams } from "react-router-dom";
-
+import './styles.css'
 const Updateblog = () => {
   const { id } = useParams()
   const [blog, setBlog] = React.useState({
@@ -94,7 +94,7 @@ const Updateblog = () => {
       </div>
       <div className={`w-100  ${styles.widthdiv}`}>
         <Headers />
-        <div className="mx-4 container">
+        <div className=" container">
           <h1> Update Blogs </h1>
           <form onSubmit={handlesubmit}>
             <div class="mb-3">
@@ -157,6 +157,7 @@ const Updateblog = () => {
               <CKEditor
                 editor={ClassicEditor}
                 data={blog?.description}
+                className={styles.ckEditor}
                 onReady={(editor) => {
                   console.log("Editor is ready to use!", editor);
                 }}

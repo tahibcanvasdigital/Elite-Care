@@ -43,7 +43,7 @@ const Services = () => {
                   </div>
                 </div>
               );
-            })}
+            }).slice(0,5)}
         </div>
       </div>
     </section>

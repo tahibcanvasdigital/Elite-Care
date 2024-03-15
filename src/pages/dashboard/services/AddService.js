@@ -68,12 +68,12 @@ const AddService = () => {
       </div>
       <div className="w-100 my-[120px]">
         <Headers />
-        <div className="mx-4 container">
+        <div className=" container">
           <h1>Add Service</h1>
           <form onSubmit={handlesubmit}>
             <div class="mb-3">
               <label for="name" class="form-label">
-                ServiceName
+                Service Name
               </label>
               <input
                 type="text"
@@ -90,26 +90,7 @@ const AddService = () => {
                 value={serviceValues.serviceName}
               />
             </div>
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">
-                Description
-              </label>
-              <input
-                type="text"
-                name="description"
-                class="form-control"
-                onChange={(e) => {
-                  setServiceValues({
-                    ...serviceValues,
-                    description: e.target.value,
-                  });
-                }}
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                value={serviceValues.description}
-              />
-            </div>
-
+           
             <div class="mb-3">
               <label for="Experience" class="form-label">
                 Price
@@ -127,7 +108,7 @@ const AddService = () => {
             </div>
             <div className={style.dropDownPages}>
               <label for="Experience" class="form-label">
-                PageName
+                Page Name
               </label>
               {/* <input
                 type="text"
@@ -175,8 +156,27 @@ const AddService = () => {
                 onChange={imageHandler}
               />
             </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">
+                Description
+              </label>
+              <textarea name="description"
+                class="form-control"
+                onChange={(e) => {
+                  setServiceValues({
+                    ...serviceValues,
+                    description: e.target.value,
+                  });
+                }}
+                id="exampleInputEmail1"
+                rows={10}
+                cols={10}
+                aria-describedby="emailHelp"
+                value={serviceValues.description}></textarea>
+            </div>
 
-            <button type="submit" class="btn btn-primary">
+
+            <button type="submit" class="btn btn-dark">
               Submit
             </button>
           </form>

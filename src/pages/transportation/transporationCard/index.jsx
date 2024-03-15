@@ -34,12 +34,12 @@ const TransportationCard = () => {
                     <div className={styles.hdAmt}>
                       <h3>{item?.serviceName}</h3>
                     </div>
-                    <p>{item?.description}</p>
+                    <p>{item?.description?.slice(0,100)}</p>
                   </div>
                 </div>
               </div>
             );
-          })}
+          }).slice(0,3)}
         </div>
       </div>
     </div>

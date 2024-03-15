@@ -1,55 +1,55 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
 
-export const updatedoctors = createAsyncThunk("updatedoctors", async (body) => {
-  const { id } = body;
+export const updateDoctorSliceApi = createAsyncThunk("updateDoctorApi",async(body)=>{
+  const {id} = body
+  const formData = new FormData()
 
-  const formData = new FormData();
   formData.append("name", body.name);
   formData.append("email", body.email);
   formData.append("serviceOffered", body.serviceOffered);
-  formData.append("availableTime", body.availableTime);
+  formData.append("availableTime",body?.availableTime?.toString());
   formData.append("doctorImg", body.doctorImg);
-
   try {
-    let Url = await fetch(`https://flutterapi.testdevlink.net/elite-care-db/api/doctor/${id}`, {
-      method: "PATCH",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: formData,
-      }
-    );
-
-    let result = await Url.json();
-    console.log(result);
-    return result;
+    const res = await fetch(`http://localhost:8080/api/doctor/${id}`,{
+      method:'POST',
+      // headers:{
+      //   'Content-Type':'application/json'
+      // },
+      body:formData
+    })
+    const result = await res.json()
+    console.log(result)
+    return result
   } catch (error) {
-    console.log(error.message);
+    console.log(error.message)
   }
-});
+})
 
-export const UpdatedoctorSlice = createSlice({
-  name: "updatedoctors",
-  initialState: {
-    isLoadin: false,
-    isError: false,
-    data: null,
+const updateDoctorSlices = createSlice({
+  name:"updateDoctorSlices",
+  initialState:{
+    isLoading:false,
+    isError:false,
+    data:null,
+    success:true,
+    message:null
   },
-  extraReducers: (builder) => {
-    builder
-      .addCase(updatedoctors.pending, (state, action) => {
-        state.loading = true;
-      })
-      .addCase(updatedoctors.fulfilled, (state, action) => {
-        state.loading = false;
-        state.data = action.payload;
-      })
-      .addCase(updatedoctors.rejected, (state, action) => {
-        state.loading = false;
-      });
-  },
-});
+  extraReducers:(builder)=>{
+    builder.addCase(updateDoctorSliceApi.pending,(state)=>{
+      state.isLoading = true
+      state.data = null
+    })
+    builder.addCase(updateDoctorSliceApi.fulfilled, (state,action)=>{
+      state.isLoading = false;
+      state.data = action?.payload;
+      state.success = action?.payload?.success;
+      state.message = action?.payload?.message;
+    })
+    builder.addCase(updateDoctorSliceApi.rejected, (state,action)=>{
+      state.isError = true;
+      state.data = null;
+    })
+  }
+})
 
-export const selectdoctor = (state) => state.updatedoctors;
-
-export default UpdatedoctorSlice.reducer;
+export default updateDoctorSlices.reducer

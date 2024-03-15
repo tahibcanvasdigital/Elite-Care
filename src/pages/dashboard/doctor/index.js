@@ -13,7 +13,7 @@ import Loader from "../../../components/Loader";
 import useSWR from "swr";
 import { constants } from "../../../global/constants";
 import { Deletedoctors } from "../../../global/features/Dashboard/getdoctorSlice/Deletedoctor";
-import { updatedoctors } from "../../../global/features/Dashboard/getdoctorSlice/Updatedoctor";
+// import { updatedoctors } from "../../../global/features/Dashboard/getdoctorSlice/updateDoctor";
 
 const Doctors = () => {
   const dispatch = useDispatch();

@@ -35,11 +35,11 @@ const SurgicalCard = (props) => {
                       </div>
                     </div>
 
-                    <p>{items.description}</p>
+                    <p>{items.description.slice(0,100)}</p>
                   </div>
                 </div>
               </div>
-            ))}
+            )).slice(0,6)}
           </div>
         </div>
       </div>

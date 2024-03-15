@@ -21,6 +21,9 @@ import updateBlog from './features/Dashboard/blogsSlice/updateBlog';
 import deleteService from './features/Dashboard/Services/deleteService';
 import deleteBlog from './features/Dashboard/blogsSlice/deleteBlog';
 import deleteCategory from './features/Dashboard/categorySlice/deleteCategory';
+// import updateDoctorSlice from './features/Dashboard/getdoctorSlice/updateDoctor';
+// import updateDoctorSlices from '../global/features/Dashboard/getdoctorSlice/updateDoctor'
+
 // Thaib
 import  DeletedoctorSlice  from './features/Dashboard/getdoctorSlice/Deletedoctor';
 // Web app Slices
@@ -56,6 +59,7 @@ export const store = configureStore({
         updateCategory:updateCategory,
         updateBlog:updateBlog,
         DeletedoctorSlice:DeletedoctorSlice,
+        // updateDoctorSlice:updateDoctorSlice,
         // WebAPP slices
         getServicesSlice: getServicesSlice,
         loginSlice: loginSlice,

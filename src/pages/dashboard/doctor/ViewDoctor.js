@@ -1,152 +1,14 @@
-// import React, { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-
-// import MultiSelect from "../../../components/dropdown/Dropdown";
-// import Sidebar from "../sidebar/Sidebar";
-// import Headers from "../header/Headers";
-// import Style from '../style.module.css'
-// import { useParams } from "react-router-dom";
-// import { selectdoctor } from "../../../global/features/Dashboard/getdoctorSlice/Getdoctor";
-// import { viewdoctors } from "../../../global/features/Dashboard/getdoctorSlice/Viewdoctor";
-// import Loader from "../../../components/Loader";
-
-// const ViewDoctor = () => {
-
-//   const { id } = useParams()
-//   console.log(id);
-//   const dispatch = useDispatch();
-//   const {data ,loading} = useSelector((state) => state.viewdoctors);
-
-
-//   useEffect(() => {
-//     dispatch(viewdoctors(id))
-//   }, [dispatch])
-//   const [doctor, getsetdoctor] = useState({});
-
-//   const getdata = (e) => {
-//     getsetdoctor({ ...doctor, [e.target.name]: e.target.value });
-//   };
-
-//   //dropdown
-//   const options = ["Option 1", "Option 2", "Option 3", "Option 4"];
-//   const [selectedOptions, setSelectedOptions] = useState([]);
-
-//   const handleChange = (newSelectedOptions) => {
-//     setSelectedOptions(newSelectedOptions);
-//   };
-//   //dropend
-
-//   const handlesubmit = (e) => {
-//     e.preventDefault();
-//     console.log(doctor);
-//   };
-//   return (
-//     <div className="d-flex">
-
-//       <div className={Style.sidecolor}>
-//         <Sidebar />
-//       </div>
-//       <div className=" w-100 my-[120px]">
-//         <Headers />
-//         {
-//           loading ? <Loader/> :  <div className="mx-4">
-//           <h1>Create Doctor</h1>
-//           <form onSubmit={handlesubmit}>
-//             <div class="mb-3">
-//               <label for="name" class="form-label">
-//                 Name
-//               </label>
-//               <input
-//                 type="text"
-//                 name="name"
-//                 class="form-control"
-//                 value={data.data?.name}
-//                 id="name"
-//                 onChange={getdata}
-//                 aria-describedby="emailHelp"
-//               />
-//             </div>
-//             <div class="mb-3">
-//               <label for="exampleInputEmail1" class="form-label">
-//                 Email address
-//               </label>
-//               <input
-//                 type="email"
-//                 name="email"
-//                 class="form-control"
-//                 value={data.data?.email}
-//                 onChange={getdata}
-//                 id="exampleInputEmail1"
-//                 aria-describedby="emailHelp"
-//               />
-//             </div>
-//             <div class="mb-3 ">
-//               <label for="" class="form-label">
-//                 Service offered (dropdown)
-//               </label>
-//               <MultiSelect options={options} onChange={handleChange} />
-//               <p>Selected Options: {selectedOptions.join(", ")}</p>
-//             </div>
-//             <div class="mb-3">
-//               <label for="Experience" class="form-label">
-//                 Available time:
-//               </label>
-//               <input
-//                 type="text"
-//                 name="availabletime"
-//                 onChange={getdata}
-//                 class="form-control"
-//                 value={data.data?.availableTime}
-//                 id=" available-time"
-//               />
-//             </div>
-
-//             <div class="mb-3">
-//               <label for="formFile" class="form-label">
-//                 Upload *
-//               </label>
-//               <input
-//                 class="form-control"
-//                 type="file"
-//                 id="formFile"
-//                 name="image"
-
-//                 onChange={getdata}
-//               />
-//             </div>
-
-//             <button type="submit" class="btn btn-primary">
-//               Update
-//             </button>
-//           </form>
-//         </div>
-//         }
-       
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ViewDoctor;
-
-
-
-
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-
 import MultiSelect from "../../../components/dropdown/Dropdown";
 import Sidebar from "../sidebar/Sidebar";
 import Headers from "../header/Headers";
 import styles from "../style.module.css";
-import { useNavigate } from "react-router-dom";
-import { updatedoctors } from "../../../global/features/Dashboard/getdoctorSlice/Updatedoctor";
+import { toast } from "react-toastify";
+
 
 const ViewDoctor = () => {
   const { id } = useParams();
-  const dispatch = useDispatch();
-  const { success, message } = useSelector((value) => value.updatedoctors);
   const options = [
     "Dentsist",
     "Surgical",
@@ -156,10 +18,9 @@ const ViewDoctor = () => {
     "Cardiologist",
     "Orthopedic Surgeon",
   ];
-
+  const [data,setData] = useState([])
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [doctorValues, setDoctorValues] = useState({
-    id: id,
     name: "",
     email: "",
     serviceOffered: null,
@@ -179,36 +40,58 @@ const ViewDoctor = () => {
     setDoctorValues({ ...doctorValues, doctorImg: selectedFile });
   };
 
+  const addDoctorHandler =async () =>{
+    if(!doctorValues?.name || !doctorValues?.email || !doctorValues?.availableTime || !doctorValues?.doctorImg || !doctorValues?.serviceOffered){
+      toast.error("Fill all the fields", {
+        position: "top-center",
+      });
+      return
+    }
+    else{
+      const formData = new FormData()
+
+      formData.append("name", doctorValues.name);
+      formData.append("email", doctorValues.email);
+      formData.append("serviceOffered", doctorValues.serviceOffered);
+      formData.append("availableTime",doctorValues.availableTime);
+      formData.append("doctorImg", doctorValues.doctorImg);
+      try{
+        const res = await fetch(`http://localhost:8080/api/doctor/${id}`,{
+          method:'POST',
+          body:formData
+        })
+        const result = await res.json()
+        setData(result)
+        return result
+      }
+      catch(error){
+        console.log(error.message)
+      }
+    }
+   
+  }
   const handlesubmit = (e) => {
     e.preventDefault();
-
-
-    dispatch(
-      updatedoctors({
-        id: id,
-        name: doctorValues.name,
-        email: doctorValues.email,
-        serviceOffered: doctorValues.serviceOffered,
-        availableTime: doctorValues.availableTime,
-        doctorImg: doctorValues.doctorImg,
-      })
-    );
+    addDoctorHandler()
   };
-  // useEffect(() => {
-  //   if (success) {
-  //     toast.success(message, {
-  //       position: "top-center",
-  //     });
-  //     dispatch(clearDoctor());
-  //   } else if (success == null) {
-  //     return;
-  //   } else {
-  //     toast.error(message, {
-  //       position: "top-center",
-  //     });
-  //     dispatch(clearDoctor());
-  //   }
-  // }, [success]);
+console.log(data)
+
+const {success,message} = data
+  useEffect(() => {
+    if (success ===  true) {
+      toast.success(message, {
+        position: "top-center",
+      });
+
+    } else if (success == null) {
+      return;
+    } else {
+      toast.error(message, {
+        position: "top-center",
+      });
+
+    }
+  }, [success,message]);
 
   return (
     <div className="d-flex ">

@@ -21,7 +21,7 @@ const DentistServices = ({ carddata, head1, head2 }) => {
                 <div className={Styles.columtext}>
                   <h2>{items?.serviceName}</h2>
 
-                  <p>{items?.description}</p>
+                  <p>{items?.description.slice(0,100)}.....</p>
                 </div>
               </div>
             </div>

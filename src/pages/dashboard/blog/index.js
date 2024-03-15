@@ -72,12 +72,12 @@ const Blogs = () => {
               <tr>
                 <th scope="col">S .NO</th>
                 <th scope="col">TITLE</th>
-
+                <th scope="col">DESCRIPTION</th>
                 <th scope="col">CATEGORY</th>
                 <th scope="col">CREATED AT</th>
                 <th scope="col">UPDATE</th>
                 <th scope="col">DELETE</th>
-                <th scope="col">VIEW</th>
+                {/* <th scope="col">VIEW</th> */}
               </tr>
             </thead>
             <tbody>
@@ -93,17 +93,18 @@ const Blogs = () => {
                     <tr key={index}>
                       <th scope="row">{(currentpage * limit) - limit + (index + 1)}</th>
                       <td>{item?.title}</td>
+                      <td  dangerouslySetInnerHTML={{ __html: item?.description?.slice(0,150) }}></td>
                       <td>{item?.category?.name}</td>
                       <td>{dateOnly}</td>
                       <td> <Link to={`/elite-care/dashboard/updateblogs/${item?._id}`}><button type="button" class="btn btn-primary">Update</button></Link></td>
                       <td><button onClick={() => deleteHandler(item?._id)} type="button" class="btn btn-danger">Delete</button></td>
-                      <td>
+                      {/* <td>
                         <Link
                           to={`/elite-care/dashboard/viewblogs/${item?._id}`}
                         >
                           view
                         </Link>
-                      </td>
+                      </td> */}
                     </tr>
                   );
                 })

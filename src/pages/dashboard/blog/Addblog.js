@@ -256,7 +256,7 @@ const Addblog = () => {
       </div>
       <div className={`w-100  ${styles.widthdiv}`}>
         <Headers />
-        <div className="mx-4 container">
+        <div className=" container">
           <h1> Create Blogs </h1>
           <form onSubmit={handlesubmit}>
             <div class="mb-3">
